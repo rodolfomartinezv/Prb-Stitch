@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background text-on-surface" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Panel Admin — Gestión de Pedidos y Logística Colombia | Seahorse Estudio Creativo by Andrea Sosa</title>
+<!-- Google Fonts: Outfit & DM Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#244873",
+            "inverse-on-surface": "#f3f0eb",
+            "outline-variant": "#bcc9cb",
+            "surface-container": "#f0ede9",
+            "on-secondary-fixed": "#001c39",
+            "secondary-fixed-dim": "#a7c8fb",
+            "surface-container-low": "#f6f3ee",
+            "background": "#fcf9f4",
+            "primary": "#006972",
+            "on-tertiary-fixed-variant": "#4f3d73",
+            "tertiary-fixed": "#ebddff",
+            "primary-container": "#23b7c5",
+            "on-tertiary-fixed": "#230f45",
+            "on-surface-variant": "#3c494b",
+            "outline": "#6c797b",
+            "on-primary-container": "#004349",
+            "primary-fixed-dim": "#55d8e6",
+            "surface": "#fcf9f4",
+            "on-tertiary": "#ffffff",
+            "secondary": "#3e608d",
+            "surface-variant": "#e5e2dd",
+            "inverse-surface": "#31302d",
+            "surface-container-highest": "#e5e2dd",
+            "inverse-primary": "#55d8e6",
+            "error": "#ba1a1a",
+            "on-tertiary-container": "#443267",
+            "surface-container-lowest": "#ffffff",
+            "surface-bright": "#fcf9f4",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "surface-container-high": "#eae8e3",
+            "secondary-container": "#aacbfe",
+            "on-background": "#1c1c19",
+            "on-primary-fixed-variant": "#004f56",
+            "tertiary": "#68548d",
+            "on-primary-fixed": "#001f23",
+            "surface-dim": "#dcdad5",
+            "tertiary-fixed-dim": "#d3bcfc",
+            "on-surface": "#1c1c19",
+            "tertiary-container": "#b29cda",
+            "on-secondary-container": "#335682",
+            "primary-fixed": "#8af2ff",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#d4e3ff",
+            "on-secondary": "#ffffff",
+            "surface-tint": "#006972"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "space-3xl": "6rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1.25rem",
+            "margin": "3rem",
+            "space-2xl": "4rem"
+          },
+          "fontFamily": {
+            "label-price": ["Outfit"],
+            "caption": ["DM Sans"],
+            "display-hero-mobile": ["Outfit"],
+            "label-badge": ["DM Sans"],
+            "headline-md": ["Outfit"],
+            "body-sm": ["DM Sans"],
+            "headline-lg": ["Outfit"],
+            "body-lg": ["DM Sans"],
+            "headline-sm": ["Outfit"],
+            "body-md": ["DM Sans"],
+            "headline-xl": ["Outfit"],
+            "headline-xl-mobile": ["Outfit"],
+            "display-hero": ["Outfit"]
+          },
+          "fontSize": {
+            "label-price": ["22px", { "lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-badge": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #f6f3ee;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #bcc9cb;
+      border-radius: 9999px;
+    }
+    .ocean-card-shadow {
+      box-shadow: 0 8px 24px -4px rgba(23, 61, 104, 0.05);
+    }
+    .ocean-card-hover {
+      box-shadow: 0 16px 36px -6px rgba(23, 61, 104, 0.10), 0 4px 12px -2px rgba(35, 183, 197, 0.08);
+    }
+  </style>
+</head>
+<body class="h-full flex flex-col overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container font-body-md text-body-md bg-background text-on-surface">
+<!-- TOP APP BAR (from Shared Components JSON Blueprint) -->
+<header class="bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-md text-primary dark:text-inverse-primary docked full-width top-0 sticky z-50 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full px-6 lg:px-12 py-4 max-w-7xl mx-auto">
+<!-- Brand & Title Anchor -->
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-3 group" href="#">
+<img alt="Logotipo oficial Seahorse Estudio Creativo by Andrea Sosa" class="w-10 h-10 object-contain rounded-full shadow-sm ring-1 ring-primary/20 bg-surface-container-lowest p-0.5 transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaJyDtkYggjZrnGV-LZBLosb1SFTsQg16jvwb8LgORtzvSEKpLLiONc7KCV1rYTLwtXXF79_n0cvjPwsl22oVnYUR7BG2_TbQ1aW1ibxFee03fpZHpLC7hSs63zHihvkwywLIfPtQTVv5xw7da1eSL5n4PiQT4_C6lvMiKdM6GXeT77eGcGjLJkqbChT5QmPiMbzVJgidhWxng5ZHS2SbEIvOG6ZGauxqROjWPsG-9RVE8rY2LFwM6"/>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-secondary dark:text-secondary-fixed tracking-tight font-medium leading-none">
+              Seahorse Estudio Creativo by Andrea Sosa
+            </span>
+<span class="font-caption text-caption text-primary flex items-center gap-1 mt-1">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse inline-block"></span>
+              Panel de Control Administrativo · Colombia
+            </span>
+</div>
+</a>
+</div>
+<!-- Navigation Links from Blueprint -->
+<nav class="hidden md:flex items-center space-x-6">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Inicio</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Tienda</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Personaliza</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Sobre Nosotros</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="#">Contacto</a>
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 font-headline-sm text-body-md" href="#">Admin</a>
+</nav>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-3">
+<!-- Currency Badge -->
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-caption font-label-badge bg-surface-container text-on-surface font-semibold ring-1 ring-outline-variant/30">
+          COP ($)
+        </span>
+<!-- Search icon -->
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-container" title="Buscar">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+</button>
+<!-- Shopping Bag Action from JSON -->
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-container relative" title="Carrito">
+<span class="material-symbols-outlined text-[20px]" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<!-- Admin Security Shield -->
+<button class="p-2 text-primary hover:text-primary-container transition-colors rounded-full hover:bg-surface-container" title="Panel de seguridad">
+<span class="material-symbols-outlined text-[20px]" data-icon="admin_panel_settings">admin_panel_settings</span>
+</button>
+<!-- User avatar / Account -->
+<div class="flex items-center gap-2 pl-2 border-l border-outline-variant/40">
+<button class="flex items-center gap-2 p-1 text-on-surface hover:text-primary rounded-full" title="Perfil Andrea Sosa">
+<span class="material-symbols-outlined text-[24px] text-secondary" data-icon="account_circle">account_circle</span>
+<div class="hidden xl:flex flex-col text-left">
+<span class="font-label-badge text-label-badge leading-tight">Andrea Sosa</span>
+<span class="font-caption text-[10px] text-primary leading-tight">Curadora &amp; Directora</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN ADMIN WORKSPACE -->
+<div class="flex-1 flex max-w-7xl w-full mx-auto px-4 lg:px-12 py-6 gap-6">
+<!-- SUB-NAV SIDEBAR (Admin Specific Curatorial Navigation) -->
+<aside class="w-64 flex-shrink-0 hidden lg:flex flex-col gap-4">
+<div class="bg-surface-container-lowest rounded-2xl p-5 ocean-card-shadow border border-outline-variant/20 flex flex-col gap-3">
+<!-- Admin Profile Snapshot -->
+<div class="flex items-center gap-3 pb-3 border-b border-surface-container">
+<div class="w-11 h-11 rounded-full bg-surface-container-low ring-2 ring-primary/20 flex items-center justify-center p-0.5 overflow-hidden">
+<img alt="Andrea Sosa Logotipo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaJyDtkYggjZrnGV-LZBLosb1SFTsQg16jvwb8LgORtzvSEKpLLiONc7KCV1rYTLwtXXF79_n0cvjPwsl22oVnYUR7BG2_TbQ1aW1ibxFee03fpZHpLC7hSs63zHihvkwywLIfPtQTVv5xw7da1eSL5n4PiQT4_C6lvMiKdM6GXeT77eGcGjLJkqbChT5QmPiMbzVJgidhWxng5ZHS2SbEIvOG6ZGauxqROjWPsG-9RVE8rY2LFwM6"/>
+</div>
+<div class="flex flex-col">
+<h4 class="font-headline-sm text-sm font-semibold text-secondary leading-tight">Andrea Sosa</h4>
+<span class="font-caption text-caption text-primary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Administradora
+            </span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-2.5 flex items-center gap-2 text-caption font-caption text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="verified_user">verified_user</span>
+<span>Producción Segura • MFA DIAN</span>
+</div>
+<!-- Navigation Menu -->
+<nav class="flex flex-col gap-1 mt-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span>Resumen General</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-sm text-body-sm bg-primary/10 text-primary font-medium transition-all shadow-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="local_shipping">local_shipping</span>
+<span class="flex-1">Pedidos &amp; Envíos</span>
+<span class="px-2 py-0.5 rounded-full bg-primary text-on-primary font-label-badge text-[10px]">24</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="palette">palette</span>
+<span>Catálogo &amp; Obras</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="handyman">handyman</span>
+<span class="flex-1">Taller de Resina</span>
+<span class="w-2 h-2 rounded-full bg-amber-400"></span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+<span>Coleccionistas &amp; Clientes</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="inventory_2">inventory_2</span>
+<span>Transportadoras Colombia</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+<span>Facturación Electrónica DIAN</span>
+</a>
+</nav>
+</div>
+<!-- Logística Recolección Widget -->
+<div class="bg-surface-container-low rounded-2xl p-4 border border-outline-variant/20 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge text-secondary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="schedule">schedule</span>
+            Recolección Hoy en Taller
+          </span>
+<span class="text-caption text-primary font-semibold">16:30 COT</span>
+</div>
+<div class="bg-surface-container-lowest p-2.5 rounded-xl border border-outline-variant/30 flex items-center justify-between">
+<div>
+<div class="font-body-sm text-body-sm font-semibold text-on-surface">Coordinadora</div>
+<div class="font-caption text-[11px] text-on-surface-variant">Ruta Bogotá Chapinero / 14 bultos</div>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="check_circle">check_circle</span>
+</div>
+<div class="bg-surface-container-lowest p-2.5 rounded-xl border border-outline-variant/30 flex items-center justify-between">
+<div>
+<div class="font-body-sm text-body-sm font-semibold text-on-surface">Inter Rapidísimo</div>
+<div class="font-caption text-[11px] text-on-surface-variant">Ruta Nacional / 6 bultos</div>
+</div>
+<span class="font-caption text-[10px] text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md font-medium">En espera</span>
+</div>
+</div>
+</aside>
+<!-- MAIN EDITORIAL CONTENT CANVAS -->
+<main class="flex-1 flex flex-col gap-6 overflow-hidden">
+<!-- Hero Header & Breadcrumb -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 font-caption text-caption text-on-surface-variant mb-1">
+<span>Atelier · Colombia</span>
+<span>/</span>
+<span>Logística &amp; Envíos Nacionales</span>
+<span>/</span>
+<span class="text-primary font-medium">Despachos Activos</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-secondary tracking-tight">
+            Gestión de Pedidos &amp; Logística de Autor
+          </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Monitoreo en tiempo real de piezas de diseño, empaques curados y guías nacionales en Colombia.
+          </p>
+</div>
+<div class="flex items-center gap-3">
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-secondary text-secondary hover:bg-secondary/10 transition-colors font-body-sm text-body-sm font-medium">
+<span class="material-symbols-outlined text-[18px]" data-icon="file_download">file_download</span>
+            Manifiesto DIAN
+          </button>
+<button class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary-container text-on-primary-container hover:opacity-90 transition-all font-body-sm text-body-sm font-medium shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_circle">add_circle</span>
+            Nueva Guía de Envío
+          </button>
+</div>
+</div>
+<!-- METRIC / KPI CARDS (Bento Grid) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 ocean-card-shadow border border-outline-variant/20 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider font-semibold">Por Despachar</span>
+<span class="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="outgoing_mail">outgoing_mail</span>
+</span>
+</div>
+<div class="mt-4">
+<div class="font-display-hero-mobile text-headline-xl text-secondary font-bold">24</div>
+<div class="flex items-center gap-1.5 mt-1 text-caption font-caption text-primary">
+<span class="material-symbols-outlined text-[14px]" data-icon="package_2">package_2</span>
+<span>8 listos para recolección hoy</span>
+</div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 ocean-card-shadow border border-outline-variant/20 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider font-semibold">En Tránsito Colombia</span>
+<span class="w-9 h-9 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="local_shipping">local_shipping</span>
+</span>
+</div>
+<div class="mt-4">
+<div class="font-display-hero-mobile text-headline-xl text-secondary font-bold">18</div>
+<div class="flex items-center gap-1.5 mt-1 text-caption font-caption text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span>12 ciudades destino activas</span>
+</div>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 ocean-card-shadow border border-outline-variant/20 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider font-semibold">En Taller / Secado</span>
+<span class="w-9 h-9 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="brush">brush</span>
+</span>
+</div>
+<div class="mt-4">
+<div class="font-display-hero-mobile text-headline-xl text-secondary font-bold">7</div>
+<div class="flex items-center gap-1.5 mt-1 text-caption font-caption text-tertiary">
+<span class="material-symbols-outlined text-[14px]" data-icon="hourglass_top">hourglass_top</span>
+<span>Cemento &amp; Resina orgánica</span>
+</div>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 ocean-card-shadow border border-outline-variant/20 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider font-semibold">Facturación Mensual</span>
+<span class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="payments">payments</span>
+</span>
+</div>
+<div class="mt-4">
+<div class="font-label-price text-headline-sm text-secondary font-bold">$12.450.000 <span class="text-caption text-on-surface-variant font-normal">COP</span></div>
+<div class="flex items-center gap-1.5 mt-1 text-caption font-caption text-emerald-700">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+<span>98.4% entregas en tiempo estimado</span>
+</div>
+</div>
+</div>
+</div>
+<!-- FILTER & SEARCH BAR SECTION -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 ocean-card-shadow border border-outline-variant/20 flex flex-col gap-3">
+<div class="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between">
+<!-- Live Search Input -->
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[20px]" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/40 focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 font-body-sm text-body-sm transition-all text-on-surface placeholder:text-outline" placeholder="Buscar por #ID Pedido, cliente, guía o destino..." type="text"/>
+</div>
+<!-- Transport Filter Buttons -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0 custom-scroll">
+<button class="px-3.5 py-1.5 rounded-full font-caption text-caption font-medium bg-primary text-on-primary whitespace-nowrap shadow-sm">
+              Todas las Guías
+            </button>
+<button class="px-3 py-1.5 rounded-full font-caption text-caption font-medium bg-surface-container-low hover:bg-surface-container text-on-surface-variant whitespace-nowrap transition-colors border border-outline-variant/30 flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-blue-600"></span> Coordinadora
+            </button>
+<button class="px-3 py-1.5 rounded-full font-caption text-caption font-medium bg-surface-container-low hover:bg-surface-container text-on-surface-variant whitespace-nowrap transition-colors border border-outline-variant/30 flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span> Servientrega
+            </button>
+<button class="px-3 py-1.5 rounded-full font-caption text-caption font-medium bg-surface-container-low hover:bg-surface-container text-on-surface-variant whitespace-nowrap transition-colors border border-outline-variant/30 flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span> Inter Rapidísimo
+            </button>
+<button class="px-3 py-1.5 rounded-full font-caption text-caption font-medium bg-surface-container-low hover:bg-surface-container text-on-surface-variant whitespace-nowrap transition-colors border border-outline-variant/30 flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-rose-500"></span> Envía Colvanes
+            </button>
+</div>
+</div>
+<!-- Filter Sub-row (Status & Geo Departments) -->
+<div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-surface-container text-caption font-caption">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="text-on-surface-variant font-medium">Estado del pedido:</span>
+<span class="px-2.5 py-1 rounded-md bg-secondary-fixed/50 text-on-secondary-fixed font-semibold">Pago Confirmado (8)</span>
+<span class="px-2.5 py-1 rounded-md bg-tertiary-fixed/50 text-on-tertiary-fixed font-semibold">Taller / Fabricación (7)</span>
+<span class="px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 font-semibold">Listo para Despacho (5)</span>
+<span class="px-2.5 py-1 rounded-md bg-sky-100 text-sky-800 font-semibold">En Tránsito (18)</span>
+<span class="px-2.5 py-1 rounded-md bg-amber-100 text-amber-900 font-semibold">Novedad (1)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-on-surface-variant">Región:</span>
+<select class="bg-surface-container-low text-on-surface border border-outline-variant/30 rounded-lg px-2.5 py-1 font-caption text-caption focus:ring-1 focus:ring-primary">
+<option>Todos los Departamentos</option>
+<option>Bogotá D.C. &amp; Cundinamarca</option>
+<option>Antioquia (Medellín &amp; Valles)</option>
+<option>Valle del Cauca (Cali)</option>
+<option>Atlántico &amp; Costa Caribe</option>
+<option>Santander &amp; Bucaramanga</option>
+</select>
+</div>
+</div>
+</div>
+<!-- MAIN SPLIT VIEW: ORDERS TABLE + LOGISTICS DETAIL DRAWER -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+<!-- ORDERS TABLE (8 cols on XL) -->
+<div class="xl:col-span-8 bg-surface-container-lowest rounded-2xl ocean-card-shadow border border-outline-variant/20 overflow-hidden flex flex-col">
+<div class="px-5 py-4 border-b border-surface-container flex items-center justify-between bg-surface-container-low/40">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-base text-secondary font-semibold">Despachos &amp; Guías Registradas</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-caption font-label-badge font-bold">50 registros</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg hover:bg-surface-container" title="Refrescar">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg hover:bg-surface-container" title="Exportar CSV">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto custom-scroll">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-surface-container text-caption font-caption text-on-surface-variant uppercase tracking-wider bg-surface-container-low/20">
+<th class="py-3 px-4">Pedido / Fecha</th>
+<th class="py-3 px-4">Cliente / Destino</th>
+<th class="py-3 px-4">Piezas Curadas</th>
+<th class="py-3 px-4">Total COP &amp; Pago</th>
+<th class="py-3 px-4">Estado</th>
+<th class="py-3 px-4">Guía &amp; Flete</th>
+<th class="py-3 px-4 text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-sm text-body-sm">
+<!-- ROW 1 (Selected Row) -->
+<tr class="bg-primary/5 hover:bg-primary/10 transition-colors cursor-pointer border-l-4 border-primary">
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="font-label-badge text-body-sm text-primary font-bold">#SH-2024-1089</div>
+<div class="font-caption text-caption text-on-surface-variant">Hoy, 10:24 AM</div>
+</td>
+<td class="py-4 px-4">
+<div class="font-headline-sm text-sm text-on-surface font-semibold">Camila Rengifo</div>
+<div class="font-caption text-caption text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="location_on">location_on</span>
+                      Bogotá D.C., Chapinero Alto
+                    </div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex-shrink-0 flex items-center justify-center text-primary text-caption font-bold">
+<span class="material-symbols-outlined text-[16px]" data-icon="water_drop">water_drop</span>
+</div>
+<div>
+<div class="text-xs font-medium text-on-surface leading-tight">Set Posavasos Océano x4</div>
+<div class="font-caption text-[11px] text-on-surface-variant">Resina translúcida &amp; azul marino</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="font-label-price text-sm text-secondary font-bold">$185.000 COP</div>
+<span class="inline-block px-1.5 py-0.5 rounded bg-purple-100 text-purple-800 text-[10px] font-bold">Nequi</span>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-caption font-semibold bg-emerald-100 text-emerald-800">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                      Listo Despacho
+                    </span>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1 text-xs font-semibold text-secondary">
+<span>Coordinadora</span>
+<span class="text-caption font-mono text-primary font-bold">#9842109</span>
+</div>
+<div class="font-caption text-[11px] text-on-surface-variant">$14.500 COP (Pagado)</div>
+</td>
+<td class="py-4 px-4 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 text-primary hover:bg-primary/20 rounded-lg" title="Imprimir Rótulo Frágil">
+<span class="material-symbols-outlined text-[18px]" data-icon="print">print</span>
+</button>
+<button class="p-1.5 text-emerald-600 hover:bg-emerald-50 rounded-lg" title="WhatsApp Guía">
+<span class="material-symbols-outlined text-[18px]" data-icon="chat">chat</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 2 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="font-label-badge text-body-sm text-secondary font-bold">#SH-2024-1088</div>
+<div class="font-caption text-caption text-on-surface-variant">Ayer, 4:15 PM</div>
+</td>
+<td class="py-4 px-4">
+<div class="font-headline-sm text-sm text-on-surface font-semibold">Sebastián Montoya</div>
+<div class="font-caption text-caption text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="location_on">location_on</span>
+                      Medellín, El Poblado (Antioquia)
+                    </div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex-shrink-0 flex items-center justify-center text-secondary text-caption font-bold">
+<span class="material-symbols-outlined text-[16px]" data-icon="potted_plant">potted_plant</span>
+</div>
+<div>
+<div class="text-xs font-medium text-on-surface leading-tight">Florero Arco Sol</div>
+<div class="font-caption text-[11px] text-on-surface-variant">Cemento blanco sellado al vacío</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="font-label-price text-sm text-secondary font-bold">$240.000 COP</div>
+<span class="inline-block px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 text-[10px] font-bold">Mercado Pago</span>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-caption font-semibold bg-sky-100 text-sky-800">
+<span class="w-1.5 h-1.5 rounded-full bg-sky-600"></span>
+                      En Tránsito
+                    </span>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1 text-xs font-semibold text-secondary">
+<span>Inter Rapidísimo</span>
+<span class="text-caption font-mono text-primary font-bold">#2041982</span>
+</div>
+<div class="font-caption text-[11px] text-on-surface-variant">$13.800 COP (Contraentrega)</div>
+</td>
+<td class="py-4 px-4 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg" title="Imprimir Rótulo">
+<span class="material-symbols-outlined text-[18px]" data-icon="print">print</span>
+</button>
+<button class="p-1.5 text-emerald-600 hover:bg-emerald-50 rounded-lg" title="WhatsApp Guía">
+<span class="material-symbols-outlined text-[18px]" data-icon="chat">chat</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 3 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="font-label-badge text-body-sm text-secondary font-bold">#SH-2024-1087</div>
+<div class="font-caption text-caption text-on-surface-variant">Ayer, 11:02 AM</div>
+</td>
+<td class="py-4 px-4">
+<div class="font-headline-sm text-sm text-on-surface font-semibold">Valeria Duque</div>
+<div class="font-caption text-caption text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="location_on">location_on</span>
+                      Cali, Ciudad Jardín (Valle)
+                    </div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex-shrink-0 flex items-center justify-center text-primary text-caption font-bold">
+<span class="material-symbols-outlined text-[16px]" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<div class="text-xs font-medium text-on-surface leading-tight">Caballito Textil Aureliano</div>
+<div class="font-caption text-[11px] text-on-surface-variant">Pieza única bordada a mano</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="font-label-price text-sm text-secondary font-bold">$380.000 COP</div>
+<span class="inline-block px-1.5 py-0.5 rounded bg-red-100 text-red-800 text-[10px] font-bold">Daviplata</span>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-caption font-semibold bg-tertiary-fixed/60 text-on-tertiary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                      En Taller / Secado
+                    </span>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="text-xs font-semibold text-on-surface-variant">Servientrega</div>
+<div class="font-caption text-[11px] text-amber-600 font-medium">Por programar recolección</div>
+</td>
+<td class="py-4 px-4 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg" title="Detalles">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
+</button>
+<button class="p-1.5 text-emerald-600 hover:bg-emerald-50 rounded-lg" title="WhatsApp Guía">
+<span class="material-symbols-outlined text-[18px]" data-icon="chat">chat</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 4 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="font-label-badge text-body-sm text-secondary font-bold">#SH-2024-1086</div>
+<div class="font-caption text-caption text-on-surface-variant">22 Nov, 3:30 PM</div>
+</td>
+<td class="py-4 px-4">
+<div class="font-headline-sm text-sm text-on-surface font-semibold">Mateo Silva</div>
+<div class="font-caption text-caption text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="location_on">location_on</span>
+                      Barranquilla, Alto Prado (Atlántico)
+                    </div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex-shrink-0 flex items-center justify-center text-secondary text-caption font-bold">
+<span class="material-symbols-outlined text-[16px]" data-icon="water_drop">water_drop</span>
+</div>
+<div>
+<div class="text-xs font-medium text-on-surface leading-tight">Bandeja Costera Coral</div>
+<div class="font-caption text-[11px] text-on-surface-variant">Madera teca &amp; resina esmeralda</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="font-label-price text-sm text-secondary font-bold">$310.000 COP</div>
+<span class="inline-block px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 text-[10px] font-bold">Mercado Pago</span>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-caption font-semibold bg-amber-100 text-amber-900">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+                      Novedad Destino
+                    </span>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1 text-xs font-semibold text-secondary">
+<span>Coordinadora</span>
+<span class="text-caption font-mono text-primary font-bold">#9839912</span>
+</div>
+<div class="font-caption text-[11px] text-rose-600">Intento 1 reprogramado</div>
+</td>
+<td class="py-4 px-4 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 text-amber-600 hover:bg-amber-50 rounded-lg" title="Ver Novedad">
+<span class="material-symbols-outlined text-[18px]" data-icon="warning">warning</span>
+</button>
+<button class="p-1.5 text-emerald-600 hover:bg-emerald-50 rounded-lg" title="WhatsApp Guía">
+<span class="material-symbols-outlined text-[18px]" data-icon="chat">chat</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination Footer -->
+<div class="px-5 py-3 border-t border-surface-container flex items-center justify-between font-caption text-caption text-on-surface-variant bg-surface-container-low/30">
+<span>Mostrando 4 de 24 despachos activos</span>
+<div class="flex items-center gap-1">
+<button class="px-2 py-1 rounded border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container disabled:opacity-40" disabled="">Anterior</button>
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary font-bold">1</button>
+<button class="px-2.5 py-1 rounded border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container">2</button>
+<button class="px-2.5 py-1 rounded border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container">3</button>
+<button class="px-2 py-1 rounded border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container">Siguiente</button>
+</div>
+</div>
+</div>
+<!-- LOGISTICS DETAIL DRAWER & CARRIER CALCULATOR (4 cols on XL) -->
+<div class="xl:col-span-4 flex flex-col gap-5">
+<!-- Detailed Order Card -->
+<div class="bg-surface-container-lowest rounded-2xl ocean-card-shadow border border-outline-variant/20 p-5 flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 border-b border-surface-container">
+<div>
+<span class="font-caption text-caption text-primary font-bold">EXPEDICIÓN SELECCIONADA</span>
+<h3 class="font-headline-sm text-base text-secondary font-semibold">Pedido #SH-2024-1089</h3>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-label-badge text-caption">
+                Empacado &amp; Sellado
+              </span>
+</div>
+<!-- Destination Address in Colombia -->
+<div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5 text-xs font-semibold text-secondary">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="pin_drop">pin_drop</span>
+                Nomenclatura Oficial de Entrega:
+              </div>
+<div class="font-body-sm text-sm text-on-surface font-medium">
+                Carrera 4 # 67 - 28, Apto 502
+              </div>
+<div class="font-caption text-caption text-on-surface-variant">
+                Barrio Chapinero Alto • Bogotá D.C. • Cód. Postal: 110231
+              </div>
+<div class="font-caption text-[11px] text-primary font-medium mt-1">
+                Destinataria: Camila Rengifo • Móvil: +57 311 849 2011
+              </div>
+</div>
+<!-- Carrier Rate Comparison Live Calculator -->
+<div class="flex flex-col gap-2">
+<span class="font-label-badge text-caption text-on-surface-variant uppercase tracking-wider font-semibold">
+                Cotización de Transportadoras (Tiempo Real)
+              </span>
+<!-- Option 1 (Selected) -->
+<div class="p-3 rounded-xl border-2 border-primary bg-primary/5 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="radio_button_checked">radio_button_checked</span>
+<div>
+<div class="text-xs font-bold text-on-surface">Coordinadora Mercantil</div>
+<div class="font-caption text-[11px] text-on-surface-variant">Entrega estimada: 24 - 48h hábiles</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-label-price text-sm text-primary font-bold">$14.500 COP</div>
+<span class="font-caption text-[10px] text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded font-medium">Tarifa Convenio</span>
+</div>
+</div>
+<!-- Option 2 -->
+<div class="p-3 rounded-xl border border-outline-variant/30 hover:border-primary/50 bg-surface-container-low/40 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<div>
+<div class="text-xs font-semibold text-on-surface">Inter Rapidísimo</div>
+<div class="font-caption text-[11px] text-on-surface-variant">Entrega estimada: 24 - 36h hábiles</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-label-price text-sm text-secondary font-bold">$13.800 COP</div>
+<span class="font-caption text-[10px] text-on-surface-variant">Nacional</span>
+</div>
+</div>
+<!-- Option 3 -->
+<div class="p-3 rounded-xl border border-outline-variant/30 hover:border-primary/50 bg-surface-container-low/40 flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<div>
+<div class="text-xs font-semibold text-on-surface">Servientrega</div>
+<div class="font-caption text-[11px] text-on-surface-variant">Entrega estimada: 48h hábiles</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-label-price text-sm text-secondary font-bold">$16.200 COP</div>
+<span class="font-caption text-[10px] text-on-surface-variant">Servicio Ya</span>
+</div>
+</div>
+</div>
+<!-- Fragile Tag Generator Preview -->
+<div class="border border-amber-300 bg-amber-50/70 rounded-xl p-3 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-amber-700 text-[22px] flex-shrink-0" data-icon="report_problem">report_problem</span>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-amber-900 leading-tight">Rótulo Especial: Obra de Arte &amp; Fragilidad Alta</span>
+<span class="font-caption text-[11px] text-amber-800 mt-0.5 leading-snug">
+                  Contiene resina polimérica y pigmentos minerales marinos. Embalaje protegido con viruta y burbuja biodegradable.
+                </span>
+</div>
+</div>
+<!-- Dispatch Action Buttons -->
+<div class="flex flex-col gap-2 pt-2 border-t border-surface-container">
+<button class="w-full py-2.5 px-4 rounded-full bg-primary text-on-primary hover:opacity-95 transition-all font-body-sm text-body-sm font-semibold flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="local_shipping">local_shipping</span>
+                Confirmar Despacho a Coordinadora
+              </button>
+<button class="w-full py-2 px-4 rounded-full border border-emerald-600 text-emerald-800 hover:bg-emerald-50 transition-colors font-body-sm text-body-sm font-medium flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-emerald-600" data-icon="chat">chat</span>
+                Notificar Guía por WhatsApp al Cliente
+              </button>
+<button class="w-full py-2 px-4 rounded-full border border-outline-variant/50 text-on-surface-variant hover:bg-surface-container transition-colors font-body-sm text-body-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="print">print</span>
+                Imprimir Rótulo &amp; Manifiesto DIAN
+              </button>
+</div>
+</div>
+<!-- Route Live Alerts Widget -->
+<div class="bg-surface-container-lowest rounded-2xl ocean-card-shadow border border-outline-variant/20 p-4 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-caption text-secondary flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="notifications_active">notifications_active</span>
+                Novedades en Ruta Colombia
+              </span>
+<span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low text-xs flex flex-col gap-1">
+<div class="flex items-center justify-between font-semibold text-secondary">
+<span>Guía Coordinadora #9839912</span>
+<span class="text-caption text-rose-600">Barranquilla</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant leading-snug">
+                Destinatario ausente en Carrera 58. Segundo intento programado automáticamente para mañana en horario de la mañana.
+              </p>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low text-xs flex flex-col gap-1">
+<div class="flex items-center justify-between font-semibold text-secondary">
+<span>Vía La Línea • Eje Cafetero</span>
+<span class="text-caption text-emerald-700">Ruta Normal</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant leading-snug">
+                Paso habilitado para vehículos de carga nacional. Despachos a Cali y Pereira sin retrasos meteorológicos.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- FOOTER (Exact Match from Shared Components JSON Blueprint) -->
+<footer class="bg-surface-container dark:bg-inverse-surface text-primary dark:text-inverse-primary full-width border-t border-outline-variant/20 dark:border-outline/10 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-6 lg:px-12 py-8 max-w-7xl mx-auto gap-4">
+<div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+<span class="font-headline-md text-headline-md text-secondary dark:text-secondary-fixed tracking-tight">
+          Seahorse Estudio Creativo by Andrea Sosa
+        </span>
+</div>
+<div class="flex flex-wrap justify-center items-center gap-4 text-center font-body-sm text-body-sm">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Catálogo</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Personalización</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Envíos en Colombia</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Términos y Condiciones</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Privacidad</a>
+<a class="text-primary dark:text-primary-fixed underline font-body-sm text-body-sm" href="#">Panel Admin</a>
+</div>
+<div class="text-caption font-caption text-on-surface-variant dark:text-surface-variant text-center md:text-right max-w-md">
+        © 2024 Seahorse Estudio Creativo by Andrea Sosa. Hecho a mano y con diseño de autor en Colombia. Todos los derechos reservados.
+      </div>
+</div>
+</footer>
+<script>
+    // Micro-interactions and toast simulation
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        // Visual press effect
+        this.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+          this.style.transform = 'scale(1)';
+        }, 150);
+      });
+    });
+  </script>
+</body></html>

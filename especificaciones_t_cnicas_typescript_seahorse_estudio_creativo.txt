@@ -1,0 +1,335 @@
+/**
+ * ============================================================================
+ * SEAHORSE ESTUDIO CREATIVO BY ANDREA SOSA
+ * Plataforma E-Commerce Editorial, Taller Interactivo & Backoffice Admin
+ * 
+ * ESPECIFICACIONES TÉCNICAS Y SISTEMA DE TIPOS EN TYPESCRIPT
+ * Versión: 1.0.0
+ * Moneda base: COP (Pesos Colombianos)
+ * Mercado: Colombia
+ * ============================================================================
+ */
+
+// ============================================================================
+// 1. DESIGN SYSTEM & TOKENS DE DISEÑO
+// ============================================================================
+
+export type BrandColorMode = 'LIGHT' | 'DARK';
+
+export interface BrandColorPalette {
+  /** Fondo principal cálido y lienzo editorial */
+  readonly ivory: '#FFFCF7';
+  /** Color estructural de alto contraste, tipografía y marcos */
+  readonly oceanBlue: '#173D68';
+  /** Color primario interactivo, botones CTA principales */
+  readonly turquoise: '#23B7C5';
+  /** Microinteracciones, badges de disponibilidad inmediata */
+  readonly aquamarine: '#83D9D9';
+  /** Etiquetas secundarias, estados personalizables */
+  readonly lavender: '#B7A1DF';
+  /** Etiquetas de stock bajo o advertencias */
+  readonly softCoral: '#F29A9C';
+  /** Calificaciones, estrellas y sellos de autoría */
+  readonly yellow: '#F5D35E';
+  /** Acentos terrosos, pie de página y detalles */
+  readonly deepCoffee: '#281B18';
+}
+
+export interface TypographyTokens {
+  readonly headlineFont: 'Outfit, sans-serif';
+  readonly bodyFont: 'DM Sans, sans-serif';
+  readonly fontWeights: {
+    readonly regular: 400;
+    readonly medium: 500;
+    readonly semiBold: 600;
+    readonly bold: 700;
+  };
+}
+
+export interface DesignTokens {
+  readonly colors: BrandColorPalette;
+  readonly typography: TypographyTokens;
+  readonly borderRadius: {
+    readonly sm: '4px';
+    readonly md: '8px';
+    readonly lg: '16px';
+    readonly xl: '24px';
+    readonly full: '9999px';
+  };
+  readonly spacing: {
+    readonly xs: '4px';
+    readonly sm: '8px';
+    readonly md: '16px';
+    readonly lg: '24px';
+    readonly xl: '32px';
+    readonly xxl: '48px';
+  };
+}
+
+// ============================================================================
+// 2. CATÁLOGO, PRODUCTOS Y DISCIPLINAS ARTESANALES
+// ============================================================================
+
+/**
+ * Las 5 disciplinas exclusivas de autor definidas para la marca
+ */
+export type ProductCategory = 
+  | 'cuadros'        // Acrílicos y técnicas mixtas sobre lino crudo
+  | 'ropa'           // Prendas de autor con bordados y tintes botánicos
+  | 'peluches'       // Figuras textiles coleccionables rellenas a mano
+  | 'resina'         // Posavasos, aretes, dijes y encapsulados botánicos
+  | 'cemento_blanco'; // Floreros escultóricos, bandejas onduladas y portavelas
+
+/**
+ * Estados de disponibilidad comercial y operativa
+ */
+export type ProductAvailability = 
+  | 'disponible'     // Entrega inmediata (en stock)
+  | 'bajo_pedido'    // Requiere tiempo de fraguado o confección
+  | 'personalizable' // Permite co-creación a medida
+  | 'agotado';       // Sin existencias inmediatas
+
+export interface ProductDimensions {
+  readonly widthCm?: number;
+  readonly heightCm?: number;
+  readonly depthCm?: number;
+  readonly diameterCm?: number;
+  readonly weightGrams?: number;
+}
+
+export interface ProductPrice {
+  /** Valor monetario en Pesos Colombianos (COP) */
+  readonly amountCop: number;
+  /** Representación formateada con separador de miles (ej: "$65.000 COP") */
+  readonly formattedCop: string;
+  readonly isStartingPrice?: boolean;
+}
+
+export interface ProductItem {
+  readonly id: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly subtitle?: string;
+  readonly category: ProductCategory;
+  readonly availability: ProductAvailability;
+  readonly price: ProductPrice;
+  readonly materials: readonly string[];
+  readonly curingDaysEstimate?: number; // Días de reposo/fraguado en taller
+  readonly description: string;
+  readonly editorialNotes?: string;
+  readonly primaryImageUrl: string;
+  readonly galleryImageUrls: readonly string[];
+  readonly dimensions?: ProductDimensions;
+  readonly isLimitedEdition?: boolean;
+  readonly editionTotalCount?: number;
+  readonly editionCurrentNumber?: number;
+  readonly createdAt: string; // ISO 8601
+  readonly updatedAt: string; // ISO 8601
+}
+
+// ============================================================================
+// 3. MÓDULO DE CO-CREACIÓN Y PERSONALIZACIÓN (TALLER INTERACTIVO)
+// ============================================================================
+
+export type CustomSupportType = 
+  | 'cuadro_lino'
+  | 'florero_escultorico'
+  | 'bandeja_posavasos'
+  | 'peluche_autor'
+  | 'prenda_bordada';
+
+export type CustomRawMaterialPalette = 
+  | 'pigmentos_oceano'
+  | 'botanica_marina_encapsulada'
+  | 'destellos_oro_cobre'
+  | 'cemento_crudo_marfil';
+
+export interface CustomPieceRequest {
+  readonly requestId: string;
+  readonly supportType: CustomSupportType;
+  readonly selectedMaterials: readonly CustomRawMaterialPalette[];
+  readonly engravedText?: string;
+  readonly approximateDimensions: string;
+  readonly occasion?: 'hogar' | 'regalo_especial' | 'matrimonio' | 'corporativo' | 'otro';
+  readonly projectNotes: string;
+  /** URLs de imágenes o bocetos adjuntados (hasta 20MB cada una) */
+  readonly referenceImageUrls: readonly string[];
+  readonly clientContact: {
+    readonly fullName: string;
+    readonly phoneOrWhatsapp: string;
+    readonly deliveryCity: string;
+    readonly email?: string;
+  };
+  readonly prefersWhatsappAssistance: boolean;
+  readonly status: 'recibida' | 'en_analisis' | 'cotizada' | 'aprobada' | 'en_taller' | 'finalizada';
+  readonly estimatedQuoteCop?: number;
+  readonly createdAt: string;
+}
+
+// ============================================================================
+// 4. CARRITO, CHECKOUT Y LOGÍSTICA EN COLOMBIA
+// ============================================================================
+
+export interface CartLineItem {
+  readonly productId: string;
+  readonly productName: string;
+  readonly category: ProductCategory;
+  readonly unitPriceCop: number;
+  readonly quantity: number;
+  readonly curingDaysEstimate?: number;
+  readonly primaryImageUrl: string;
+  readonly subtotalCop: number;
+}
+
+export type ColombianCarrier = 
+  | 'coordinadora'
+  | 'servientrega'
+  | 'inter_rapidisimo'
+  | 'envia';
+
+export interface ColombianAddress {
+  /** Destinatario con documento de identidad para guías oficiales */
+  readonly recipientFullName: string;
+  readonly nationalIdNumber: string; // Cédula de Ciudadanía o NIT
+  readonly phoneOrWhatsapp: string;
+  /** Nomenclatura urbana: Carrera, Calle, Avenida, Diagonal, Manzana, etc. */
+  readonly streetAddress: string;
+  readonly apartmentOrSuite?: string;
+  readonly neighborhood?: string; // Barrio
+  readonly city: string; // Municipio o Distrito Capital
+  readonly department: string; // Departamento de Colombia (32 + Bogotá D.C.)
+  readonly postalCode?: string;
+}
+
+export type ColombianPaymentGateway = 
+  | 'mercado_pago'  // Tarjetas crédito/débito y PSE hacia todos los bancos
+  | 'nequi'         // Notificación Push a app móvil o Código QR
+  | 'daviplata';    // Transferencia simplificada con número celular
+
+export type PaymentStatus = 
+  | 'pendiente'
+  | 'procesando'
+  | 'aprobado'
+  | 'rechazado'
+  | 'reembolsado';
+
+export interface FinancialBreakdown {
+  readonly itemsSubtotalCop: number;
+  readonly curatedPackagingFeeCop: number; // Empaque especial artesanal
+  readonly domesticShippingFeeCop: number;  // Flete nacional cotizado
+  readonly totalCop: number;
+}
+
+export interface Order {
+  readonly orderId: string; // Formato ej: "#SH-2024-1089"
+  readonly items: readonly CartLineItem[];
+  readonly shippingAddress: ColombianAddress;
+  readonly selectedCarrier: ColombianCarrier;
+  readonly carrierTrackingNumber?: string;
+  readonly paymentGateway: ColombianPaymentGateway;
+  readonly paymentStatus: PaymentStatus;
+  readonly financialSummary: FinancialBreakdown;
+  readonly orderStatus: 
+    | 'pago_confirmado'
+    | 'en_taller_secado'
+    | 'listo_para_despacho'
+    | 'en_transito_nacional'
+    | 'entregado'
+    | 'novedad_logistica';
+  readonly specialNotes?: string;
+  readonly placedAt: string;
+  readonly shippedAt?: string;
+  readonly deliveredAt?: string;
+}
+
+// ============================================================================
+// 5. DASHBOARD ADMINISTRATIVO, OPERACIÓN Y AUDITORÍA
+// ============================================================================
+
+export interface AdminKPIs {
+  readonly ordersPendingDispatch: number;
+  readonly packagesReadyForPickupToday: number;
+  readonly ordersInDomesticTransit: number;
+  readonly activeDestinationCitiesCount: number;
+  readonly itemsInWorkshopCuring: number;
+  readonly monthlyGrossRevenueCop: number;
+  readonly onTimeDeliveryRatePercentage: number;
+}
+
+export interface CarrierPickupSlot {
+  readonly carrier: ColombianCarrier;
+  readonly pickupTimeUtc5: string; // Horario Colombia (ej: "16:30 COT")
+  readonly totalPackagesAssigned: number;
+  readonly status: 'programada' | 'en_espera' | 'completada' | 'cancelada';
+}
+
+export interface SecurityAuditEvent {
+  readonly eventId: string;
+  readonly timestamp: string;
+  readonly ipAddress: string;
+  readonly userAgent: string;
+  readonly actionType: 
+    | 'login_mfa_success'
+    | 'login_failed'
+    | 'manifest_dian_exported'
+    | 'order_status_updated'
+    | 'shipping_guide_created'
+    | 'api_key_rotated';
+  readonly riskLevel: 'bajo' | 'medio' | 'alto' | 'critico';
+  readonly administratorEmail: string;
+}
+
+// ============================================================================
+// 6. CONTRATOS DE SERVICIOS Y REPOSITORIOS (API CONTRACTS)
+// ============================================================================
+
+export interface ProductCatalogService {
+  listProducts(filters?: {
+    category?: ProductCategory;
+    availability?: ProductAvailability;
+    searchQuery?: string;
+    maxPriceCop?: number;
+    sort?: 'newest' | 'price_asc' | 'price_desc';
+  }): Promise<readonly ProductItem[]>;
+
+  getProductBySlug(slug: string): Promise<ProductItem | null>;
+}
+
+export interface CustomizationService {
+  submitCustomRequest(payload: Omit<CustomPieceRequest, 'requestId' | 'status' | 'createdAt'>): Promise<{
+    requestId: string;
+    whatsappDirectUrl: string;
+  }>;
+}
+
+export interface CheckoutAndLogisticsService {
+  calculateShippingFee(params: {
+    department: string;
+    city: string;
+    carrier: ColombianCarrier;
+    packageWeightGrams: number;
+  }): Promise<{ feeCop: number; estimatedDeliveryDays: string }>;
+
+  createOrder(payload: {
+    items: readonly CartLineItem[];
+    address: ColombianAddress;
+    carrier: ColombianCarrier;
+    paymentGateway: ColombianPaymentGateway;
+  }): Promise<Order>;
+
+  verifyPaymentStatus(orderId: string): Promise<{
+    paymentStatus: PaymentStatus;
+    transactionReference?: string;
+  }>;
+}
+
+export interface AdminManagementService {
+  getOperationalKPIs(): Promise<AdminKPIs>;
+  getOrdersList(filter?: {
+    carrier?: ColombianCarrier;
+    orderStatus?: Order['orderStatus'];
+    city?: string;
+  }): Promise<readonly Order[]>;
+  generateDianManifest(dateIso: string): Promise<{ downloadUrl: string; manifestId: string }>;
+  getSecurityLogs(limit?: number): Promise<readonly SecurityAuditEvent[]>;
+}
