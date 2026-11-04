@@ -141,13 +141,10 @@ export default function InicioPrototype() {
       <span className="text-[9px] font-label-badge text-secondary font-bold tracking-tight uppercase mt-0.5">Original</span>
       </div>
       { /* Imagen Principal de Inspiración del Taller */ }
-      <div className="w-full aspect-[4/5] rounded-3xl overflow-hidden artistic-shadow-2 border border-outline-variant/20 relative group">
-      <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A warm artistic atelier still-life composition representing contemporary Colombian craft and high-end design. On a natural ivory linen surface, an original botanical resin tray with encapsulated local flowers rests next to a minimalist matte white cement vase and hand-stitched textile art swatches. Soft, luminous morning light spills through a studio window, illuminating the serene ivory, deep oceanic blue, warm ochre, and turquoise color palette. Aesthetic art gallery presentation with luxurious artisanal authenticity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBez9vqCqSLFM6u68nBeowqUxLONfNUf47tCd1WBQapRPJy0z3uA7TQpAGyKb-Mj672IEX_QCZumTtjPFTt6QNKlgxzDqsPVydzXQe_S7bOaR5aez6MqEvTfV2m3DdW1QHmIySIxB8lertmTS2qTrceh36pdZ39euKMv8-DFUD1un-xRaOFPfAGivqqSqgY0ivDDmfzvfnt-5iEP9Yl85mqJd2b3v_9Aipb4N8i-KA" />
+      <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden artistic-shadow-2 border border-outline-variant/20 relative group bg-surface-container-low">
+      <img alt="Florero blanco y vela sobre una bandeja rosa, junto a un cuadro de flores artesanales." className="w-full h-full object-contain object-center" src="/images/florero y cuadro.jpg" />
       <div className="absolute inset-0 bg-gradient-to-t from-on-surface/50 via-transparent to-transparent opacity-60" />
       <div className="absolute bottom-6 left-6 right-6 text-surface-container-lowest">
-      <span className="px-3 py-1 rounded-full bg-surface-container-lowest/20 backdrop-blur-md font-label-badge text-caption uppercase tracking-wider text-surface">Edici&oacute;n 2024</span>
-      <p className="font-headline-sm text-headline-sm font-semibold mt-2">Colecci&oacute;n Org&aacute;nica Marina</p>
-      <p className="font-caption text-caption text-surface-dim">Piezas numeradas creadas en Medell&iacute;n</p>
       </div>
       </div>
       </div>

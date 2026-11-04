@@ -14,7 +14,8 @@ npm install
 npm run dev
 ```
 
-Abre <http://localhost:3000>.
+Abre <
+>.
 
 ## Rutas
 
