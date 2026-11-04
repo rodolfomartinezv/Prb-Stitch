@@ -22,7 +22,7 @@ export default function InicioPrototype() {
       </div>
       <div className="flex flex-col">
       <span className="font-headline-md text-headline-md text-secondary dark:text-secondary-fixed tracking-tight font-medium leading-none">
-                  Seahorse
+                  SEAHORSE
                 </span>
       <span className="font-caption text-caption text-outline tracking-wider uppercase mt-0.5">Estudio Creativo &middot; by Andrea Sosa</span>
       </div>
@@ -120,11 +120,11 @@ export default function InicioPrototype() {
       <div className="pt-6 grid grid-cols-3 gap-6 border-t border-outline-variant/30 w-full max-w-md">
       <div>
       <p className="font-headline-md text-headline-md font-bold text-secondary">100%</p>
-      <p className="font-caption text-caption text-outline">Hecho a mano en CO</p>
+      <p className="font-caption text-caption text-outline">Hecho a mano</p>
       </div>
       <div>
-      <p className="font-headline-md text-headline-md font-bold text-primary">5 a 8 d&iacute;as</p>
-      <p className="font-caption text-caption text-outline">Tiempos de autor</p>
+      {/* <p className="font-hea{dline-md text-headline-md font-bold text-primary">5 a 8 d&iacute;as</p> */}
+      {/*<p className="font-caption text-caption text-outline">Tiempos de autor</p>*/}
       </div>
       <div>
       <p className="font-headline-md text-headline-md font-bold text-tertiary">Env&iacute;os</p>
@@ -158,14 +158,14 @@ export default function InicioPrototype() {
       <div>
       <span className="text-caption font-label-badge text-primary uppercase tracking-widest">Curadur&iacute;a por Material y T&eacute;cnica</span>
       <h2 className="font-headline-xl text-headline-xl-mobile sm:text-headline-xl text-on-surface font-semibold tracking-tight mt-1">
-                      Las 5 Categor&iacute;as del Estudio
+                      Las 4 Categor&iacute;as del Estudio
                     </h2>
       </div>
       <p className="font-body-sm text-body-sm text-on-surface-variant max-w-md mt-2 md:mt-0">
                     Explora universos t&aacute;ctiles creados para convivir en tus espacios cotidianos con belleza y calidez.
                   </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       { /* 1. Cuadros */ }
       <div className="group cursor-pointer rounded-2xl bg-surface-container-lowest p-4 artistic-shadow-1 hover:artistic-shadow-2 transition-all duration-300 border border-outline-variant/15 flex flex-col" onClick={event => { filterCatalog('Cuadros'); }}>
       <div className="w-full aspect-square rounded-xl overflow-hidden relative mb-4 bg-surface-container">
@@ -176,41 +176,31 @@ export default function InicioPrototype() {
       <p className="font-caption text-caption text-outline mt-1 flex-grow">Arte textil, bot&aacute;nico y acr&iacute;licos sobre lienzo de lino crudo.</p>
       <span className="font-label-badge text-caption text-primary flex items-center gap-1 mt-3">Ver 12 obras <MaterialSymbol className="material-symbols-outlined text-[14px]">arrow_forward</MaterialSymbol></span>
       </div>
-      { /* 2. Ropa */ }
-      <div className="group cursor-pointer rounded-2xl bg-surface-container-lowest p-4 artistic-shadow-1 hover:artistic-shadow-2 transition-all duration-300 border border-outline-variant/15 flex flex-col" onClick={event => { filterCatalog('Ropa'); }}>
+      { /* 2. Estampados */ }
+      <div className="group cursor-pointer rounded-2xl bg-surface-container-lowest p-4 artistic-shadow-1 hover:artistic-shadow-2 transition-all duration-300 border border-outline-variant/15 flex flex-col" onClick={event => { filterCatalog('Estampados'); }}>
       <div className="w-full aspect-square rounded-xl overflow-hidden relative mb-4 bg-surface-container">
-      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High-end artisanal embroidered relaxed-fit cotton shirt. Detailed close-up showing custom illustrated coastal motifs, fine thread work, delicate seahorse nuances, and warm ivory fabric tones in a bright natural light editorial setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGHQCkhZZn-GX_Eu8WSCe42RIPqpSiN0Moc_dqv68ID1apeGqDTwLS7Lhdq0bRcMaWtVmvg6jZ3LAPe3Xk8RmO-fRCnY0zzmW4sAW0Wm6w3MFIQNf0nR5H_WQrCzHeq4kxINBRbu6RMQQzNe1A2IreDNQYqUsg7FRWrFO857ryQzSmDMGE2py6RvLZuLb92R_jMrdbcY3Lph0NHVeH0YZAzqxe2UVKV9wqMBjdaXA" />
+      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Diseños ilustrados de autor aplicados a textiles, con motivos costeros y marinos sobre lino claro." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGHQCkhZZn-GX_Eu8WSCe42RIPqpSiN0Moc_dqv68ID1apeGqDTwLS7Lhdq0bRcMaWtVmvg6jZ3LAPe3Xk8RmO-fRCnY0zzmW4sAW0Wm6w3MFIQNf0nR5H_WQrCzHeq4kxINBRbu6RMQQzNe1A2IreDNQYqUsg7FRWrFO857ryQzSmDMGE2py6RvLZuLb92R_jMrdbcY3Lph0NHVeH0YZAzqxe2UVKV9wqMBjdaXA" />
       <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-secondary text-surface-container-lowest text-[11px] font-label-badge font-bold">Cat. 02</span>
       </div>
-      <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Ropa</h3>
-      <p className="font-caption text-caption text-outline mt-1 flex-grow">Prendas ilustradas de autor, bordadas a mano en fibras nobles.</p>
-      <span className="font-label-badge text-caption text-primary flex items-center gap-1 mt-3">Ver prendas <MaterialSymbol className="material-symbols-outlined text-[14px]">arrow_forward</MaterialSymbol></span>
+      <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Estampados</h3>
+      <p className="font-caption text-caption text-outline mt-1 flex-grow">Dise&ntilde;os ilustrados de autor aplicados a prendas y piezas textiles.</p>
+      <span className="font-label-badge text-caption text-primary flex items-center gap-1 mt-3">Ver estampados <MaterialSymbol className="material-symbols-outlined text-[14px]">arrow_forward</MaterialSymbol></span>
       </div>
-      { /* 3. Peluches */ }
-      <div className="group cursor-pointer rounded-2xl bg-surface-container-lowest p-4 artistic-shadow-1 hover:artistic-shadow-2 transition-all duration-300 border border-outline-variant/15 flex flex-col" onClick={event => { filterCatalog('Peluches'); }}>
-      <div className="w-full aspect-square rounded-xl overflow-hidden relative mb-4 bg-surface-container">
-      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Charming hand-crafted textile collectible plush doll designed by an artist. Made from soft textured linen, organic knit fabrics in soft lavender, mustard, and turquoise tones, resting on a wooden studio shelf with artful character details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhlmrlPwL6sdgfjuTPXJjfygmYOHikF9WZtxlycScDDAOF2p1i9Wc4YlnhQRKP6zIdXRnvDx5DSK4ICvWmJeXRwvvxBfm-5o8njG5Jt6h6kIUqp5gtAv7oBZMltIPbd7ts0l5-kxGp6Hx3N0OQavs51V7qD12BgmRXDvd9p3Os_bvLQRiBFa7yTMPsDAKGBLPqAEv1RSOuzaI-wR4h8ZMfmIPYpjN6kDpc4eCP4lk" />
-      <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-secondary text-surface-container-lowest text-[11px] font-label-badge font-bold">Cat. 03</span>
-      </div>
-      <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Peluches</h3>
-      <p className="font-caption text-caption text-outline mt-1 flex-grow">Personajes textiles de colecci&oacute;n, bordados y confeccionados a mano.</p>
-      <span className="font-label-badge text-caption text-primary flex items-center gap-1 mt-3">Ver colecci&oacute;n <MaterialSymbol className="material-symbols-outlined text-[14px]">arrow_forward</MaterialSymbol></span>
-      </div>
-      { /* 4. Resina */ }
+      { /* 3. Resina */ }
       <div className="group cursor-pointer rounded-2xl bg-surface-container-lowest p-4 artistic-shadow-1 hover:artistic-shadow-2 transition-all duration-300 border border-outline-variant/15 flex flex-col" onClick={event => { filterCatalog('Resina'); }}>
       <div className="w-full aspect-square rounded-xl overflow-hidden relative mb-4 bg-surface-container">
       <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Exquisite crystal clear epoxy resin botanical coaster and jewelry display piece. Encapsulated tiny real dried hydrangeas, gold leaf flakes, and translucent oceanic turquoise swirls illuminated by direct sunlight creating pure optical prism reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZWrDPrAoMjfAuX5HDAqWIXm4nlRZpcx_IJLoIN8SbSkRFxpa5h1yFF4Ci9qwev5ww6VWUp4x9SornJ6bu2C0QqOLTNysj7zADH4Q5dW2BI9p8gA6JsP_IBlXMIq333gBkrImTE5mh9b7sRTDvukxjDvL0_jMJK-x7cLgCm7UFC2DJ68zywfxIaB0tnShPL4aJAJmhGWFyhWPTerliEPX2a4mTEpDX9EZFByJff0g" />
-      <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-secondary text-surface-container-lowest text-[11px] font-label-badge font-bold">Cat. 04</span>
+      <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-secondary text-surface-container-lowest text-[11px] font-label-badge font-bold">Cat. 03</span>
       </div>
       <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Resina</h3>
       <p className="font-caption text-caption text-outline mt-1 flex-grow">Llaveros encapsulados, aretes bot&aacute;nicos y posavasos art&iacute;sticos.</p>
       <span className="font-label-badge text-caption text-primary flex items-center gap-1 mt-3">Ver piezas <MaterialSymbol className="material-symbols-outlined text-[14px]">arrow_forward</MaterialSymbol></span>
       </div>
-      { /* 5. Cemento blanco */ }
+      { /* 4. Cemento blanco */ }
       <div className="group cursor-pointer rounded-2xl bg-surface-container-lowest p-4 artistic-shadow-1 hover:artistic-shadow-2 transition-all duration-300 border border-outline-variant/15 flex flex-col" onClick={event => { filterCatalog('Cemento blanco'); }}>
       <div className="w-full aspect-square rounded-xl overflow-hidden relative mb-4 bg-surface-container">
       <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Handcrafted architectural white cement arched vase and ribbed candle tray on an ivory stone pedestal. Smooth sealed matte stone texture, sculptural Scandinavian curves, minimalist modern aesthetic with warm studio backlighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbXH8jmzu_LQZnQqJIwH1uTnkFuzDdg2uppDCxOU-0FF-WOem0TQA1oR-alFSQVCQ3wSlVMm4xCyMj_9s-qQjokw8diyrBFOpma8i1MMw72iFUsZLSA1Z8k4kn11tGE7nSwbZO2A4Q9F3m-YDkm9PXnpypTlpGU28GwtSeCrgECbKGpdj-5V1KE3ZrNwnAK_Jc-RM9gDz3W6696uNnDPwA0-mNA8YfypFsvnF6mo0" />
-      <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-secondary text-surface-container-lowest text-[11px] font-label-badge font-bold">Cat. 05</span>
+      <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-secondary text-surface-container-lowest text-[11px] font-label-badge font-bold">Cat. 04</span>
       </div>
       <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Cemento blanco</h3>
       <p className="font-caption text-caption text-outline mt-1 flex-grow">Floreros geom&eacute;tricos, bandejas onduladas y portavelas artesanales.</p>
@@ -327,7 +317,7 @@ export default function InicioPrototype() {
       </div>
       </div>
       </div>
-      { /* Item 4: Peluches */ }
+      { /* Item 4: Estampados textiles */ }
       <div className="group bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/15 artistic-shadow-1 hover:artistic-shadow-2 transition-all flex flex-col justify-between">
       <div>
       <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-4 bg-surface-container-low">
@@ -339,7 +329,7 @@ export default function InicioPrototype() {
       <MaterialSymbol className="material-symbols-outlined text-sm">favorite</MaterialSymbol>
       </button>
       </div>
-      <p className="font-caption text-caption text-outline">Personajes Textiles</p>
+      <p className="font-caption text-caption text-outline">Estampados textiles</p>
       <h3 className="font-headline-sm text-headline-sm text-on-surface mt-1 group-hover:text-primary transition-colors">Caballito Textil &apos;Aureliano&apos;</h3>
       <p className="font-caption text-caption text-on-surface-variant line-clamp-2 mt-1">Peluche de edici&oacute;n coleccionable con certificado de autor&iacute;a firmado.</p>
       </div>
@@ -527,7 +517,7 @@ export default function InicioPrototype() {
       <MaterialSymbol className="material-symbols-outlined text-outline text-[18px] absolute left-3 top-2.5">search</MaterialSymbol>
       </div>
       </div>
-      { /* Filtro por las 5 Categorías Oficiales */ }
+      { /* Filtro por las 4 Categorías Oficiales */ }
       <div>
       <span className="font-label-badge text-caption text-outline uppercase tracking-wider block mb-3">Categor&iacute;a de Autor</span>
       <div className="space-y-2">
@@ -540,12 +530,8 @@ export default function InicioPrototype() {
       <span>Cuadros (5)</span>
       </label>
       <label className="flex items-center gap-2.5 text-body-sm text-on-surface cursor-pointer">
-      <input className="text-primary focus:ring-0 rounded-full" name="cat-filter" onChange={applyCatalogFilters} type="radio" value="Ropa" />
-      <span>Ropa ilustrada (4)</span>
-      </label>
-      <label className="flex items-center gap-2.5 text-body-sm text-on-surface cursor-pointer">
-      <input className="text-primary focus:ring-0 rounded-full" name="cat-filter" onChange={applyCatalogFilters} type="radio" value="Peluches" />
-      <span>Peluches de autor (4)</span>
+      <input className="text-primary focus:ring-0 rounded-full" name="cat-filter" onChange={applyCatalogFilters} type="radio" value="Estampados" />
+      <span>Estampados (8)</span>
       </label>
       <label className="flex items-center gap-2.5 text-body-sm text-on-surface cursor-pointer">
       <input className="text-primary focus:ring-0 rounded-full" name="cat-filter" onChange={applyCatalogFilters} type="radio" value="Resina" />
@@ -793,7 +779,7 @@ export default function InicioPrototype() {
       <h2 className="font-headline-lg text-headline-lg text-on-surface font-semibold">Elige la categor&iacute;a o t&eacute;cnica base</h2>
       <p className="font-body-sm text-body-sm text-outline mt-1">Selecciona sobre qu&eacute; disciplina creativa deseas estructurar tu encargo:</p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <label className="custom-cat-card p-4 rounded-2xl border-2 border-primary bg-primary-fixed/15 cursor-pointer flex flex-col justify-between transition-all">
       <input defaultChecked={true} className="hidden" name="custom_category" onChange={event => { highlightCatCard(event.currentTarget); }} type="radio" value="Cuadros" />
       <div className="flex items-center justify-between mb-3">
@@ -828,25 +814,14 @@ export default function InicioPrototype() {
       </div>
       </label>
       <label className="custom-cat-card p-4 rounded-2xl border border-outline-variant/30 bg-surface-container-low cursor-pointer flex flex-col justify-between transition-all">
-      <input className="hidden" name="custom_category" onChange={event => { highlightCatCard(event.currentTarget); }} type="radio" value="Peluches" />
+      <input className="hidden" name="custom_category" onChange={event => { highlightCatCard(event.currentTarget); }} type="radio" value="Estampados" />
       <div className="flex items-center justify-between mb-3">
-      <MaterialSymbol className="material-symbols-outlined text-secondary text-2xl">cruelty_free</MaterialSymbol>
+      <MaterialSymbol className="material-symbols-outlined text-secondary text-2xl">texture</MaterialSymbol>
       <span className="text-caption font-bold text-outline">04</span>
       </div>
       <div>
-      <h3 className="font-headline-sm text-headline-sm text-on-surface">Peluches Coleccionables</h3>
-      <p className="text-caption text-outline mt-1">Personajes marinos textiles confeccionados a medida.</p>
-      </div>
-      </label>
-      <label className="custom-cat-card p-4 rounded-2xl border border-outline-variant/30 bg-surface-container-low cursor-pointer flex flex-col justify-between transition-all">
-      <input className="hidden" name="custom_category" onChange={event => { highlightCatCard(event.currentTarget); }} type="radio" value="Ropa" />
-      <div className="flex items-center justify-between mb-3">
-      <MaterialSymbol className="material-symbols-outlined text-secondary text-2xl">apparel</MaterialSymbol>
-      <span className="text-caption font-bold text-outline">05</span>
-      </div>
-      <div>
-      <h3 className="font-headline-sm text-headline-sm text-on-surface">Ropa Ilustrada</h3>
-      <p className="text-caption text-outline mt-1">Prendas bordadas a mano y personalizadas con tu motivo favorito.</p>
+      <h3 className="font-headline-sm text-headline-sm text-on-surface">Estampados</h3>
+      <p className="text-caption text-outline mt-1">Dise&ntilde;os ilustrados para prendas y piezas textiles.</p>
       </div>
       </label>
       </div>
@@ -1232,7 +1207,7 @@ export default function InicioPrototype() {
       <MaterialSymbol className="material-symbols-outlined text-secondary">inventory_2</MaterialSymbol>
       </div>
       <p className="font-headline-lg text-headline-lg font-bold text-on-surface">48 piezas</p>
-      <span className="text-caption text-outline">En 5 categor&iacute;as activas</span>
+      <span className="text-caption text-outline">En 4 categor&iacute;as activas</span>
       </div>
       </div>
       { /* Pestañas Internas del Admin */ }
@@ -1363,7 +1338,7 @@ export default function InicioPrototype() {
       </tr>
       <tr>
       <td className="py-3 font-medium">Caballito Textil Aureliano</td>
-      <td>Peluches</td>
+      <td>Estampados</td>
       <td>$120.000 COP</td>
       <td>0 unidades</td>
       <td><span className="text-gray-500 font-medium">Agotado</span></td>

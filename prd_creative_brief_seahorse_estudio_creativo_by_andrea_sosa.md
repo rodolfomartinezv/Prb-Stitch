@@ -65,12 +65,11 @@ A diferencia de los entornos genéricos de e-commerce masivo, la plataforma fusi
 #### 5.1 Pantallas Públicas (Storefront)
 1. **Home / Portada de Autor (`/`):**
    * Hero editorial asimétrico con fotografía ambientada y CTAs duales (*Explorar colección* y *Personaliza tu producto*).
-   * Presentación de las **5 categorías de autor exclusivas**:
+   * Presentación de las **4 categorías de autor exclusivas**:
      1. *Cuadros* (acrílicos y técnicas mixtas sobre lino crudo)
-     2. *Ropa* (prendas de autor con bordados y tintes botánicos)
-     3. *Peluches* (figuras textiles bordadas coleccionables)
-     4. *Resina* (posavasos, aretes, dijes y encapsulados botánicos)
-     5. *Cemento blanco* (floreros escultóricos, bandejas onduladas y portavelas)
+     2. *Estampados* (diseños ilustrados de autor aplicados a prendas y piezas textiles)
+     3. *Resina* (posavasos, aretes, dijes y encapsulados botánicos)
+     4. *Cemento blanco* (floreros escultóricos, bandejas onduladas y portavelas)
    * Selección de Obras y Objetos Destacados con etiquetado dinámico.
    * Manifiesto de taller *"El mar y la materia orgánica como lenguaje de calma"*.
    * Bloque de validación social y testimonios de compradores reales.

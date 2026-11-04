@@ -71,12 +71,11 @@ export interface DesignTokens {
 // ============================================================================
 
 /**
- * Las 5 disciplinas exclusivas de autor definidas para la marca
+ * Las 4 disciplinas exclusivas de autor definidas para la marca
  */
 export type ProductCategory = 
   | 'cuadros'        // Acrílicos y técnicas mixtas sobre lino crudo
-  | 'ropa'           // Prendas de autor con bordados y tintes botánicos
-  | 'peluches'       // Figuras textiles coleccionables rellenas a mano
+  | 'estampados'     // Diseños ilustrados de autor aplicados a prendas y piezas textiles
   | 'resina'         // Posavasos, aretes, dijes y encapsulados botánicos
   | 'cemento_blanco'; // Floreros escultóricos, bandejas onduladas y portavelas
 

@@ -107,7 +107,7 @@ export default function TiendaPrototype() {
       <div className="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-primary-fixed/30 filter blur-3xl pointer-events-none" />
       <div className="absolute right-12 top-10 w-48 h-48 rounded-full bg-tertiary-fixed/30 filter blur-2xl pointer-events-none" />
       </section>
-      { /* Category Pills Tabs (5 Official Categories) */ }
+      { /* Category Pills Tabs (4 Official Categories) */ }
       <section className="mb-8">
       <div className="flex items-center justify-between pb-3 mb-4">
       <h2 className="font-headline-sm text-headline-sm text-secondary tracking-tight">
@@ -129,15 +129,10 @@ export default function TiendaPrototype() {
       <MaterialSymbol className="material-symbols-outlined text-[18px]" data-icon="palette">palette</MaterialSymbol>
       <span>Cuadros</span>
       </button>
-      { /* Ropa */ }
+      { /* Estampados */ }
       <button className="px-5 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary transition-all duration-200 font-label-badge text-body-sm whitespace-nowrap flex items-center gap-2">
-      <MaterialSymbol className="material-symbols-outlined text-[18px]" data-icon="checkroom">checkroom</MaterialSymbol>
-      <span>Ropa</span>
-      </button>
-      { /* Peluches */ }
-      <button className="px-5 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary transition-all duration-200 font-label-badge text-body-sm whitespace-nowrap flex items-center gap-2">
-      <MaterialSymbol className="material-symbols-outlined text-[18px]" data-icon="cruelty_free">cruelty_free</MaterialSymbol>
-      <span>Peluches</span>
+      <MaterialSymbol className="material-symbols-outlined text-[18px]" data-icon="texture">texture</MaterialSymbol>
+      <span>Estampados</span>
       </button>
       { /* Resina */ }
       <button className="px-5 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary transition-all duration-200 font-label-badge text-body-sm whitespace-nowrap flex items-center gap-2">
@@ -340,7 +335,7 @@ export default function TiendaPrototype() {
       <div className="p-6 flex flex-col flex-grow justify-between">
       <div>
       <div className="flex items-center justify-between text-on-surface-variant font-caption text-caption mb-1.5">
-      <span>Categor&iacute;a: Peluches</span>
+      <span>Categor&iacute;a: Estampados</span>
       <span className="text-error font-medium">Edici&oacute;n limitada (12/12)</span>
       </div>
       <h3 className="font-headline-sm text-headline-sm text-on-surface line-through decoration-outline font-medium">
@@ -382,7 +377,7 @@ export default function TiendaPrototype() {
       <div className="p-6 flex flex-col flex-grow justify-between">
       <div>
       <div className="flex items-center justify-between text-on-surface-variant font-caption text-caption mb-1.5">
-      <span>Categor&iacute;a: Ropa &amp; Joyer&iacute;a</span>
+      <span>Categor&iacute;a: Resina Bot&aacute;nica</span>
       <span className="text-primary font-medium">Pieza ligera</span>
       </div>
       <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors font-medium">
