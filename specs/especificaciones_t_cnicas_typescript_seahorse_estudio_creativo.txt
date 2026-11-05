@@ -93,7 +93,6 @@ export interface ProductDimensions {
   readonly heightCm?: number;
   readonly depthCm?: number;
   readonly diameterCm?: number;
-  readonly weightGrams?: number;
 }
 
 export interface ProductPrice {
@@ -113,13 +112,12 @@ export interface ProductItem {
   readonly availability: ProductAvailability;
   readonly price: ProductPrice;
   readonly materials: readonly string[];
-  readonly curingDaysEstimate?: number; // Días de reposo/fraguado en taller
+  readonly makingDaysEstimate?: number; // Días de elaboracion en taller
   readonly description: string;
   readonly editorialNotes?: string;
   readonly primaryImageUrl: string;
   readonly galleryImageUrls: readonly string[];
   readonly dimensions?: ProductDimensions;
-  readonly isLimitedEdition?: boolean;
   readonly editionTotalCount?: number;
   readonly editionCurrentNumber?: number;
   readonly createdAt: string; // ISO 8601
@@ -130,14 +128,14 @@ export interface ProductItem {
 // 3. MÓDULO DE CO-CREACIÓN Y PERSONALIZACIÓN (TALLER INTERACTIVO)
 // ============================================================================
 
-export type CustomSupportType = 
-  | 'cuadro_lino'
+export type CustomSupportType =    /*Por revisar*/
+  | 'cuadro'
   | 'florero_escultorico'
   | 'bandeja_posavasos'
   | 'peluche_autor'
   | 'prenda_bordada';
 
-export type CustomRawMaterialPalette = 
+export type CustomRawMaterialPalette =    /*Por revisar*/
   | 'pigmentos_oceano'
   | 'botanica_marina_encapsulada'
   | 'destellos_oro_cobre'
@@ -175,7 +173,7 @@ export interface CartLineItem {
   readonly category: ProductCategory;
   readonly unitPriceCop: number;
   readonly quantity: number;
-  readonly curingDaysEstimate?: number;
+  readonly makingDaysEstimate?: number;
   readonly primaryImageUrl: string;
   readonly subtotalCop: number;
 }
@@ -214,7 +212,6 @@ export type PaymentStatus =
 
 export interface FinancialBreakdown {
   readonly itemsSubtotalCop: number;
-  readonly curatedPackagingFeeCop: number; // Empaque especial artesanal
   readonly domesticShippingFeeCop: number;  // Flete nacional cotizado
   readonly totalCop: number;
 }

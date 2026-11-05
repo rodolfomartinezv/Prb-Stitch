@@ -7,7 +7,7 @@ import { PrototypePage } from "./prototype-page";
 
 export default function DashboardPrototype() {
   return (
-    <PrototypePage className="prototype-route-dashboard h-full bg-background text-on-surface h-full flex flex-col overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container font-body-md text-body-md bg-background text-on-surface">
+    <PrototypePage className="prototype-route-dashboard min-h-screen flex flex-col overflow-x-hidden bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container font-body-md text-body-md">
       <>{ /* TOP APP BAR (from Shared Components JSON Blueprint) */ }
       <header className="bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-md text-primary dark:text-inverse-primary docked full-width top-0 sticky z-50 shadow-sm dark:shadow-none">
       <div className="flex justify-between items-center w-full px-6 lg:px-12 py-4 max-w-7xl mx-auto">

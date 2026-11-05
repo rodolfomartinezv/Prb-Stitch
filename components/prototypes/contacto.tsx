@@ -7,7 +7,7 @@ import { PrototypePage } from "./prototype-page";
 export default function ContactoPrototype() {
   return (
     <PrototypePage className="prototype-route-contacto scroll-smooth bg-background text-on-surface antialiased min-h-screen flex flex-col selection:bg-primary-container/30 selection:text-primary">
-      <>{ /* TOP APP BAR */ }
+      <><div className="flex flex-col flex-grow">{ /* TOP APP BAR */ }
       <header className="docked full-width top-0 sticky z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
       <div className="flex justify-between items-center w-full px-6 lg:px-12 py-4 max-w-7xl mx-auto">
       { /* Brand Logo & Identity */ }
@@ -335,8 +335,9 @@ export default function ContactoPrototype() {
       </div>
       </section>
       </main>
+      </div>
       { /* FOOTER OFICIAL SEAHORSE */ }
-      <footer className="full-width bg-surface-container border-t border-outline-variant/20 mt-16">
+      <footer className="full-width bg-surface-container border-t border-outline-variant/20 mt-auto">
       <div className="flex flex-col md:flex-row justify-between items-center w-full px-6 lg:px-12 py-8 max-w-7xl mx-auto gap-4">
       { /* Logo & Copyright */ }
       <div className="flex flex-col md:flex-row items-center gap-3 text-center md:text-left">

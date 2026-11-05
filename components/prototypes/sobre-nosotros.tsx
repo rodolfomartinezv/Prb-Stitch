@@ -4,8 +4,8 @@ import { PrototypePage } from "./prototype-page";
 
 export default function SobreNosotrosPrototype() {
   return (
-    <PrototypePage className="prototype-route-sobre-nosotros scroll-smooth bg-background text-on-surface antialiased font-body-md text-body-md selection:bg-primary-container selection:text-surface-container-lowest">
-      <>{ /* TOP APP BAR */ }
+    <PrototypePage className="prototype-route-sobre-nosotros scroll-smooth bg-background text-on-surface antialiased font-body-md text-body-md selection:bg-primary-container selection:text-surface-container-lowest min-h-screen flex flex-col">
+      <><div className="flex flex-col flex-grow">{ /* TOP APP BAR */ }
       <header className="docked full-width top-0 sticky z-50 bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-md border-b border-outline-variant/30 dark:border-outline/20 shadow-sm dark:shadow-none">
       <div className="flex justify-between items-center w-full px-6 lg:px-12 py-4 max-w-7xl mx-auto">
       { /* Brand & Emblema */ }
@@ -61,7 +61,7 @@ export default function SobreNosotrosPrototype() {
       </div>
       </header>
       { /* MAIN CANVAS */ }
-      <main className="w-full overflow-hidden">
+      <main className="flex-grow w-full overflow-hidden">
       { /* HERO EDITORIAL & MANIFIESTO APERTURA */ }
       <section className="relative pt-12 md:pt-20 pb-16 md:pb-24 px-6 lg:px-12 max-w-7xl mx-auto">
       { /* Decoración acuática y orgánica sutil */ }
@@ -409,8 +409,9 @@ export default function SobreNosotrosPrototype() {
       </div>
       </section>
       </main>
+      </div>
       { /* FOOTER EDITORIAL */ }
-      <footer className="bg-surface-container dark:bg-inverse-surface border-t border-outline-variant/20 dark:border-outline/10">
+      <footer className="bg-surface-container dark:bg-inverse-surface border-t border-outline-variant/20 dark:border-outline/10 mt-auto">
       <div className="flex flex-col md:flex-row justify-between items-center w-full px-6 lg:px-12 py-8 max-w-7xl mx-auto gap-4">
       { /* Brand & Copyright */ }
       <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">

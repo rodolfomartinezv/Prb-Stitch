@@ -377,6 +377,18 @@ import type { MouseEvent as ReactMouseEvent } from "react";
       const activeStep = document.getElementById(`custom-step-${stepNum}`);
       if (activeStep) activeStep.classList.remove('hidden');
 
+      if (stepNum === 5) {
+        const category = document.querySelector<HTMLInputElement>('input[name="custom_category"]:checked')?.value || 'Sin seleccionar';
+        const palette = document.querySelector<HTMLInputElement>('#custom-color-palette')?.value.trim();
+        const customText = document.querySelector<HTMLInputElement>('#custom-text-field')?.value.trim();
+        const summary = document.getElementById('custom-summary-text');
+        const details = [
+          palette && `Colores preferidos: ${palette}`,
+          customText && `Texto a incluir: ${customText}`,
+        ].filter(Boolean);
+        if (summary) summary.textContent = [`Categoría: ${category}`, ...details].join(' · ');
+      }
+
       // Actualizar markers
       for (let i = 1; i <= 5; i++) {
         const marker = document.getElementById(`step-marker-${i}`);
@@ -415,7 +427,8 @@ import type { MouseEvent as ReactMouseEvent } from "react";
       const success = document.getElementById('custom-success-msg');
       if (mode === 'whatsapp') {
         const phone = '573000000000';
-        const msg = encodeURIComponent("¡Hola Andrea! Acabo de completar el formulario en tu taller web para encargar una pieza personalizada de Seahorse.");
+        const summary = document.getElementById('custom-summary-text')?.textContent || '';
+        const msg = encodeURIComponent(`¡Hola Andrea! Acabo de completar el formulario en tu taller web para encargar una pieza personalizada de Seahorse. ${summary}`);
         window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
       }
       if (success) success.classList.remove('hidden');

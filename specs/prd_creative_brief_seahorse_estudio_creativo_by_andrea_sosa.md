@@ -11,10 +11,10 @@ A diferencia de los entornos genéricos de e-commerce masivo, la plataforma fusi
 ---
 
 ### 2. Objetivos Estratégicos & Métricas Clave (OKRs / KPIs)
-1. **Posicionamiento de Marca:** Elevar el valor percibido del trabajo artesanal de Andrea Sosa, proyectando exclusividad, autoría y trazabilidad de materiales nobles.
+1. **Posicionamiento de Marca:** Elevar el valor percibido del trabajo artesanal de Andrea Sosa, proyectando exclusividad.
 2. **Conversión y Retención:** Facilitar un proceso de compra claro, transparente y de fricción reducida para clientes de 18 a 60 años.
 3. **Canal de Co-creación (Personaliza):** Capturar prospectos de alto valor para piezas personalizadas conectando el configurador interactivo con atención directa vía WhatsApp.
-4. **Eficiencia Operativa:** Unificar la gestión de pedidos, tiempos de fraguado/secado en taller y despacho con transportadoras oficiales mediante un Dashboard Administrativo privado.
+4. **Eficiencia Operativa:** Unificar la gestión de pedidos, tiempos de elaboración en taller y despacho con transportadoras oficiales mediante un Dashboard Administrativo privado.
 
 #### KPIs de Medición:
 * **Tasa de conversión de catálogo a carrito:** Meta ≥ 3.2%
@@ -27,12 +27,7 @@ A diferencia de los entornos genéricos de e-commerce masivo, la plataforma fusi
 ### 3. Audiencia Objetivo & Arquetipos de Usuario
 * **Rango etario:** 18 a 60 años.
 * **Ubicación:** Residentes en las principales ciudades y regiones de Colombia (Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, etc.) y colombianos en el exterior que envían detalles a sus familias.
-* **Intereses:** Arte contemporáneo, biofilia marina, interiorismo, decoración curada, objetos sostenibles con relato y regalos memorables fuera de serie.
-
-#### Personas:
-1. **La Coleccionista Estética (Camila, 34 años):** Busca piezas únicas para ambientar su hogar. Valora la historia de los materiales (cemento blanco, resinas cristalinas, botánica preservada) y prefiere pagar de inmediato con PSE o tarjeta.
-2. **El Comprador de Regalos Especiales (Julián, 42 años):** Desea obsequiar algo exclusivo que no se encuentre en grandes superficies. Utiliza el módulo de personalización para encargar un cuadro sobre lino con dedicatoria en bajorrelieve.
-3. **La Administradora & Artista (Andrea Sosa):** Requiere una interfaz gerencial limpia para revisar pagos recibidos por Nequi/Mercado Pago, generar guías de Coordinadora/Servientrega e inspeccionar el estado de curado de las piezas en taller.
+* **Intereses:** Arte contemporáneo, interiorismo, objetos religiosos, decoración curada y regalos memorables fuera de serie.
 
 ---
 
@@ -83,29 +78,26 @@ A diferencia de los entornos genéricos de e-commerce masivo, la plataforma fusi
 3. **Personaliza / Taller Interactivo (`/personaliza`):**
    * Configurador sensorial guiado en 5 fases secuenciales:
      * *Paso 1:* Tipo de soporte base (con precios base referenciales).
-     * *Paso 2:* Paleta cromática y materias primas (pigmentos marinos, botánica, hojilla de oro, cemento marfil).
-     * *Paso 3:* Dimensiones sugeridas, ocasión de la pieza y dedicatoria/grabado en bajorrelieve.
+     * *Paso 2:* Paleta cromática y materias primas.
+     * *Paso 3:* Dimensiones sugeridas, ocasión de la pieza y dedicatoria/grabado.
      * *Paso 4:* Carga drag & drop de imágenes de referencia o fotografías del espacio a decorar.
      * *Paso 5:* Datos de contacto, ciudad en Colombia y llamada dual: Envío de solicitud web o apertura asistida de chat en WhatsApp con Andrea Sosa.
    * Galería de casos previos de clientes con testimonio y especificaciones técnicas.
 
 4. **Sobre Nosotros / Manifiesto de Taller (`/sobre-nosotros`):**
    * Historia curatorial de Andrea Sosa y propósito del taller en Colombia.
-   * Los 5 pilares de materiales respetuosos (resina no tóxica con filtro UV, cemento arquitectónico, lino crudo, fibras textiles, pigmentos de tierra).
-   * Trazabilidad fotográfica en 4 etapas: Mezclado, Vaciado gravitacional, Afinación táctil y Curaduría con sello de lacre.
-   * Compromisos sostenibles: empaques 100% compostables, residuo cero de mezclas y comercio ético con tejedoras aliadas.
-
+  
 5. **Contacto & Atelier Directo (`/contacto`):**
-   * Datos de atención directa: Taller físico en Bogotá D.C., WhatsApp oficial (+57 311 849 2011), correo y horarios de atención.
+   * Datos de atención directa: Taller físico en Bogotá D.C., WhatsApp oficial (+57 315 802 5407), correo y horarios de atención.
    * Formulario estructurado con selector de motivo de consulta.
    * Módulo de Preguntas Frecuentes (acordeón interactivo para envíos, cuidados de piezas y garantías).
    * Respaldo logístico nacional de transportadoras.
 
-6. **Bolsa & Checkout Integrado (`/carrito`):**
-   * Inspección de obras seleccionadas (cantidades, tiempos de secado en taller, importes unitarios en COP).
+6. **Carrito & Checkout Integrado (`/carrito`):**
+   * Inspección de obras seleccionadas (cantidades, tiempos de elaboración en taller, importes unitarios en COP).
    * Formulario de entrega adaptado a nomenclatura urbana colombiana (Carrera, Calle, Avenida, Apto/Torre, Ciudad y Departamento).
    * Selección de empresa de encomienda de preferencia: **Coordinadora, Servientrega o Inter Rapidísimo**.
-   * Resumen financiero transparente: desglose de subtotal de piezas, embalaje especial curado y flete nacional.
+   * Resumen financiero transparente: desglose de subtotal de piezas y flete nacional.
    * Pasarelas de pago colombianas integradas: **Mercado Pago** (tarjetas/PSE), **Nequi** (notificación Push / QR) y **Daviplata**.
 
 #### 5.2 Entorno Administrativo Privado (Backoffice)
@@ -124,7 +116,7 @@ A diferencia de los entornos genéricos de e-commerce masivo, la plataforma fusi
 * **RF-01:** Todos los precios deben expresarse en Pesos Colombianos (**COP**) con separador de miles por punto (ej. `$65.000 COP`).
 * **RF-02:** Los estados de producto deben condicionar la llamada a la acción:
   * *Disponible:* Agregar al carrito de manera inmediata.
-  * *Bajo pedido:* Solicitud de encargo con advertencia de tiempo de fraguado (ej. 5 a 8 días hábiles).
+  * *Bajo pedido:* Solicitud de encargo con advertencia de tiempo de elaboración (ej. 5 a 8 días hábiles).
   * *Personalizable:* Redirección al flujo de personalización con parámetros precargados.
   * *Agotado:* Botón de suscripción a notificación por correo o WhatsApp.
 
@@ -138,7 +130,7 @@ A diferencia de los entornos genéricos de e-commerce masivo, la plataforma fusi
 
 #### 6.3 Módulo de Personalización
 * **RF-06:** Soporte para adjuntar archivos fotográficos (JPG, PNG, PDF de hasta 20 MB).
-* **RF-07:** Generación automática de mensaje preformateado para WhatsApp Business con el resumen de la selección del cliente y ссылка de seguimiento.
+* **RF-07:** Generación automática de mensaje preformateado para WhatsApp Business con el resumen de la selección del cliente y guiа de seguimiento.
 
 #### 6.4 Panel de Control & Auditoría
 * **RF-08:** Acceso con autenticación multifactor (MFA).

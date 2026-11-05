@@ -5,7 +5,7 @@ import { PrototypePage } from "./prototype-page";
 export default function TiendaPrototype() {
   return (
     <PrototypePage className="prototype-route-tienda scroll-smooth bg-background text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen flex flex-col font-body-md text-body-md">
-      <>{ /* TopNavBar (Shared Component) */ }
+      <><div className="flex flex-col flex-grow">{ /* TopNavBar (Shared Component) */ }
       <header className="bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-md docked full-width top-0 sticky z-50 shadow-sm dark:shadow-none">
       <div className="flex justify-between items-center w-full px-6 lg:px-12 py-4 max-w-7xl mx-auto">
       { /* Brand Logo / Seal */ }
@@ -478,6 +478,7 @@ export default function TiendaPrototype() {
       </div>
       </section>
       </main>
+      </div>
       { /* Footer (Shared Component) */ }
       <footer className="bg-surface-container dark:bg-inverse-surface border-t border-outline-variant/20 dark:border-outline/10 mt-auto">
       <div className="flex flex-col md:flex-row justify-between items-center w-full px-6 lg:px-12 py-8 max-w-7xl mx-auto gap-4">

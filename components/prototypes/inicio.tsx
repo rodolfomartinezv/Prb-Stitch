@@ -17,14 +17,11 @@ export default function InicioPrototype() {
       <div className="flex justify-between items-center w-full px-6 lg:px-12 py-4 max-w-7xl mx-auto">
       { /* Brand Logo & Isotype */ }
       <a className="flex items-center gap-3 group transition-transform active:scale-95" href="#" onClick={event => { event.preventDefault(); navigateTo('home'); }}>
-      <div className="w-11 h-11 rounded-full p-1 bg-surface-container-lowest border border-outline-variant/20 shadow-sm flex items-center justify-center overflow-hidden">
+      <div className="w-20 h-20 rounded-full p-1 bg-surface-container-lowest border border-outline-variant/20 shadow-sm flex items-center justify-center overflow-hidden">
       <img alt="Logotipo oficial Seahorse Estudio Creativo by Andrea Sosa" className="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbYa50HIwq_N1cUX6eP-g5MjqBAyJriFiaGjUg2XTSn7qGDhwXkHJTefH53FTtjS9ya_AzFGcB_-dHeAivThW9rWsAo-JGTrIKNb0X_krF-dLOy8pn43bGSxkB6W9x4DeK2-fk2uiRY-qKGdF0tnn0Gk5Qjd0Sz3zMp7C71vP1SzDrxalrksF5vQhrGIh5RsGbuUgsfNVOi_2ch1aRBre1QQUCIVGN6YFWLBv7MtW2gh_6BKetO2yk" />
       </div>
-      <div className="flex flex-col">
-      <span className="font-headline-md text-headline-md text-secondary dark:text-secondary-fixed tracking-tight font-medium leading-none">
-                  SEAHORSE
-                </span>
-      <span className="font-caption text-caption text-outline tracking-wider uppercase mt-0.5">Estudio Creativo &middot; by Andrea Sosa</span>
+      <div className="w-40 h-14 flex items-center">
+      <img alt="Seahorse Estudio Creativo by Andrea Sosa" className="w-full h-full object-contain object-left" src="/images/Tipografia%20Seahorse.png" />
       </div>
       </a>
       { /* Desktop Navigation Links (Direct match from Shared JSON) */ }
@@ -137,12 +134,12 @@ export default function InicioPrototype() {
       <div className="relative mx-auto max-w-md lg:max-w-none">
       { /* Sello distintivo flotante de Andrea Sosa */ }
       <div className="absolute -top-4 -right-4 z-20 w-24 h-24 rounded-full bg-surface-container-lowest/95 backdrop-blur-md p-3 artistic-shadow-2 flex flex-col items-center justify-center text-center border border-outline-variant/20 rotate-6">
-      <img alt="Sello oficial Seahorse Estudio Creativo by Andrea Sosa" className="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbYa50HIwq_N1cUX6eP-g5MjqBAyJriFiaGjUg2XTSn7qGDhwXkHJTefH53FTtjS9ya_AzFGcB_-dHeAivThW9rWsAo-JGTrIKNb0X_krF-dLOy8pn43bGSxkB6W9x4DeK2-fk2uiRY-qKGdF0tnn0Gk5Qjd0Sz3zMp7C71vP1SzDrxalrksF5vQhrGIh5RsGbuUgsfNVOi_2ch1aRBre1QQUCIVGN6YFWLBv7MtW2gh_6BKetO2yk" />
+      <img alt="Sello oficial Seahorse Estudio Creativo by Andrea Sosa" className="w-14 h-14 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbYa50HIwq_N1cUX6eP-g5MjqBAyJriFiaGjUg2XTSn7qGDhwXkHJTefH53FTtjS9ya_AzFGcB_-dHeAivThW9rWsAo-JGTrIKNb0X_krF-dLOy8pn43bGSxkB6W9x4DeK2-fk2uiRY-qKGdF0tnn0Gk5Qjd0Sz3zMp7C71vP1SzDrxalrksF5vQhrGIh5RsGbuUgsfNVOi_2ch1aRBre1QQUCIVGN6YFWLBv7MtW2gh_6BKetO2yk" />
       <span className="text-[9px] font-label-badge text-secondary font-bold tracking-tight uppercase mt-0.5">Original</span>
       </div>
       { /* Imagen Principal de Inspiración del Taller */ }
       <div className="w-full aspect-[4/3] rounded-3xl overflow-hidden artistic-shadow-2 border border-outline-variant/20 relative group bg-surface-container-low">
-      <img alt="Florero blanco y vela sobre una bandeja rosa, junto a un cuadro de flores artesanales." className="w-full h-full object-contain object-center" src="/images/florero y cuadro.jpg" />
+      <img alt="Florero y cuadro" className="w-full h-full object-contain object-center" src="/images/florero y cuadro.jpg" />
       <div className="absolute inset-0 bg-gradient-to-t from-on-surface/50 via-transparent to-transparent opacity-60" />
       <div className="absolute bottom-6 left-6 right-6 text-surface-container-lowest">
       </div>
@@ -162,24 +159,24 @@ export default function InicioPrototype() {
                     </h2>
       </div>
       <p className="font-body-sm text-body-sm text-on-surface-variant max-w-md mt-2 md:mt-0">
-                    Explora universos t&aacute;ctiles creados para convivir en tus espacios cotidianos con belleza y calidez.
+                    Explora universos t&aacute;ctiles creados para convivir en tus espacios cotidianos con belleza o para regalar a quienes amas.
                   </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       { /* 1. Cuadros */ }
       <div className="group cursor-pointer rounded-2xl bg-surface-container-lowest p-4 artistic-shadow-1 hover:artistic-shadow-2 transition-all duration-300 border border-outline-variant/15 flex flex-col" onClick={event => { filterCatalog('Cuadros'); }}>
       <div className="w-full aspect-square rounded-xl overflow-hidden relative mb-4 bg-surface-container">
-      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Contemporary mixed media canvas artwork hanging in a gallery. Features soft botanical acrylic paint strokes, intricate organic thread embroidery, and oceanic turquoise and ivory textures. Bright soft studio illumination showcasing tactile relief and handmade details with modern art collector refinement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOZMgHnrriMtymY1WwXu7ag8Sv8LWi7ifHwoz2ulrABTbnCfDMxDAAsqnh6GSm99fGRxOjAUtO-plxOPfgIFumxt9aCnMvZS-kCvggaU-iTcS8OcEbbXgv2x_uaZscwAkHtlr8D-zk1Wak5iz_anWKtbZzUT47FyHMJ_oa1Dmy8zYp69km89e6Ev93OVsO100MCWTbehf5pk2JqoSeU_B7lQNEtpe4oOycNOPbu0Y" />
+      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Cuadro corazon" src="images/01cf20ba5ae58b56de15f51843dfc4d717eb5aa0e7.JPG"/>
       <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-secondary text-surface-container-lowest text-[11px] font-label-badge font-bold">Cat. 01</span>
       </div>
       <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Cuadros</h3>
-      <p className="font-caption text-caption text-outline mt-1 flex-grow">Arte textil, bot&aacute;nico y acr&iacute;licos sobre lienzo de lino crudo.</p>
-      <span className="font-label-badge text-caption text-primary flex items-center gap-1 mt-3">Ver 12 obras <MaterialSymbol className="material-symbols-outlined text-[14px]">arrow_forward</MaterialSymbol></span>
+      <p className="font-caption text-caption text-outline mt-1 flex-grow">Siluetas en papel de distintos colores en marcos de madera y acrílico.</p>
+      <span className="font-label-badge text-caption text-primary flex items-center gap-1 mt-3">Ver obras <MaterialSymbol className="material-symbols-outlined text-[14px]">arrow_forward</MaterialSymbol></span>
       </div>
       { /* 2. Estampados */ }
       <div className="group cursor-pointer rounded-2xl bg-surface-container-lowest p-4 artistic-shadow-1 hover:artistic-shadow-2 transition-all duration-300 border border-outline-variant/15 flex flex-col" onClick={event => { filterCatalog('Estampados'); }}>
       <div className="w-full aspect-square rounded-xl overflow-hidden relative mb-4 bg-surface-container">
-      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Diseños ilustrados de autor aplicados a textiles, con motivos costeros y marinos sobre lino claro." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGHQCkhZZn-GX_Eu8WSCe42RIPqpSiN0Moc_dqv68ID1apeGqDTwLS7Lhdq0bRcMaWtVmvg6jZ3LAPe3Xk8RmO-fRCnY0zzmW4sAW0Wm6w3MFIQNf0nR5H_WQrCzHeq4kxINBRbu6RMQQzNe1A2IreDNQYqUsg7FRWrFO857ryQzSmDMGE2py6RvLZuLb92R_jMrdbcY3Lph0NHVeH0YZAzqxe2UVKV9wqMBjdaXA" />
+      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Estampados en tela para ropa o peluches" src="images/01a684720d54dc1d2cea2c0c1486cf69f57f8f3ab0.JPG" />
       <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-secondary text-surface-container-lowest text-[11px] font-label-badge font-bold">Cat. 02</span>
       </div>
       <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Estampados</h3>
@@ -193,7 +190,7 @@ export default function InicioPrototype() {
       <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-secondary text-surface-container-lowest text-[11px] font-label-badge font-bold">Cat. 03</span>
       </div>
       <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Resina</h3>
-      <p className="font-caption text-caption text-outline mt-1 flex-grow">Llaveros encapsulados, aretes bot&aacute;nicos y posavasos art&iacute;sticos.</p>
+      <p className="font-caption text-caption text-outline mt-1 flex-grow">Llaveros, aretes, juegos y objetos decorativos para el hogar.</p>
       <span className="font-label-badge text-caption text-primary flex items-center gap-1 mt-3">Ver piezas <MaterialSymbol className="material-symbols-outlined text-[14px]">arrow_forward</MaterialSymbol></span>
       </div>
       { /* 4. Cemento blanco */ }
@@ -224,11 +221,11 @@ export default function InicioPrototype() {
       </button>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="featured-products-grid">
-      { /* Item 1: Resina */ }
+      { /* Item 1: Cuadro Virgen */ }
       <div className="group bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/15 artistic-shadow-1 hover:artistic-shadow-2 transition-all flex flex-col justify-between">
       <div>
       <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-4 bg-surface-container-low">
-      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High angle shot of a luxury resin botanical coaster duo with blue hydrangeas and genuine gold leaf inclusions set against pale linen fabric. Crystal clarity, clean reflections, elegant high-end home decor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_nDCohobTa2LsJ_VLo4-dDDORgM65RoOOVrmKetgFIWB9R7wXe0PmU240cx9HOL0zgg85eIDyIKouw2Nd65If_H2ghLe2RzVnhlTjqCs1qaQ-RHMJkAheBHgnLTnajFT6eQUKNSiR_bVsONDbI_THI7HtHOPynglu3q64I0FyLLwG5f1PPFFCpT6dmtSRPEezVWeuvzVmwzeJxYj9W2XrOzbokRSSJQbogxcQlSQ" />
+      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Cuadro virgen" src="images/0197345be6c5208dd361de97febfb42531c7f40b63.JPG" />
       <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-label-badge uppercase tracking-wider bg-[#83D9D9]/40 text-[#173D68] font-bold">
                         Disponible
                       </span>
@@ -236,30 +233,30 @@ export default function InicioPrototype() {
       <MaterialSymbol className="material-symbols-outlined text-sm">favorite</MaterialSymbol>
       </button>
       </div>
-      <p className="font-caption text-caption text-outline">Resina Ep&oacute;xica &amp; Bot&aacute;nica</p>
-      <h3 className="font-headline-sm text-headline-sm text-on-surface mt-1 group-hover:text-primary transition-colors">Posavasos Oc&eacute;ano &amp; Hortensias</h3>
-      <p className="font-caption text-caption text-on-surface-variant line-clamp-2 mt-1">D&uacute;o de posavasos con flores naturales del oriente antioque&ntilde;o y destellos dorados.</p>
+      <p className="font-caption text-caption text-outline">Arte en papel</p>
+      <h3 className="font-headline-sm text-headline-sm text-on-surface mt-1 group-hover:text-primary transition-colors">Cuadros de la virgen</h3>
+      <p className="font-caption text-caption text-on-surface-variant line-clamp-2 mt-1">Tamaño 20 x 25 cm, marco en MDF, diseño personalizable</p>
       </div>
       <div className="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between">
       <div>
       <span className="text-[11px] text-outline block">Precio colombia</span>
-      <span className="font-label-price text-label-price text-on-surface font-semibold">$65.000 COP</span>
+      <span className="font-label-price text-label-price text-on-surface font-semibold">$140.000 COP</span>
       </div>
       <div className="flex gap-1.5">
-      <button className="w-9 h-9 rounded-full border border-outline-variant/40 flex items-center justify-center text-secondary hover:bg-surface-container transition-colors" onClick={event => { openProductModal('posavasos-oceano'); }} title="Vista r\xE1pida">
+      <button className="w-9 h-9 rounded-full border border-outline-variant/40 flex items-center justify-center text-secondary hover:bg-surface-container transition-colors" onClick={event => { openProductModal('cuadros-virgen'); }} title="Vista r\xE1pida">
       <MaterialSymbol className="material-symbols-outlined text-sm">visibility</MaterialSymbol>
       </button>
-      <button className="w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-surface-tint shadow-sm transition-transform active:scale-90" onClick={event => { addToCart('Posavasos Océano & Hortensias', 65000, 'Resina'); }} title="Agregar al carrito">
+      <button className="w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-surface-tint shadow-sm transition-transform active:scale-90" onClick={event => { addToCart('Cuadros de la virgen', 140000, 'Papel'); }} title="Agregar al carrito">
       <MaterialSymbol className="material-symbols-outlined text-sm">add</MaterialSymbol>
       </button>
       </div>
       </div>
       </div>
-      { /* Item 2: Cemento Blanco */ }
+      { /* Item 2: Cuadro Amor */ }
       <div className="group bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/15 artistic-shadow-1 hover:artistic-shadow-2 transition-all flex flex-col justify-between">
       <div>
       <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-4 bg-surface-container-low">
-      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Handcrafted sculptural arch vase made of pure white cast concrete with an organic ribbed base holding delicate dried lavender stems. Minimalist architectural still life in warm sunny room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIRHsNj0FbSzjKSr8PQhpn6jOMnEbKMJFYjxR_7SPgXTqxdFjhon4d0j6HsYtakuFKECaO1_rmRiNOA9gO5fgYImCQrMO9a8pvGE851WYCIkqxIj_RYdnXpKP-3Vse3UAltvHw0KgcmU16ng9CZ900JgWxYWx61mOUdSzSZ6THNQrs20SiVshzSCwlGD8pzkSFUjiVGdu0AWOicVhUBpKCn9CkoqcarCEHmVdEDL0" />
+      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Cuadro amor" src="images/01cf20ba5ae58b56de15f51843dfc4d717eb5aa0e7.JPG" />
       <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-label-badge uppercase tracking-wider bg-[#F5D35E]/40 text-[#281B18] font-bold">
                         Bajo pedido
                       </span>
@@ -267,9 +264,9 @@ export default function InicioPrototype() {
       <MaterialSymbol className="material-symbols-outlined text-sm">favorite</MaterialSymbol>
       </button>
       </div>
-      <p className="font-caption text-caption text-outline">Cemento Blanco Sellado</p>
-      <h3 className="font-headline-sm text-headline-sm text-on-surface mt-1 group-hover:text-primary transition-colors">Florero Escult&oacute;rico Arco Sol</h3>
-      <p className="font-caption text-caption text-on-surface-variant line-clamp-2 mt-1">Moldeado a mano en cemento blanco de alta densidad y acabado satinado hidr&oacute;fugo.</p>
+      <p className="font-caption text-caption text-outline">Arte en papel</p>
+      <h3 className="font-headline-sm text-headline-sm text-on-surface mt-1 group-hover:text-primary transition-colors">Cuadro Amor</h3>
+      <p className="font-caption text-caption text-on-surface-variant line-clamp-2 mt-1">Tamaño 20 x 25 cm, marco en MDF, ideal para regalar a quien mas quieres.</p>
       </div>
       <div className="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between">
       <div>
@@ -290,7 +287,8 @@ export default function InicioPrototype() {
       <div className="group bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/15 artistic-shadow-1 hover:artistic-shadow-2 transition-all flex flex-col justify-between">
       <div>
       <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-4 bg-surface-container-low">
-      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Original contemporary painting framed in natural light oak, presenting stylized seahorses, coastal botanical shapes, soft gold ink, and deep ocean blue mixed media relief on linen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsOPrVQEn0VNpT_CdIP_IFypkRRD1eL99MQuqXTMF_aoeRsTFPKDS1PfxSoxW_NkmHppSSnr3dpOvYDnjJ9A942-Fvn-ZbnYtR97sagb2Axr8mSO4E-ckc3n0R4ImIh4VxlYjt4jEmN43W4F0CUQ0y9o7uJB6LsQx4dYqXT7tda-HZYamkeRGNCo6TRex9zAfM3W4Q1gp1YYjy2N-d0x4ZgW1MVN_oqNSO719AYUQ" />
+      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Handcrafted sculptural arch vase made of pure white cast concrete with an organic ribbed base holding delicate dried lavender stems. Minimalist architectural still life in warm sunny room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIRHsNj0FbSzjKSr8PQhpn6jOMnEbKMJFYjxR_7SPgXTqxdFjhon4d0j6HsYtakuFKECaO1_rmRiNOA9gO5fgYImCQrMO9a8pvGE851WYCIkqxIj_RYdnXpKP-3Vse3UAltvHw0KgcmU16ng9CZ900JgWxYWx61mOUdSzSZ6THNQrs20SiVshzSCwlGD8pzkSFUjiVGdu0AWOicVhUBpKCn9CkoqcarCEHmVdEDL0" />
+
       <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-label-badge uppercase tracking-wider bg-[#B7A1DF]/40 text-[#173D68] font-bold">
                         Personalizable
                       </span>
@@ -298,9 +296,9 @@ export default function InicioPrototype() {
       <MaterialSymbol className="material-symbols-outlined text-sm">favorite</MaterialSymbol>
       </button>
       </div>
-      <p className="font-caption text-caption text-outline">Arte Textil &amp; Acr&iacute;lico</p>
-      <h3 className="font-headline-sm text-headline-sm text-on-surface mt-1 group-hover:text-primary transition-colors">Lienzo &apos;Mareas de Andrea&apos;</h3>
-      <p className="font-caption text-caption text-on-surface-variant line-clamp-2 mt-1">Obra original de 50x70cm con relieve textil y paleta marina de la firma.</p>
+      <p className="font-caption text-caption text-outline">Cemento Blanco Sellado</p>
+      <h3 className="font-headline-sm text-headline-sm text-on-surface mt-1 group-hover:text-primary transition-colors">Florero Escultórico</h3>
+      <p className="font-caption text-caption text-on-surface-variant line-clamp-2 mt-1">Moldeado a mano en cemento blanco de alta densidad y acabado satinado.</p>
       </div>
       <div className="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between">
       <div>
@@ -321,7 +319,7 @@ export default function InicioPrototype() {
       <div className="group bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/15 artistic-shadow-1 hover:artistic-shadow-2 transition-all flex flex-col justify-between">
       <div>
       <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-4 bg-surface-container-low">
-      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Artisan seahorse plush doll collector toy with hand-stitched coral embroidery, soft mint and lavender linen textures, and handcrafted whimsical eyes resting in a boutique basket." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDbP-QshmnxJKuvwvCpf0KNM0tGKUFLTMnYLgFOJsYBmEQj-SeVc8oPxX4chMgFrO3dBhxMGT0DzqVUn_L8QMTLfUvUdruezVPGxd56VJVbuU-cbQmElnbdGEdcfnSHAK4Qlcm43t9-LxJYU8bCO6c6d0wrATsL1KMlEvDWmZbbropHzjCdynUZWqbAYQx3vqhONOzRGyIYmcXCzZ5BC7oyn0yAeQKBZj7FzHrsCM" />
+      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Dominó" src="images/Domino.JPG" />
       <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-label-badge uppercase tracking-wider bg-surface-container text-outline line-through font-bold">
                         Agotado
                       </span>
@@ -329,9 +327,9 @@ export default function InicioPrototype() {
       <MaterialSymbol className="material-symbols-outlined text-sm">favorite</MaterialSymbol>
       </button>
       </div>
-      <p className="font-caption text-caption text-outline">Estampados textiles</p>
-      <h3 className="font-headline-sm text-headline-sm text-on-surface mt-1 group-hover:text-primary transition-colors">Caballito Textil &apos;Aureliano&apos;</h3>
-      <p className="font-caption text-caption text-on-surface-variant line-clamp-2 mt-1">Peluche de edici&oacute;n coleccionable con certificado de autor&iacute;a firmado.</p>
+      <p className="font-caption text-caption text-outline">Arte en resina para Juegos</p>
+      <h3 className="font-headline-sm text-headline-sm text-on-surface mt-1 group-hover:text-primary transition-colors">Dominó</h3>
+      <p className="font-caption text-caption text-on-surface-variant line-clamp-2 mt-1">Ideal para entretenimiento en tu hogar y como detalle.</p>
       </div>
       <div className="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between">
       <div>
@@ -360,7 +358,7 @@ export default function InicioPrototype() {
                       &iquest;Buscas una pieza irrepetible para un espacio o un regalo memorable?
                     </h2>
       <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl">
-                      En Seahorse Estudio Creativo co-creamos contigo. Elige gamas de color de temporada, flores bot&aacute;nicas encapsuladas de tus momentos especiales, leyendas grabadas o dimensiones especiales adaptadas a tu arquitectura interior.
+                      En Seahorse Estudio Creativo co-creamos contigo. Elige gamas de color de temporada, flores en papel de distintos colores, leyendas grabadas o dimensiones especiales adaptadas a tus necesidades.
                     </p>
       <div className="flex flex-wrap gap-4 pt-2">
       <button className="px-7 py-3 rounded-full bg-primary text-on-primary font-body-md font-medium hover:bg-surface-tint shadow-sm transition-all active:scale-95 flex items-center gap-2" onClick={event => { navigateTo('personaliza'); }}>
@@ -387,7 +385,7 @@ export default function InicioPrototype() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
       <div className="lg:col-span-5 order-2 lg:order-1">
       <div className="relative rounded-3xl overflow-hidden aspect-[4/5] artistic-shadow-2 border border-outline-variant/20">
-      <img className="w-full h-full object-cover" data-alt="Portrait of artist Andrea Sosa in her bright creative studio surrounded by drying resin art plates, natural paint pigment jars, and textile samples. Natural warm lighting, sincere creative expression, genuine handmade artisan atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL0nk9boD38NcI2YP-jWih5KyH6RDGFxZx7wGN4v9zwil2Vj3X-ZEtdFKvlrODDvwMufug9gqYc48c1j8CqpGB5lUcD-IMb7Nbn__6VOiLJIBEZWUmp7tPuTwKE1CYTYP6t0pCQ6ckag1hueBpOvKmikg718YR9R4ZS5yqo305Vfdq-73VWG_ADTETg0z21dYzdGSZkNGIXxIs2iv2wqb-4z-LAQfUgSguljlYrKE" />
+      <img className="w-full h-full object-cover" data-alt="Ilustracion Andrea Sosa" src="images/9C642C46-FF97-4F00-A976-005C189CF20E.PNG" />
       <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl glass-panel border border-outline-variant/30 text-on-surface">
       <p className="font-headline-sm text-headline-sm font-semibold text-secondary">Andrea Sosa</p>
       <p className="font-caption text-caption text-outline">Fundadora y Directora de Arte de Seahorse</p>
@@ -401,10 +399,10 @@ export default function InicioPrototype() {
                   </h2>
       <div className="space-y-4 font-body-md text-body-md text-on-surface-variant leading-relaxed">
       <p>
-                      Seahorse naci&oacute; como una b&uacute;squeda visceral por rescatar la cadencia lenta de los oficios artesanales en un entorno saturado de producci&oacute;n en serie. Cada objeto que sale de nuestro taller en Colombia lleva consigo horas de experimentaci&oacute;n qu&iacute;mica con resinas de alta pureza, pulido a mano de cementos arquitect&oacute;nicos y puntadas minuciosas en lino natural.
+                      Seahorse naci&oacute; como una b&uacute;squeda visceral por rescatar la cadencia lenta de los oficios artesanales en un entorno saturado de producci&oacute;n en serie. Cada objeto que sale de nuestro taller en Colombia lleva consigo horas de trabajo manual y experimentaci&oacute;n qu&iacute;mica con resinas de alta pureza y cementos arquitect&oacute;nicos, pulidos a mano.
                     </p>
       <p>
-                      El caballito de mar, s&iacute;mbolo central de nuestra identidad, representa la fragilidad resiliente, la fidelidad al detalle y la belleza de lo org&aacute;nico. No creamos productos descartables: concebimos compa&ntilde;eros de vida que aportan serenidad visual y memorias tangibles a tu hogar.
+                      El caballito de mar, s&iacute;mbolo central de nuestra identidad, representa la fragilidad resiliente, la fidelidad al detalle y la belleza de lo org&aacute;nico. No creamos productos descartables: concebimos compa&ntilde;eros de vida que aportan serenidad visual y memorias tangibles a tu hogar y a quienes desees regalar estas obras de arte.
                     </p>
       </div>
       <div className="pt-4 flex items-center gap-4">
@@ -416,7 +414,7 @@ export default function InicioPrototype() {
       </div>
       </div>
       </section>
-      { /* TESTIMONIOS REALES MOCKUP */ }
+      { /* TESTIMONIOS REALES MOCKUP 
       <section className="py-16 bg-surface-container-low px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
       <div className="text-center max-w-xl mx-auto mb-12">
@@ -424,7 +422,7 @@ export default function InicioPrototype() {
       <h2 className="font-headline-lg text-headline-lg text-on-surface font-semibold mt-2">Lo que dicen quienes habitan nuestras piezas</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      { /* Review 1 */ }
+      { /* Review 1 
       <div className="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 artistic-shadow-1 flex flex-col justify-between">
       <div className="space-y-3">
       <div className="flex text-amber-500 text-sm">
@@ -443,7 +441,7 @@ export default function InicioPrototype() {
       <p className="font-caption text-caption text-outline">Bogot&aacute; D.C. &middot; Compr&oacute; Set Resina</p>
       </div>
       </div>
-      { /* Review 2 */ }
+      { /* Review 2 
       <div className="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 artistic-shadow-1 flex flex-col justify-between">
       <div className="space-y-3">
       <div className="flex text-amber-500 text-sm">
@@ -462,7 +460,7 @@ export default function InicioPrototype() {
       <p className="font-caption text-caption text-outline">Medell&iacute;n, Antioquia &middot; Encargo a Medida</p>
       </div>
       </div>
-      { /* Review 3 */ }
+      { /* Review 3 
       <div className="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 artistic-shadow-1 flex flex-col justify-between">
       <div className="space-y-3">
       <div className="flex text-amber-500 text-sm">
@@ -484,6 +482,7 @@ export default function InicioPrototype() {
       </div>
       </div>
       </section>
+      </section>*/ }
       </section>
       { /* ================= VIEW 2: CATÁLOGO / TIENDA COMPLETA ================= */ }
       <section className="tab-content py-10 px-6 lg:px-12 max-w-7xl mx-auto" id="view-catalogo">
@@ -788,7 +787,7 @@ export default function InicioPrototype() {
       </div>
       <div>
       <h3 className="font-headline-sm text-headline-sm text-on-surface">Cuadros</h3>
-      <p className="text-caption text-outline mt-1">Lienzos textiles, acr&iacute;lico, pan de oro o bajo relieves bot&aacute;nicos.</p>
+      <p className="text-caption text-outline mt-1">Siluetas en papel de distintos colores en marcos de madera y acrílico.</p>
       </div>
       </label>
       <label className="custom-cat-card p-4 rounded-2xl border border-outline-variant/30 bg-surface-container-low cursor-pointer flex flex-col justify-between transition-all">
@@ -798,8 +797,8 @@ export default function InicioPrototype() {
       <span className="text-caption font-bold text-outline">02</span>
       </div>
       <div>
-      <h3 className="font-headline-sm text-headline-sm text-on-surface">Resina Bot&aacute;nica</h3>
-      <p className="text-caption text-outline mt-1">Bandejas, encapsulados conmemorativos de ramos de novia, posavasos.</p>
+      <h3 className="font-headline-sm text-headline-sm text-on-surface">Resina </h3>
+      <p className="text-caption text-outline mt-1">Llaveros, aretes, juegos y objetos decorativos para el hogar.</p>
       </div>
       </label>
       <label className="custom-cat-card p-4 rounded-2xl border border-outline-variant/30 bg-surface-container-low cursor-pointer flex flex-col justify-between transition-all">
@@ -810,7 +809,7 @@ export default function InicioPrototype() {
       </div>
       <div>
       <h3 className="font-headline-sm text-headline-sm text-on-surface">Cemento Blanco</h3>
-      <p className="text-caption text-outline mt-1">Floreros arquitect&oacute;nicos, portavelas o bandejas esculpidas.</p>
+      <p className="text-caption text-outline mt-1">Floreros geométricos, bandejas onduladas y portavelas artesanales.</p>
       </div>
       </label>
       <label className="custom-cat-card p-4 rounded-2xl border border-outline-variant/30 bg-surface-container-low cursor-pointer flex flex-col justify-between transition-all">
@@ -821,7 +820,7 @@ export default function InicioPrototype() {
       </div>
       <div>
       <h3 className="font-headline-sm text-headline-sm text-on-surface">Estampados</h3>
-      <p className="text-caption text-outline mt-1">Dise&ntilde;os ilustrados para prendas y piezas textiles.</p>
+      <p className="text-caption text-outline mt-1">Diseños ilustrados de autor aplicados a prendas y piezas textiles.</p>
       </div>
       </label>
       </div>
@@ -841,42 +840,8 @@ export default function InicioPrototype() {
       </div>
       <div className="space-y-5">
       <div>
-      <label className="block font-label-badge text-caption text-outline uppercase mb-2">Paleta de color preferida:</label>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-      <label className="p-3 rounded-xl border-2 border-primary bg-primary-fixed/20 cursor-pointer flex items-center gap-2">
-      <input defaultChecked={true} className="text-primary focus:ring-0" name="color_palette" type="radio" value="Marfil & Oc\xE9ano" />
-      <span className="font-body-sm text-on-surface">Marfil &amp; Oc&eacute;ano</span>
-      </label>
-      <label className="p-3 rounded-xl border border-outline-variant/30 bg-surface-container-low cursor-pointer flex items-center gap-2">
-      <input className="text-primary focus:ring-0" name="color_palette" type="radio" value="Coral & Atardecer" />
-      <span className="font-body-sm text-on-surface">Coral &amp; Atardecer</span>
-      </label>
-      <label className="p-3 rounded-xl border border-outline-variant/30 bg-surface-container-low cursor-pointer flex items-center gap-2">
-      <input className="text-primary focus:ring-0" name="color_palette" type="radio" value="Lavanda & Aguamarina" />
-      <span className="font-body-sm text-on-surface">Lavanda &amp; Aqua</span>
-      </label>
-      <label className="p-3 rounded-xl border border-outline-variant/30 bg-surface-container-low cursor-pointer flex items-center gap-2">
-      <input className="text-primary focus:ring-0" name="color_palette" type="radio" value="Monocrom\xE1tico Blanco" />
-      <span className="font-body-sm text-on-surface">Blanco Escult&oacute;rico</span>
-      </label>
-      </div>
-      </div>
-      <div>
-      <label className="block font-label-badge text-caption text-outline uppercase mb-2">Detalles bot&aacute;nicos o minerales:</label>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-      <label className="p-3 rounded-xl border border-outline-variant/30 bg-surface-container-low cursor-pointer flex items-center gap-2">
-      <input defaultChecked={true} className="text-primary rounded focus:ring-0" id="detail-foil" type="checkbox" />
-      <span className="font-body-sm text-on-surface">Hoja de oro / Foil met&aacute;lico</span>
-      </label>
-      <label className="p-3 rounded-xl border border-outline-variant/30 bg-surface-container-low cursor-pointer flex items-center gap-2">
-      <input defaultChecked={true} className="text-primary rounded focus:ring-0" id="detail-flores" type="checkbox" />
-      <span className="font-body-sm text-on-surface">Flores secas encapsuladas</span>
-      </label>
-      <label className="p-3 rounded-xl border border-outline-variant/30 bg-surface-container-low cursor-pointer flex items-center gap-2">
-      <input className="text-primary rounded focus:ring-0" id="detail-bordado" type="checkbox" />
-      <span className="font-body-sm text-on-surface">Relieve de hilo de seda</span>
-      </label>
-      </div>
+      <label className="block font-label-badge text-caption text-outline uppercase mb-2" htmlFor="custom-color-palette">Colores preferidos:</label>
+      <input className="w-full rounded-xl border-outline-variant/40 bg-surface-container-low text-body-sm p-3 focus:border-primary focus:ring-0" id="custom-color-palette" name="color_palette" placeholder="Ej.: azul petróleo, terracota y dorado" type="text" />
       </div>
       <div>
       <label className="block font-label-badge text-caption text-outline uppercase mb-2" htmlFor="custom-text-field">Texto, frase o nombres a incluir (opcional):</label>
@@ -896,7 +861,7 @@ export default function InicioPrototype() {
       <div className="border-b border-outline-variant/20 pb-4">
       <span className="font-label-badge text-caption text-secondary uppercase tracking-wider">Paso 3 de 5</span>
       <h2 className="font-headline-lg text-headline-lg text-on-surface font-semibold">Im&aacute;genes de referencia o espacio</h2>
-      <p className="font-body-sm text-body-sm text-outline mt-1">Comparte fotos de tu espacio, paleta de tu boda o bocetos visuales:</p>
+      <p className="font-body-sm text-body-sm text-outline mt-1">Comparte fotos de tu espacio, paleta o bocetos visuales:</p>
       </div>
       <div className="border-2 border-dashed border-primary/40 rounded-3xl p-8 text-center bg-surface-container-low/50 hover:bg-surface-container-low transition-colors">
       <MaterialSymbol className="material-symbols-outlined text-4xl text-primary mb-2">cloud_upload</MaterialSymbol>
@@ -975,7 +940,7 @@ export default function InicioPrototype() {
       { /* Resumen del requerimiento antes de enviar */ }
       <div className="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/20 text-body-sm">
       <span className="font-label-badge text-caption text-primary uppercase block mb-1">Resumen del encargo:</span>
-      <p className="text-on-surface-variant" id="custom-summary-text">Categor&iacute;a: Cuadros &middot; Gama: Marfil &amp; Oc&eacute;ano &middot; Detalles bot&aacute;nicos y pan de oro.</p>
+      <p className="text-on-surface-variant" id="custom-summary-text">Categor&iacute;a: Cuadros</p>
       </div>
       <div className="flex flex-col sm:flex-row gap-4 pt-4">
       <button className="flex-1 py-3.5 rounded-full bg-primary text-on-primary font-body-md font-semibold hover:bg-surface-tint shadow-md transition-all flex items-center justify-center gap-2" onClick={event => { submitCustomForm('formal'); }}>
@@ -1384,22 +1349,17 @@ export default function InicioPrototype() {
                   Seahorse Estudio Creativo by Andrea Sosa
                 </h1>
       <p className="font-body-md text-body-md text-on-surface-variant mt-3">
-                  Un refugio creativo donde convergen las artes pl&aacute;sticas, el dise&ntilde;o industrial y la ternura de la confecci&oacute;n artesanal.
+                  Un refugio creativo donde convergen las artes pl&aacute;sticas, el dise&ntilde;o industrial y el amor en cada objeto elaborado.
                 </p>
       </div>
       <div className="aspect-[16/9] rounded-3xl overflow-hidden artistic-shadow-2 border border-outline-variant/20 relative">
       <img className="w-full h-full object-cover" data-alt="Panoramic atelier studio view showing craft tables filled with cured botanical epoxy resin art pieces, sculpted white concrete vessels, and colorful thread embroidery hoops bathed in clean golden sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBniOE9C242FbihWh85IUdihipra89sNz37HnqqCtg3tktBe3T4KKi7FQYYdP_M36pfXCDQax9-Jw-JIqFbGy-hyDV1WLoyo2i-obwgj-Ljgf0q_9a6r-xlvgh5ohhLlTtji9qBwCiF0A-du2qBhrMWxFNEo7fzNNgJVmOSC_xv-JTQbHXWAdFsGjGTCQRRoTyoibssEaUTELBX8WwucjwdQzsPF72BCtypmhfVVsU" />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div className="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 artistic-shadow-1">
-      <MaterialSymbol className="material-symbols-outlined text-primary text-3xl mb-2">eco</MaterialSymbol>
-      <h3 className="font-headline-sm text-headline-sm font-semibold text-on-surface">Materiales Conscientes</h3>
-      <p className="font-body-sm text-body-sm text-outline mt-2">Resinas libres de solventes vol&aacute;tiles, cemento blanco nacional y textiles de fibras recuperadas.</p>
-      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 artistic-shadow-1">
       <MaterialSymbol className="material-symbols-outlined text-secondary text-3xl mb-2">handshake</MaterialSymbol>
       <h3 className="font-headline-sm text-headline-sm font-semibold text-on-surface">Comercio Justo</h3>
-      <p className="font-body-sm text-body-sm text-outline mt-2">Cada pieza dignifica las horas de investigaci&oacute;n, pulido y costura hechas por manos colombianas.</p>
+      <p className="font-body-sm text-body-sm text-outline mt-2">Cada pieza dignifica las horas de investigaci&oacute;n, pulido y trabajo hecho por manos colombianas.</p>
       </div>
       <div className="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 artistic-shadow-1">
       <MaterialSymbol className="material-symbols-outlined text-tertiary text-3xl mb-2">hotel_class</MaterialSymbol>
@@ -1415,21 +1375,22 @@ export default function InicioPrototype() {
       <div className="text-center max-w-xl mx-auto mb-10">
       <span className="font-label-badge text-caption text-secondary uppercase tracking-widest">Hablemos de tu Proyecto</span>
       <h1 className="font-headline-xl text-headline-xl-mobile sm:text-headline-xl text-on-surface font-semibold tracking-tight mt-1">Contacto Directo</h1>
-      <p className="font-body-sm text-body-sm text-outline mt-2">Vis&iacute;tanos con cita previa en nuestro taller en Medell&iacute;n o escr&iacute;benos directamente.</p>
+      <p className="font-body-sm text-body-sm text-outline mt-2">Escr&iacute;benos directamente.</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className="space-y-4">
       <div>
       <span className="text-caption font-bold text-primary uppercase">Atelier Principal:</span>
-      <p className="font-body-md text-on-surface">Medell&iacute;n, Antioquia &mdash; Colombia</p>
+      <p className="font-body-md text-on-surface">Bogotá, Colombia</p>
       </div>
       <div>
       <span className="text-caption font-bold text-primary uppercase">WhatsApp Oficial:</span>
-      <p className="font-body-md text-on-surface">+57 (300) 000-0000</p>
+      <p className="font-body-md text-on-surface">+57 (315) 802-5407</p>
       </div>
       <div>
       <span className="text-caption font-bold text-primary uppercase">Instagram:</span>
-      <p className="font-body-md text-secondary">@seahorse.estudiocreativo</p>
+      <p className="font-body-md text-secondary">@la_tiendita_de_andre_kawaii</p>
+      <p className="font-body-md text-secondary">@seahorsedesign</p>
       </div>
       <div>
       <span className="text-caption font-bold text-primary uppercase">Horarios de Atenci&oacute;n:</span>
@@ -1447,7 +1408,7 @@ export default function InicioPrototype() {
       </div>
       <div>
       <label className="block text-caption font-label-badge text-outline uppercase mb-1">Mensaje:</label>
-      <textarea className="w-full rounded-xl border-outline-variant/40 bg-surface-container-low text-body-sm p-3" placeholder="\xBFEn qu\xE9 podemos ayudarte?" required rows={3} />
+      <textarea className="w-full rounded-xl border-outline-variant/40 bg-surface-container-low text-body-sm p-3" placeholder="¿En qué podemos ayudarte?" required rows={3} />
       </div>
       <button className="w-full py-3 rounded-full bg-primary text-on-primary font-body-md font-medium hover:bg-surface-tint shadow-md" type="submit">
                     Enviar Mensaje
@@ -1457,6 +1418,34 @@ export default function InicioPrototype() {
       </div>
       </section>
       </main>
+      { /* ================= FOOTER EDITORIAL (From Shared Components JSON) ================= */ }
+      <footer className="full-width bg-surface-container dark:bg-inverse-surface border-t border-outline-variant/20 dark:border-outline/10 flat no shadows">
+      <div className="flex flex-col md:flex-row justify-between items-center w-full px-6 lg:px-12 py-8 max-w-7xl mx-auto gap-4">
+      { /* Brand & Copyright from JSON */ }
+      <div className="flex items-center gap-4 text-center md:text-left">
+      <div className="w-10 h-10 rounded-full p-1 bg-surface-container-lowest flex items-center justify-center overflow-hidden border border-outline-variant/30 flex-shrink-0">
+      <img alt="Logotipo oficial Seahorse Estudio Creativo by Andrea Sosa" className="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbYa50HIwq_N1cUX6eP-g5MjqBAyJriFiaGjUg2XTSn7qGDhwXkHJTefH53FTtjS9ya_AzFGcB_-dHeAivThW9rWsAo-JGTrIKNb0X_krF-dLOy8pn43bGSxkB6W9x4DeK2-fk2uiRY-qKGdF0tnn0Gk5Qjd0Sz3zMp7C71vP1SzDrxalrksF5vQhrGIh5RsGbuUgsfNVOi_2ch1aRBre1QQUCIVGN6YFWLBv7MtW2gh_6BKetO2yk" />
+      </div>
+      <div>
+      <p className="font-headline-sm text-headline-sm text-secondary dark:text-secondary-fixed tracking-tight font-medium">
+                  Seahorse Estudio Creativo by Andrea Sosa
+                </p>
+      <p className="font-body-sm text-body-sm text-outline mt-0.5">
+                  &copy; 2024 Seahorse Estudio Creativo by Andrea Sosa. Hecho a mano y con dise&ntilde;o de autor en Colombia. Todos los derechos reservados.
+                </p>
+      </div>
+      </div>
+      { /* Links from Shared Components JSON */ }
+      <nav className="flex flex-wrap items-center justify-center gap-4 text-body-sm">
+      <button className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-sm text-body-sm" onClick={event => { navigateTo('catalogo'); }}>Cat&aacute;logo</button>
+      <button className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-sm text-body-sm" onClick={event => { navigateTo('personaliza'); }}>Personalizaci&oacute;n</button>
+      <button className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-sm text-body-sm" onClick={event => { alert('Envíos a todo el territorio colombiano asegurados con Coordinadora, Envía e Interrapidísimo.'); }}>Env&iacute;os en Colombia</button>
+      <button className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-sm text-body-sm" onClick={event => { alert('Términos y condiciones de obras de autor y pedidos personalizados.'); }}>T&eacute;rminos y Condiciones</button>
+      <button className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-sm text-body-sm" onClick={event => { alert('Política de tratamiento de datos personales conforme a la ley colombiana 1581 de 2012.'); }}>Privacidad</button>
+      <button className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-sm text-body-sm font-medium underline" onClick={event => { navigateTo('admin'); }}>Panel Admin</button>
+      </nav>
+      </div>
+      </footer>
       { /* ================= CARRITO LATERAL (DRAWER FLOTANTE) ================= */ }
       <div className="fixed inset-0 bg-on-surface/40 backdrop-blur-sm z-50 hidden transition-opacity" id="cart-drawer-overlay" onClick={event => { toggleCartDrawer(false); }} />
       <div className="fixed top-0 right-0 h-full w-full max-w-md bg-surface-container-lowest z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col" id="cart-drawer-panel">
@@ -1486,34 +1475,6 @@ export default function InicioPrototype() {
       </button>
       </div>
       </div>
-      { /* ================= FOOTER EDITORIAL (From Shared Components JSON) ================= */ }
-      <footer className="full-width bg-surface-container dark:bg-inverse-surface border-t border-outline-variant/20 dark:border-outline/10 flat no shadows">
-      <div className="flex flex-col md:flex-row justify-between items-center w-full px-6 lg:px-12 py-8 max-w-7xl mx-auto gap-4">
-      { /* Brand & Copyright from JSON */ }
-      <div className="flex items-center gap-4 text-center md:text-left">
-      <div className="w-10 h-10 rounded-full p-1 bg-surface-container-lowest flex items-center justify-center overflow-hidden border border-outline-variant/30 flex-shrink-0">
-      <img alt="Logotipo oficial Seahorse Estudio Creativo by Andrea Sosa" className="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbYa50HIwq_N1cUX6eP-g5MjqBAyJriFiaGjUg2XTSn7qGDhwXkHJTefH53FTtjS9ya_AzFGcB_-dHeAivThW9rWsAo-JGTrIKNb0X_krF-dLOy8pn43bGSxkB6W9x4DeK2-fk2uiRY-qKGdF0tnn0Gk5Qjd0Sz3zMp7C71vP1SzDrxalrksF5vQhrGIh5RsGbuUgsfNVOi_2ch1aRBre1QQUCIVGN6YFWLBv7MtW2gh_6BKetO2yk" />
-      </div>
-      <div>
-      <p className="font-headline-sm text-headline-sm text-secondary dark:text-secondary-fixed tracking-tight font-medium">
-                  Seahorse Estudio Creativo by Andrea Sosa
-                </p>
-      <p className="font-body-sm text-body-sm text-outline mt-0.5">
-                  &copy; 2024 Seahorse Estudio Creativo by Andrea Sosa. Hecho a mano y con dise&ntilde;o de autor en Colombia. Todos los derechos reservados.
-                </p>
-      </div>
-      </div>
-      { /* Links from Shared Components JSON */ }
-      <nav className="flex flex-wrap items-center justify-center gap-4 text-body-sm">
-      <button className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-sm text-body-sm" onClick={event => { navigateTo('catalogo'); }}>Cat&aacute;logo</button>
-      <button className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-sm text-body-sm" onClick={event => { navigateTo('personaliza'); }}>Personalizaci&oacute;n</button>
-      <button className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-sm text-body-sm" onClick={event => { alert('Envíos a todo el territorio colombiano asegurados con Coordinadora, Envía e Interrapidísimo.'); }}>Env&iacute;os en Colombia</button>
-      <button className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-sm text-body-sm" onClick={event => { alert('Términos y condiciones de obras de autor y pedidos personalizados.'); }}>T&eacute;rminos y Condiciones</button>
-      <button className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-sm text-body-sm" onClick={event => { alert('Política de tratamiento de datos personales conforme a la ley colombiana 1581 de 2012.'); }}>Privacidad</button>
-      <button className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-sm text-body-sm font-medium underline" onClick={event => { navigateTo('admin'); }}>Panel Admin</button>
-      </nav>
-      </div>
-      </footer>
       { /* ================= JAVASCRIPT: ROUTING DINÁMICO & INTERACTIVIDAD ================= */ }</>
     </PrototypePage>
   );

@@ -7,8 +7,8 @@ import { PrototypePage } from "./prototype-page";
 
 export default function PersonalizaPrototype() {
   return (
-    <PrototypePage className="prototype-route-personaliza scroll-smooth bg-surface text-on-surface min-h-screen selection:bg-primary-container selection:text-on-primary-container font-body-md text-body-md antialiased">
-      <>{ /* TopNavBar (Shared Component) */ }
+    <PrototypePage className="prototype-route-personaliza scroll-smooth bg-surface text-on-surface min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container font-body-md text-body-md antialiased">
+      <><div className="flex flex-col flex-grow">{ /* TopNavBar (Shared Component) */ }
       <header className="bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-md docked full-width top-0 sticky z-50 shadow-sm dark:shadow-none">
       <div className="flex justify-between items-center w-full px-6 lg:px-12 py-4 max-w-7xl mx-auto">
       { /* Brand Logo & Isotype */ }
@@ -71,7 +71,7 @@ export default function PersonalizaPrototype() {
       </div>
       </header>
       { /* Main Editorial Content Area */ }
-      <main className="max-w-7xl mx-auto px-6 lg:px-12 py-10">
+      <main className="flex-grow max-w-7xl mx-auto px-6 lg:px-12 py-10">
       { /* Hero Editorial Asymmetric Banner */ }
       <section className="mb-16">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-surface-container-low rounded-xl p-8 lg:p-14 border border-outline-variant/30 art-shadow-1 relative overflow-hidden">
@@ -524,8 +524,9 @@ export default function PersonalizaPrototype() {
       </div>
       </section>
       </main>
+      </div>
       { /* Footer (Shared Component) */ }
-      <footer className="bg-surface-container dark:bg-inverse-surface full-width border-t border-outline-variant/20 dark:border-outline/10">
+      <footer className="bg-surface-container dark:bg-inverse-surface full-width border-t border-outline-variant/20 dark:border-outline/10 mt-auto">
       <div className="flex flex-col md:flex-row justify-between items-center w-full px-6 lg:px-12 py-8 max-w-7xl mx-auto gap-4">
       { /* Brand & Origin Identity */ }
       <div className="flex items-center gap-3">
