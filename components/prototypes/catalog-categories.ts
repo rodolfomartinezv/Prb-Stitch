@@ -1,0 +1,58 @@
+export const THEMATIC_CATEGORIES = [
+  {
+    name: "Navidad",
+    description: "Detalles especiales para compartir la magia de Navidad.",
+    icon: "celebration",
+    backgroundClass: "bg-[#FBE9E7]",
+    iconClass: "text-[#B7473D]",
+  },
+  {
+    name: "Día de la mujer",
+    description: "Regalos y creaciones para celebrar a mujeres especiales.",
+    icon: "woman",
+    backgroundClass: "bg-[#FCE7F3]",
+    iconClass: "text-[#C65F9B]",
+  },
+  {
+    name: "Día del hombre",
+    description: "Ideas de autor para celebrar y sorprender.",
+    icon: "man",
+    backgroundClass: "bg-[#E3F0F5]",
+    iconClass: "text-[#39758A]",
+  },
+  {
+    name: "San Valentín - Amor y amistad",
+    description: "Detalles para celebrar el amor y la amistad.",
+    icon: "favorite",
+    backgroundClass: "bg-[#FCE4EC]",
+    iconClass: "text-[#C34E71]",
+  },
+  {
+    name: "Halloween",
+    description: "Creaciones originales para una temporada encantada.",
+    icon: "nightlight",
+    backgroundClass: "bg-[#EEE5F6]",
+    iconClass: "text-[#7851A9]",
+  },
+  {
+    name: "Bodas",
+    description: "Recuerdos y detalles para celebrar momentos únicos.",
+    icon: "diamond",
+    backgroundClass: "bg-[#F4EFE7]",
+    iconClass: "text-[#9B7A43]",
+  },
+  {
+    name: "Bebés",
+    description: "Detalles tiernos para dar la bienvenida a nuevas historias.",
+    icon: "child_care",
+    backgroundClass: "bg-[#E5F4F1]",
+    iconClass: "text-[#4A8C80]",
+  },
+  {
+    name: "Imágenes religiosas y vírgenes",
+    description: "Piezas de inspiración religiosa hechas con dedicación.",
+    icon: "church",
+    backgroundClass: "bg-[#EAEAF5]",
+    iconClass: "text-[#5F6597]",
+  },
+] as const;

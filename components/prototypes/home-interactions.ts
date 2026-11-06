@@ -38,6 +38,44 @@ import type { MouseEvent as ReactMouseEvent } from "react";
       { id: 'florero-arco', name: 'Florero Escultórico Arco Sol', category: 'Cemento blanco', price: 140000, qty: 1 }
     ];
 
+    const CART_STORAGE_KEY = "seahorse-cart";
+
+    function isCartLine(value: unknown): value is CartLine {
+      if (typeof value !== "object" || value === null) return false;
+
+      return (
+        "id" in value &&
+        typeof value.id === "string" &&
+        "name" in value &&
+        typeof value.name === "string" &&
+        "category" in value &&
+        typeof value.category === "string" &&
+        "price" in value &&
+        typeof value.price === "number" &&
+        Number.isFinite(value.price) &&
+        "qty" in value &&
+        typeof value.qty === "number" &&
+        Number.isInteger(value.qty) &&
+        value.qty > 0
+      );
+    }
+
+    function restoreCart(): void {
+      const savedCart = window.sessionStorage.getItem(CART_STORAGE_KEY);
+      if (!savedCart) return;
+
+      const parsedCart: unknown = JSON.parse(savedCart);
+      if (!Array.isArray(parsedCart) || !parsedCart.every(isCartLine)) {
+        throw new Error("El carrito guardado tiene un formato no válido.");
+      }
+
+      CART = parsedCart;
+    }
+
+    function persistCart(): void {
+      window.sessionStorage.setItem(CART_STORAGE_KEY, JSON.stringify(CART));
+    }
+
     // RENDER INICIAL DEL CATÁLOGO
     export function renderCatalogItems(items: Product[]): void {
       const container = document.getElementById('catalog-items-container');
@@ -46,6 +84,14 @@ import type { MouseEvent as ReactMouseEvent } from "react";
       
       const countEl = document.getElementById('catalog-count-text');
       if (countEl) countEl.innerHTML = `Mostrando <strong>${items.length}</strong> piezas de autor`;
+
+      if (items.length === 0) {
+        const emptyState = document.createElement('p');
+        emptyState.className = 'col-span-full rounded-2xl bg-surface-container-lowest p-6 text-center text-on-surface-variant';
+        emptyState.textContent = 'No hay productos que coincidan con estos filtros.';
+        container.appendChild(emptyState);
+        return;
+      }
 
       items.forEach(prod => {
         const card = document.createElement('div');
@@ -87,39 +133,39 @@ import type { MouseEvent as ReactMouseEvent } from "react";
 
     // NAVEGACIÓN DINÁMICA POR TABS
     export function navigateTo(viewId: string): void {
-      // Ocultar todas las vistas
-      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      if (window.location.pathname === "/tienda") {
+        const catalog = document.getElementById("view-catalogo");
+        const product = document.getElementById("view-producto");
 
-      // Mostrar la vista seleccionada
-      const target = document.getElementById(`view-${viewId}`);
-      if (target) {
-        target.classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      // Actualizar estados visuales de navegación principal
-      const navLinks = ['home', 'catalogo', 'personaliza', 'nosotros', 'contacto', 'admin'];
-      navLinks.forEach(item => {
-        const btn = document.getElementById(`nav-btn-${item}`);
-        if (btn) {
-          if (item === viewId) {
-            btn.className = "nav-item text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 font-headline-sm text-body-md transition-colors";
-          } else {
-            btn.className = "nav-item text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md";
-          }
+        if (catalog && product && (viewId === "catalogo" || viewId === "producto")) {
+          catalog.classList.toggle("hidden", viewId === "producto");
+          product.classList.toggle("hidden", viewId === "catalogo");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          return;
         }
-      });
-
-      if (viewId === 'catalogo') {
-        renderCatalogItems(PRODUCTS_DATA);
-      } else if (viewId === 'checkout') {
-        updateCheckoutView();
       }
+
+      const routes: Record<string, string> = {
+        home: "/",
+        catalogo: "/tienda",
+        producto: "/tienda",
+        personaliza: "/personaliza",
+        nosotros: "/sobre-nosotros",
+        contacto: "/contacto",
+        admin: "/dashboard",
+        checkout: "/carrito",
+      };
+      window.location.assign(routes[viewId] ?? "/");
     }
 
     // FILTRO DIRECTO DESDE CATEGORÍA EN HOME
     export function filterCatalog(categoryName: string): void {
-      navigateTo('catalogo');
+      if (window.location.pathname !== "/tienda") {
+        window.location.assign(`/tienda?categoria=${encodeURIComponent(categoryName)}`);
+        return;
+      }
+
+      navigateTo("catalogo");
       const radio = document.querySelector<HTMLInputElement>(`input[name="cat-filter"][value="${categoryName}"]`);
       if (radio) {
         radio.checked = true;
@@ -237,12 +283,14 @@ import type { MouseEvent as ReactMouseEvent } from "react";
       } else {
         CART.push({ id: 'item-' + Date.now(), name, price, category, qty: 1 });
       }
+      persistCart();
       updateCartUI();
       toggleCartDrawer(true);
     }
 
     export function removeCartItem(index: number): void {
       CART.splice(index, 1);
+      persistCart();
       updateCartUI();
     }
 
@@ -460,11 +508,12 @@ import type { MouseEvent as ReactMouseEvent } from "react";
 
     // INTERACCIONES GENERALES
     export function focusSearch(): void {
-      navigateTo('catalogo');
-      setTimeout(() => {
-        const inp = document.getElementById('catalog-search-input');
-        if (inp) inp.focus();
-      }, 200);
+      if (window.location.pathname === "/tienda") {
+        document.getElementById("catalog-search-input")?.focus();
+        return;
+      }
+
+      window.location.assign("/tienda?focus=search");
     }
 
     export function toggleWishlist(btn: HTMLElement): void {
@@ -488,6 +537,7 @@ import type { MouseEvent as ReactMouseEvent } from "react";
 
     // INICIALIZACIÓN
     export function initializeHomePrototype(): void {
+  restoreCart();
   renderCatalogItems(PRODUCTS_DATA);
   updateCartUI();
 }
