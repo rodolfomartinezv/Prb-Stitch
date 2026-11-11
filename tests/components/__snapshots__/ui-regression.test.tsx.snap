@@ -1,0 +1,317 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UI & Visual Regression: Component Snapshots (TDD Cycle) > preserves CartSummary visual structure and utility classes during refactoring 1`] = `
+<div
+  class="p-6 bg-surface-container-low rounded-2xl border border-outline-variant/30 flex flex-col gap-4"
+  data-testid="cart-summary"
+>
+  <h2
+    class="text-xl font-semibold text-on-surface"
+  >
+    Resumen del pedido
+  </h2>
+  <div
+    class="flex justify-between text-body-md text-on-surface-variant"
+  >
+    <span>
+      Subtotal
+    </span>
+    <span>
+      $150.000 COP
+    </span>
+  </div>
+  <div
+    class="flex justify-between text-body-md text-primary font-medium"
+  >
+    <span>
+      Descuento por volumen (
+      10
+      %)
+    </span>
+    <span>
+      - 
+      $15.000 COP
+    </span>
+  </div>
+  <div
+    class="flex justify-between text-body-md text-on-surface-variant"
+  >
+    <span>
+      Costo de envío
+    </span>
+    <span>
+      $15.000 COP
+    </span>
+  </div>
+  <div
+    class="h-px bg-outline-variant/30 my-2"
+  />
+  <div
+    class="flex justify-between text-headline-sm font-bold text-on-surface"
+  >
+    <span>
+      Total
+    </span>
+    <span>
+      $150.000 COP
+    </span>
+  </div>
+  <button
+    class="w-full mt-2 py-3 px-6 rounded-full bg-primary text-on-primary font-semibold hover:bg-primary/90 transition-all shadow-md active:scale-[0.98]"
+  >
+    Continuar al pago
+  </button>
+</div>
+`;
+
+exports[`UI & Visual Regression: Component Snapshots (TDD Cycle) > preserves Contact form visual structure and accessibility attributes 1`] = `
+<form
+  class="space-y-4"
+>
+  <div>
+    <label
+      class="block text-caption font-label-badge text-outline uppercase mb-1"
+      for="contact-name"
+    >
+      Nombre:
+    </label>
+    <input
+      class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low text-body-sm p-3"
+      id="contact-name"
+      placeholder="Tu nombre"
+      required=""
+      type="text"
+    />
+  </div>
+  <div>
+    <label
+      class="block text-caption font-label-badge text-outline uppercase mb-1"
+      for="contact-email"
+    >
+      Correo:
+    </label>
+    <input
+      class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low text-body-sm p-3"
+      id="contact-email"
+      placeholder="tu@correo.com"
+      required=""
+      type="email"
+    />
+  </div>
+  <div>
+    <label
+      class="block text-caption font-label-badge text-outline uppercase mb-1"
+      for="contact-message"
+    >
+      Mensaje:
+    </label>
+    <textarea
+      class="w-full rounded-xl border-outline-variant/40 bg-surface-container-low text-body-sm p-3"
+      id="contact-message"
+      placeholder="¿En qué podemos ayudarte?"
+      required=""
+      rows="3"
+    />
+  </div>
+  <button
+    class="w-full py-3 rounded-full bg-primary text-on-primary font-body-md font-medium hover:bg-surface-tint shadow-md"
+    type="submit"
+  >
+    Enviar Mensaje
+  </button>
+</form>
+`;
+
+exports[`UI & Visual Regression: Component Snapshots (TDD Cycle) > preserves ContentShared navigation and header layout across refactorings 1`] = `
+<header
+  class="docked full-width top-0 sticky z-50 bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-md shadow-sm dark:shadow-none border-b border-outline-variant/30 dark:border-outline/20"
+>
+  <div
+    class="flex justify-between items-center w-full px-3 sm:px-6 lg:px-12 py-4 max-w-7xl mx-auto"
+  >
+    <button
+      class="flex items-center gap-2 sm:gap-3 group transition-transform active:scale-95 border-0 bg-transparent p-0 text-left"
+      type="button"
+    >
+      <div
+        class="w-12 h-12 sm:w-20 sm:h-20 rounded-full p-1 bg-surface-container-lowest border border-outline-variant/20 shadow-sm flex items-center justify-center overflow-hidden"
+      >
+        <img
+          alt="Logotipo oficial Seahorse Estudio Creativo by Andrea Sosa"
+          class="w-full h-full object-contain"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbYa50HIwq_N1cUX6eP-g5MjqBAyJriFiaGjUg2XTSn7qGDhwXkHJTefH53FTtjS9ya_AzFGcB_-dHeAivThW9rWsAo-JGTrIKNb0X_krF-dLOy8pn43bGSxkB6W9x4DeK2-fk2uiRY-qKGdF0tnn0Gk5Qjd0Sz3zMp7C71vP1SzDrxalrksF5vQhrGIh5RsGbuUgsfNVOi_2ch1aRBre1QQUCIVGN6YFWLBv7MtW2gh_6BKetO2yk"
+        />
+      </div>
+      <div
+        class="w-28 h-10 sm:w-40 sm:h-14 flex items-center"
+      >
+        <img
+          alt="Seahorse Estudio Creativo by Andrea Sosa"
+          class="w-full h-full object-contain object-left"
+          src="/images/Tipografia%20Seahorse.png"
+        />
+      </div>
+    </button>
+    <nav
+      class="hidden xl:flex items-center gap-6 lg:gap-8"
+      id="main-nav-links"
+    >
+      <button
+        class="nav-item text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed font-body-md text-body-md transition-colors"
+        id="nav-btn-home"
+      >
+        Inicio
+      </button>
+      <button
+        aria-current="page"
+        class="nav-item text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 font-headline-sm text-body-md transition-colors"
+        id="nav-btn-catalogo"
+      >
+        Tienda
+      </button>
+      <button
+        class="nav-item text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed font-body-md text-body-md transition-colors"
+        id="nav-btn-personaliza"
+      >
+        Personaliza
+      </button>
+      <button
+        class="nav-item text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed font-body-md text-body-md transition-colors"
+        id="nav-btn-nosotros"
+      >
+        Sobre Nosotros
+      </button>
+      <button
+        class="nav-item text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed font-body-md text-body-md transition-colors"
+        id="nav-btn-contacto"
+      >
+        Contacto
+      </button>
+      <button
+        class="nav-item text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/60"
+        id="nav-btn-admin"
+      >
+        <span
+          class="material-symbols-outlined text-[16px]"
+        >
+          admin_panel_settings
+        </span>
+        <span
+          class="font-label-badge text-label-badge"
+        >
+          Admin
+        </span>
+      </button>
+    </nav>
+    <div
+      class="flex items-center gap-1 sm:gap-3"
+    >
+      <span
+        class="hidden sm:inline-flex items-center px-2.5 py-1 rounded-full text-caption font-label-badge bg-surface-container text-on-surface-variant border border-outline-variant/30"
+      >
+        COP ($)
+      </span>
+      <button
+        aria-label="Buscar"
+        class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors"
+      >
+        <span
+          class="material-symbols-outlined"
+          data-icon="search"
+        >
+          search
+        </span>
+      </button>
+      <button
+        class="hidden sm:flex w-10 h-10 rounded-full items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors"
+        title="Perfil Administrador"
+      >
+        <span
+          class="material-symbols-outlined"
+          data-icon="account_circle"
+        >
+          account_circle
+        </span>
+      </button>
+      <button
+        class="relative flex items-center gap-2 px-3 py-2 rounded-full bg-primary text-on-primary hover:bg-surface-tint shadow-sm transition-transform active:scale-95"
+      >
+        <span
+          class="material-symbols-outlined text-[20px]"
+          data-icon="shopping_bag"
+        >
+          shopping_bag
+        </span>
+        <span
+          class="font-body-sm text-body-sm font-medium hidden sm:inline"
+        >
+          Carrito
+        </span>
+        <span
+          class="w-5 h-5 rounded-full bg-surface-container-lowest text-primary text-[11px] font-bold flex items-center justify-center"
+          id="cart-counter-badge"
+        >
+          2
+        </span>
+      </button>
+      <button
+        aria-expanded="false"
+        aria-label="Abrir menú de navegación"
+        class="xl:hidden w-10 h-10 flex items-center justify-center text-on-surface-variant"
+        id="mobile-menu-toggle"
+        type="button"
+      >
+        <span
+          class="material-symbols-outlined"
+          data-icon="menu"
+          id="mobile-menu-icon"
+        >
+          menu
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="hidden xl:hidden px-6 py-4 bg-surface-container-low border-b border-outline-variant/20 flex flex-col gap-3"
+    id="mobile-nav-panel"
+  >
+    <button
+      class="text-left py-2 font-body-md text-on-surface-variant text-body-md"
+    >
+      Inicio
+    </button>
+    <button
+      aria-current="page"
+      class="text-left py-2 font-headline-sm text-primary font-medium text-body-md"
+    >
+      Tienda / Catálogo
+    </button>
+    <button
+      class="text-left py-2 font-body-md text-on-surface-variant text-body-md"
+    >
+      Personaliza a Medida
+    </button>
+    <button
+      class="text-left py-2 font-body-md text-on-surface-variant text-body-md"
+    >
+      Sobre Nosotros
+    </button>
+    <button
+      class="text-left py-2 font-body-md text-on-surface-variant text-body-md"
+    >
+      Contacto
+    </button>
+    <button
+      class="text-left py-2 font-body-md text-body-md text-tertiary flex items-center gap-2"
+    >
+      <span
+        class="material-symbols-outlined text-sm"
+      >
+        admin_panel_settings
+      </span>
+       
+      Panel Admin
+    </button>
+  </div>
+</header>
+`;

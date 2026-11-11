@@ -1,4 +1,6 @@
 {
-    "specstory.cloudSync.enabled": "always",
-    "specstory.autoSave": true
+  "specstory.cloudSync.enabled": "always",
+  "specstory.autoSave": true,
+  "css.lint.unknownAtRules": "ignore",
+  "js/ts.tsdk.path": "node_modules\\typescript"
 }

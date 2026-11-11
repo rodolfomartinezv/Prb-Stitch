@@ -84,6 +84,9 @@
 # Codex CLI command
 # codex_cmd = "codex"
 
+# Copilot CLI command
+# copilot_cmd = "copilot"
+
 # Copilot IDE commands (used by specstory run copilotide[-variant] to open the IDE)
 # copilotide_cmd = "code"
 # copilotide_insiders_cmd = "code-insiders"
@@ -121,7 +124,7 @@
 # deepseek_cmd = "deepseek"
 
 # Antigravity CLI command
-# antigravity_cmd = "agy"
+antigravity_cmd = 'C:\\Users\\romar\\AppData\\Local\\Programs\\ANTIGR~2\\bin\\antigravity-ide.cmd'
 
 # Grok Build command
 # grok_cmd = "grok"

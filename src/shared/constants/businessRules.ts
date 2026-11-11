@@ -1,0 +1,14 @@
+export const BUSINESS_RULES = {
+  BULK_DISCOUNT: {
+    MIN_ITEMS: 5,
+    DISCOUNT_PERCENT: 10,
+    DISCOUNT_RATE: 0.1,
+  },
+  ORDER_DISCOUNT: {
+    MIN_SUBTOTAL: 500000,
+    DISCOUNT_PERCENT: 15,
+    DISCOUNT_RATE: 0.15,
+  },
+} as const;
+
+export default BUSINESS_RULES;
