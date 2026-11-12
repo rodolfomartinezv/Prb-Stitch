@@ -183,7 +183,11 @@ E-commerce
 - **Unit Tests**: Business logic functions (calculateSubtotal, calculateTax)
 - **Integration Tests**: Component interactions (cart + products)
 - **E2E Tests**: Critical user flows (add to cart, checkout)
+- **Piramid Testing**: E2E ← Few (5-10%)
+                       Integration ← Moderadas (20-30%)
+                       Unit Tests ← Muchas (60-70%)
 - **Coverage Goals**: 100% functions, 80%+ lines
+- **Speed**: Unit < 10ms, Integration < 500ms; E2E < 10s
 - **Test Sucess Rate**: tests_passing / total_tests = success_rate
                           160 / 160 = 100% ✅
                           145 / 160 = 90.6% ⚠
