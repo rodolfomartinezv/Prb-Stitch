@@ -1,5 +1,7 @@
 # Product Requirement Document (PRD) & Creative Brief
 
+> **Estado frente al Paso 1:** Este PRD describe la visión y los requisitos objetivo de la plataforma. El repositorio implementa actualmente un prototipo frontend y protecciones base de servidor; las integraciones de negocio, autenticación, persistencia y pagos descritas abajo son alcance futuro salvo que se indique expresamente. Las rutas canónicas del código son `/`, `/product-catalog`, `/shopping-cart`, `/customizer`, `/about-us`, `/contact` y `/admin-dashboard`; Next.js conserva alias en español como `/tienda`, `/carrito`, `/personaliza`, `/sobre-nosotros`, `/contacto` y `/dashboard` mediante rewrites.
+
 ## Seahorse Estudio Creativo by Andrea Sosa — E-Commerce & Admin Platform
 
 ---
@@ -164,6 +166,8 @@ A diferencia de los entornos genéricos de e-commerce masivo, la plataforma fusi
 
 ### 8. Hoja de Ruta de Implementación (Roadmap)
 
-- **Fase 1 (Completada):** Definición de identidad visual, sistema cromático, arquitectura editorial y diseño de prototipos navegables de alta fidelidad (Home, Tienda, Personaliza, Sobre Nosotros, Contacto, Carrito/Checkout y Dashboard Logístico).
-- **Fase 2 (Próxima):** Exportación de componentes a código modular (React / Tailwind CSS / v0), integración de APIs de mensajería (WhatsApp Cloud API) y pasarelas de pago (Mercado Pago SDK).
+- **Fase 1 (frontend y blindaje base implementados):** Modelado inicial del frontend en Stitch, conversión y adaptación del código a TypeScript con Next.js, React y Tailwind CSS; ajustes gráficos y de contenido; cabeceras HTTP de seguridad y `poweredByHeader: false` en `next.config.ts`; utilidades comunes `apiSuccess`, `apiError` y `apiValidationError` en `src/infrastructure/api/api-response.ts`; y prueba de configuración de cabeceras en `tests/security/headers.test.ts`. La CSP existente mantiene directivas/orígenes amplios y requiere revisión antes de producción. El caso SEC-03 de acceso privado al panel sigue bloqueado porque no existe autenticación.
+- **Fase 2 (Próxima):** Construcción de la capa de datos y los servicios backend, con PostgreSQL y un ORM tipado; integración de APIs de mensajería (WhatsApp Cloud API) y pasarelas de pago (Mercado Pago SDK).
 - **Fase 3:** Conexión con APIs de rastreo de guías de transportadoras (Coordinadora y Servientrega) y sistema de inventario en tiempo real para taller.
+
+Las pantallas de carrito/checkout, personalización, contacto y administración son demostrativas y no procesan transacciones ni guardan datos en servicios remotos. Los tipos y contratos del archivo técnico `.txt` son una referencia de diseño, no tipos importados por la aplicación.

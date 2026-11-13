@@ -1,6 +1,6 @@
 # Seahorse Estudio Creativo
 
-Prototipos del estudio migrados a Next.js, React, TypeScript y Tailwind CSS.
+El frontend inicial se modeló en Stitch. El código generado se convirtió y adaptó a TypeScript, Next.js, React y Tailwind CSS; después se ajustaron los elementos gráficos y el contenido a la identidad de Seahorse Estudio Creativo. El resultado es un prototipo frontend: todavía no se conecta a una API ni a una base de datos.
 
 ## Requisitos
 

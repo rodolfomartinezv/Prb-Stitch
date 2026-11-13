@@ -8,6 +8,18 @@
  * Moneda base: COP (Pesos Colombianos)
  * Mercado: Colombia
  * ============================================================================
+ * NOTA DE ALCANCE (12-11-2026): Este archivo es una especificación conceptual
+ * guardada como .txt. No forma parte de la compilación TypeScript ni está
+ * importada por la aplicación. Sus interfaces de catálogo, pedidos, pagos,
+ * personalización y administración describen capacidades objetivo; no prueban
+ * que existan persistencia, APIs, transportadoras o pasarelas integradas.
+ *
+ * El Paso 1 está respaldado en el código por las cabeceras de next.config.ts,
+ * las utilidades de src/infrastructure/api/api-response.ts, el monitoreo bajo
+ * src/infrastructure/monitoring/ y tests/security/headers.test.ts. Los tipos
+ * compartidos que sí usa el prototipo están en src/shared/types/ y las reglas
+ * de descuento en src/shared/constants/businessRules.ts.
+ * ============================================================================
  */
 
 // ============================================================================
