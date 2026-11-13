@@ -12,7 +12,7 @@ export function PrototypePage({
   onClick,
 }: PrototypePageProps) {
   return (
-    <div className={className} onClick={onClick}>
+    <div id="top" role="presentation" className={className} onClick={onClick}>
       {children}
     </div>
   );

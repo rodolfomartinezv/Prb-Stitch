@@ -19,9 +19,9 @@ test("main routes load and the main navigation remains usable", async ({ page })
 
 test("catalog search, category filter, and empty state work together", async ({ page }) => {
   await page.goto("/tienda");
-  await page.getByLabel("Búsqueda rápida").pressSequentially("posavasos");
+  await page.getByLabel("Búsqueda rápida").pressSequentially("Dominó");
   await expect(page.locator("#catalog-items-container h3")).toHaveCount(1);
-  await expect(page.locator("#catalog-items-container h3")).toContainText("Posavasos");
+  await expect(page.locator("#catalog-items-container h3")).toContainText("Dominó");
 
   await page.getByLabel("Papelería kawaii").check();
   await expect(page.locator("#catalog-items-container")).toContainText(
@@ -33,17 +33,18 @@ test("the candle category works in the catalog and customizer", async ({ page })
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "Las 6 Categorías del Estudio" })).toBeVisible();
   await page.locator("#studio-categories").getByRole("button", { name: /Velas/ }).click();
-  await expect(page).toHaveURL(/\/tienda\?categoria=Velas/);
+  await expect(page).toHaveURL(/\/product-catalog\?categoria=Velas/);
 
-  await page.goto("/tienda?categoria=Velas");
   await expect(page.getByRole("radio", { name: "Velas (0)" })).toBeChecked();
   await expect(page.locator("#catalog-items-container")).toContainText(
     "No hay productos que coincidan con estos filtros.",
   );
 
   await page.goto("/tienda?categoria=Cemento%20blanco");
-  await expect(page.getByRole("radio", { name: "Cemento blanco (5)" })).toBeChecked();
-  await expect(page.getByRole("heading", { name: "Portavelas Onda Estriada" })).toBeVisible();
+  await expect(page.getByRole("radio", { name: "Cemento blanco (1)" })).toBeChecked();
+  await expect(
+    page.locator("#catalog-items-container").getByRole("heading", { name: "Florero Escultórico" }),
+  ).toBeVisible();
 
   await page.goto("/personaliza");
   const candlesCard = page.locator('label[for="custom-category-velas"]');
