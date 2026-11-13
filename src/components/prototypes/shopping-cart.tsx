@@ -12,7 +12,7 @@ export default function CarritoPrototype() {
         <header className="docked full-width top-0 sticky z-50 bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-md shadow-sm dark:shadow-none border-b border-outline-variant/30 dark:border-outline/20">
           <div className="flex justify-between items-center w-full px-6 lg:px-12 py-4 max-w-7xl mx-auto">
             {/* Brand Logo / Official Identity */}
-            <a className="flex items-center gap-3 group focus:outline-none" href="#top">
+            <a className="flex items-center gap-3 group focus:outline-none" href="#">
               <div className="w-12 h-12 rounded-full overflow-hidden p-0.5 border border-outline-variant/40 bg-surface-container-lowest flex items-center justify-center shadow-xs">
                 <img
                   alt="Logotipo oficial Seahorse Estudio Creativo by Andrea Sosa"
@@ -111,7 +111,7 @@ export default function CarritoPrototype() {
             <div className="flex items-center gap-2 mb-3">
               <a
                 className="text-on-surface-variant hover:text-primary font-caption text-caption flex items-center gap-1 transition-colors"
-                href="#top"
+                href="#"
               >
                 <MaterialSymbol className="material-symbols-outlined text-[16px]">
                   west
@@ -171,7 +171,6 @@ export default function CarritoPrototype() {
                     {/* Image Preview with Badge */}
                     <div className="relative w-full sm:w-36 h-40 rounded-xl overflow-hidden bg-surface-container flex-shrink-0">
                       <img
-                        alt="Posavasos Océano y Hortensias, set de cuatro"
                         className="w-full h-full object-cover"
                         data-alt="A refined overhead editorial studio photograph of a set of four handcrafted resin botanical coasters capturing vivid blue ocean pigments, translucent turquoise layers, and encapsulated real white hydrangea petals. The pieces rest on raw natural linen cloth bathed in warm organic afternoon light. The aesthetic reflects a luxury coastal art atelier in Colombia with high craftsmanship, intricate details, and ivory serene tones."
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQptUHc2OqlnIyNECkw_u0QUL5Ixv0Fj6D3jsNger-8wiCW2DhOsbirEKMdiFCBrIRXSQyGJkeQnvW_4erc6DBwiO4qLQF7J9C9fN4tlbl4kCn4OpdUxDA8PF6FaC8HXd8PNhs3LnWs7-P3YdpGWiQQ-FU5OjUSF1YQ-PNeBUd8gB-qwDaZLNnJakUJmSu7t0nSYG8mpWtXXNVDPjI2-1_DNVJJEjb-jqYMMRz2_4"
@@ -244,7 +243,6 @@ export default function CarritoPrototype() {
                     {/* Image Preview with Badge */}
                     <div className="relative w-full sm:w-36 h-40 rounded-xl overflow-hidden bg-surface-container flex-shrink-0">
                       <img
-                        alt="Florero escultórico Arco Sol"
                         className="w-full h-full object-cover"
                         data-alt="An artisanal minimalist modern sculpted arch vase made of smooth white high-density cement with sun-inspired tactile geometric ridges. The vase stands on an ivory travertine display block inside an art studio, illuminated by gentle organic gallery lighting with coastal ocean hints. Warm soft shadows, high aesthetic curation, and serene architectural harmony in soft natural light."
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwsuuzFkZaSgvsEXFAnT3GFeOUQ7l_hKTBzMiGmEiPXPR7ME6PX8ApQIFJNZptFLYlcMM_HZTFK9zI4WZTZci-8Y6i_ORpWyuhlJ8nN41WM4BMYuvTEGuGlQ_qlkCeF_v5zVLGaiHXbi_SlRhUBZC0gKgFpT_YvEO-M8psNv7zn-BV7ubzNV61BX5TU7vhs5PephrjtuitOy45KikILp8BTzqOyMwpxdos_r8oRgo"
@@ -455,14 +453,13 @@ export default function CarritoPrototype() {
                   </div>
                   {/* SELECTOR DE TRANSPORTADORA */}
                   <div className="pt-4 border-t border-outline-variant/20">
-                    <span className="block font-body-sm text-body-sm font-medium text-on-surface mb-3">
+                    <label className="block font-body-sm text-body-sm font-medium text-on-surface mb-3">
                       Selecciona la Empresa Transportadora Preferida:
-                    </span>
+                    </label>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       {/* Coordinadora */}
-                      <label aria-label="Coordinadora" htmlFor="shipping-coordinadora" className="relative flex items-center p-3.5 rounded-xl border border-primary/50 bg-secondary-fixed/20 cursor-pointer hover:border-primary transition-all">
+                      <label className="relative flex items-center p-3.5 rounded-xl border border-primary/50 bg-secondary-fixed/20 cursor-pointer hover:border-primary transition-all">
                         <input
-                          id="shipping-coordinadora"
                           defaultChecked={true}
                           className="text-primary focus:ring-primary-container"
                           name="shipping_carrier"
@@ -479,10 +476,9 @@ export default function CarritoPrototype() {
                         </div>
                       </label>
                       {/* Inter Rapidísimo */}
-                      <label aria-label="Inter Rapidísimo" htmlFor="shipping-inter" className="relative flex items-center p-3.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest cursor-pointer hover:border-primary transition-all">
+                      <label className="relative flex items-center p-3.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest cursor-pointer hover:border-primary transition-all">
                         <input
                           className="text-primary focus:ring-primary-container"
-                          id="shipping-inter"
                           name="shipping_carrier"
                           type="radio"
                           value="inter_rapidisimo"
@@ -497,10 +493,9 @@ export default function CarritoPrototype() {
                         </div>
                       </label>
                       {/* Servientrega */}
-                      <label aria-label="Servientrega" htmlFor="shipping-servientrega" className="relative flex items-center p-3.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest cursor-pointer hover:border-primary transition-all">
+                      <label className="relative flex items-center p-3.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest cursor-pointer hover:border-primary transition-all">
                         <input
                           className="text-primary focus:ring-primary-container"
-                          id="shipping-servientrega"
                           name="shipping_carrier"
                           type="radio"
                           value="servientrega"
@@ -545,11 +540,10 @@ export default function CarritoPrototype() {
                   role="radiogroup"
                 >
                   {/* Opción 1: Mercado Pago (PSE / Tarjetas) */}
-                  <label aria-label="Mercado Pago Colombia" htmlFor="payment-mercadopago" className="block p-4 rounded-xl border-2 border-primary bg-surface cursor-pointer ocean-shadow-1 transition-all">
+                  <label className="block p-4 rounded-xl border-2 border-primary bg-surface cursor-pointer ocean-shadow-1 transition-all">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <input
-                          id="payment-mercadopago"
                           defaultChecked={true}
                           className="text-primary focus:ring-primary-container"
                           name="payment_method"
@@ -583,12 +577,11 @@ export default function CarritoPrototype() {
                     </div>
                   </label>
                   {/* Opción 2: Nequi */}
-                  <label aria-label="Nequi" htmlFor="payment-nequi" className="block p-4 rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:border-primary-container cursor-pointer transition-all">
+                  <label className="block p-4 rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:border-primary-container cursor-pointer transition-all">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <input
                           className="text-primary focus:ring-primary-container"
-                          id="payment-nequi"
                           name="payment_method"
                           type="radio"
                           value="nequi"
@@ -612,12 +605,11 @@ export default function CarritoPrototype() {
                     </div>
                   </label>
                   {/* Opción 3: Daviplata */}
-                  <label aria-label="Daviplata" htmlFor="payment-daviplata" className="block p-4 rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:border-primary-container cursor-pointer transition-all">
+                  <label className="block p-4 rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:border-primary-container cursor-pointer transition-all">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <input
                           className="text-primary focus:ring-primary-container"
-                          id="payment-daviplata"
                           name="payment_method"
                           type="radio"
                           value="daviplata"
@@ -812,19 +804,19 @@ export default function CarritoPrototype() {
               </Link>
               <a
                 className="text-primary dark:text-primary-fixed underline font-body-sm text-body-sm"
-                href="#top"
+                href="#"
               >
                 Env&iacute;os en Colombia
               </a>
               <a
                 className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-150 font-body-sm text-body-sm"
-                href="#top"
+                href="#"
               >
                 T&eacute;rminos y Condiciones
               </a>
               <a
                 className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-150 font-body-sm text-body-sm"
-                href="#top"
+                href="#"
               >
                 Privacidad
               </a>

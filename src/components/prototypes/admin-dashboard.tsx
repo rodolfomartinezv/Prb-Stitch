@@ -14,7 +14,7 @@ export default function DashboardPrototype() {
           <div className="flex justify-between items-center w-full px-6 lg:px-12 py-4 max-w-7xl mx-auto">
             {/* Brand & Title Anchor */}
             <div className="flex items-center gap-4">
-              <a className="flex items-center gap-3 group" href="#top">
+              <a className="flex items-center gap-3 group" href="#">
                 <img
                   alt="Logotipo oficial Seahorse Estudio Creativo by Andrea Sosa"
                   className="w-10 h-10 object-contain rounded-full shadow-sm ring-1 ring-primary/20 bg-surface-container-lowest p-0.5 transition-transform group-hover:scale-105"
@@ -186,7 +186,7 @@ export default function DashboardPrototype() {
               <nav className="flex flex-col gap-1 mt-2">
                 <a
                   className="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all"
-                  href="#top"
+                  href="#"
                 >
                   <MaterialSymbol
                     className="material-symbols-outlined text-[20px]"
@@ -198,7 +198,7 @@ export default function DashboardPrototype() {
                 </a>
                 <a
                   className="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-sm text-body-sm bg-primary/10 text-primary font-medium transition-all shadow-sm"
-                  href="#top"
+                  href="#"
                 >
                   <MaterialSymbol
                     className="material-symbols-outlined text-[20px]"
@@ -213,7 +213,7 @@ export default function DashboardPrototype() {
                 </a>
                 <a
                   className="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all"
-                  href="#top"
+                  href="#"
                 >
                   <MaterialSymbol
                     className="material-symbols-outlined text-[20px]"
@@ -225,7 +225,7 @@ export default function DashboardPrototype() {
                 </a>
                 <a
                   className="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all"
-                  href="#top"
+                  href="#"
                 >
                   <MaterialSymbol
                     className="material-symbols-outlined text-[20px]"
@@ -238,7 +238,7 @@ export default function DashboardPrototype() {
                 </a>
                 <a
                   className="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all"
-                  href="#top"
+                  href="#"
                 >
                   <MaterialSymbol
                     className="material-symbols-outlined text-[20px]"
@@ -250,7 +250,7 @@ export default function DashboardPrototype() {
                 </a>
                 <a
                   className="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all"
-                  href="#top"
+                  href="#"
                 >
                   <MaterialSymbol
                     className="material-symbols-outlined text-[20px]"
@@ -262,7 +262,7 @@ export default function DashboardPrototype() {
                 </a>
                 <a
                   className="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all"
-                  href="#top"
+                  href="#"
                 >
                   <MaterialSymbol
                     className="material-symbols-outlined text-[20px]"
@@ -1347,19 +1347,19 @@ export default function DashboardPrototype() {
               </Link>
               <a
                 className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors"
-                href="#top"
+                href="#"
               >
                 Env&iacute;os en Colombia
               </a>
               <a
                 className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors"
-                href="#top"
+                href="#"
               >
                 T&eacute;rminos y Condiciones
               </a>
               <a
                 className="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors"
-                href="#top"
+                href="#"
               >
                 Privacidad
               </a>

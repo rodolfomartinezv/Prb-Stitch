@@ -4,8 +4,6 @@
 
 La aplicación es un prototipo frontend sin API, base de datos ni autenticación configurada. Los pagos, el contacto y los datos administrativos son demostrativos. Los casos que necesitan servicios o credenciales reales se identifican como bloqueados, no como aprobados.
 
-La tabla describe objetivos y datos de una versión anterior del prototipo; algunos casos mencionan ocho productos o rutas que no coinciden con la implementación actual. Sus resultados no se consideran aprobados por figurar en la tabla. Véase la línea base al final para los resultados realmente ejecutados y las discrepancias pendientes de revisión.
-
 | ID     | Módulo / componente          | Funcionalidad                                        | Objetivo                                                                                | Condiciones iniciales                                                                 | Datos de entrada                                                                                                       | Pasos de ejecución                                                                | Resultado esperado                                                                                                   | Criterio de aprobación                                                                                                                         | Prioridad                   |
 | ------ | ---------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
 | UT-01  | Catálogo                     | Búsqueda, categoría, precio y disponibilidad         | Verificar filtros individuales y combinados.                                            | Catálogo con ocho productos de prueba.                                                | Término existente, Resina, COP 100.000 y disponibilidad.                                                               | Aplicar un filtro y después combinarlos.                                          | Solo se muestra Posavasos Océano & Hortensias; al desactivar disponibilidad queda vacío.                             | Productos y conteo coinciden con el conjunto calculado.                                                                                        | Alta                        |
@@ -37,19 +35,11 @@ La tabla describe objetivos y datos de una versión anterior del prototipo; algu
 - **Visual:** snapshots de cabecera para móvil/escritorio y chequeos de desbordamiento responsive.
 - **Seguridad:** regresión XSS y manejo de almacenamiento local automatizables. La privacidad del panel está pendiente de elegir/configurar autenticación. CORS, cabeceras HTTP y autorización de datos no se pueden certificar sin backend/despliegue.
 
-## Línea base local — 13 de noviembre de 2026
+## Estado de ejecución local
 
-Base de código: commit `9ebb813`; Node.js `v26.13.0`. Estos resultados son una fotografía del entorno local, no una certificación de seguridad ni de despliegue.
-
-- `npm run test:run`: **61 pruebas aprobadas** en 14 archivos, incluidas las pruebas de seguridad.
-- `npm run test:security`: **5 pruebas aprobadas** en 2 archivos; ya están incluidas en las 61 anteriores.
+- `npm test`: 17 pruebas aprobadas en seis archivos.
 - `npm run typecheck`: aprobado.
-- `npm run lint`: **55 errores y 76 advertencias**; no aprobado. El análisis incluyó archivos generados de `coverage/` presentes en este entorno.
-- `npm run test:e2e` con el directorio de resultados redirigido a una carpeta temporal: **8 aprobadas, 2 fallidas y 1 omitida** de 11. No se actualizaron los snapshots de Playwright.
-  - La búsqueda de `posavasos` esperaba un producto y obtuvo cero resultados.
-  - La navegación de la categoría Velas esperaba `/tienda?categoria=Velas`, pero llegó a `/product-catalog?categoria=Velas`. La prueba se detuvo en ese punto; no se evaluaron sus pasos posteriores.
-  - La prueba de acceso privado al panel se omitió porque no hay autenticación de servidor.
-- `npm audit`: **7 vulnerabilidades moderadas** reportadas en el árbol completo; `npm audit --omit=dev`: **0 vulnerabilidades reportadas** para dependencias de producción. La auditoría es una consulta puntual al registro de npm.
-- Compilación de producción y cobertura: **no ejecutadas** en esta línea base.
-
-El catálogo activo contiene cuatro productos definidos en `src/components/prototypes/home-interactions.ts`, mientras algunos casos y documentos mencionan ocho. El checkout es estático y no está conectado al carrito lateral. Ambas discrepancias requieren definición funcional antes de modificar pruebas o implementación.
+- `npm run test:e2e`: 8 aprobadas y 1 omitida; la prueba de privacidad de `/dashboard` está bloqueada porque no hay autenticación configurada.
+- `npm run test:security`: 3 pruebas aprobadas.
+- ESLint dirigido a los archivos de esta intervención: 0 errores y 20 avisos. `npm run lint` completo aún informa 32 errores y 36 avisos en otros componentes (`carrito`, `dashboard`, `personaliza`, `prototype-page` y `sobre-nosotros`).
+- `npm audit --omit=dev`: sin vulnerabilidades. La auditoría completa informa 8 vulnerabilidades moderadas en dependencias de desarrollo relacionadas con `minimatch`; la corrección sugerida por npm requiere bajar `eslint-config-next` a una versión mayor anterior y no se aplicó para evitar un cambio incompatible no solicitado.

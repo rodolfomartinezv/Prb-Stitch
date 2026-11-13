@@ -27,20 +27,14 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [cart, setCart] = useState<CartItem[]>([]);
 
   useEffect(() => {
-    let active = true;
-    Promise.resolve().then(() => {
-      try {
-        const stored = localStorage.getItem(CART_STORAGE_KEY);
-        if (stored && active) {
-          setCart(JSON.parse(stored));
-        }
-      } catch (error) {
-        console.error("No se pudo restaurar el carrito.", error);
+    try {
+      const stored = localStorage.getItem(CART_STORAGE_KEY);
+      if (stored) {
+        setCart(JSON.parse(stored));
       }
-    });
-    return () => {
-      active = false;
-    };
+    } catch {
+      // Ignora errores de parseo
+    }
   }, []);
 
   const saveCart = (newCart: CartItem[]) => {

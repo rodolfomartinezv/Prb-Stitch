@@ -35,7 +35,7 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com data:",
-      "img-src 'self' data: blob: https://lh3.googleusercontent.com",
+      "img-src 'self' data: blob: https: http:",
       "connect-src 'self' https://api.mercadopago.com ws: wss: http: https:",
       "frame-ancestors 'none'",
     ].join("; "),

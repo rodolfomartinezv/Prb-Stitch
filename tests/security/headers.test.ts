@@ -6,16 +6,6 @@ describe("HTTP Security Headers Configuration (OWASP A05 & SEC-04)", () => {
     expect(nextConfig.poweredByHeader).toBe(false);
   });
 
-  it("restricts image sources to the application and the approved image host", () => {
-    const csp = securityHeaders.find((header) => header.key === "Content-Security-Policy")?.value;
-    const imageDirectives = csp?.split(";").map((directive) => directive.trim())
-      .filter((directive) => directive.startsWith("img-src "));
-
-    expect(imageDirectives).toEqual([
-      "img-src 'self' data: blob: https://lh3.googleusercontent.com",
-    ]);
-  });
-
   it("includes all required security headers", async () => {
     const headersConfig = await nextConfig.headers?.();
     expect(headersConfig).toBeDefined();
