@@ -1,0 +1,50 @@
+name: Architecture & CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  architecture-and-ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build shared package
+        run: pnpm --filter @seahorse/shared build
+
+      - name: Run architecture dependency check
+        run: pnpm run arch:check
+
+      - name: Run ESLint
+        run: pnpm run lint
+
+      - name: Run backend tests
+        run: pnpm --filter @seahorse/backend test
+
+      - name: Build backend
+        run: pnpm --filter @seahorse/backend build
+
+      - name: Run frontend tests
+        run: pnpm --filter @seahorse/frontend test:run
+
+      - name: Build frontend
+        run: pnpm --filter @seahorse/frontend build
