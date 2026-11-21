@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import type { CartItemInput } from "@seahorse/shared";
 import { BUSINESS_RULES, PricingService } from "../../src/services/pricing.service.js";
 
-const SAMPLE_PRODUCT_ID = "cuadros-virgen";
+const SAMPLE_PRODUCT_ID = "cuadro-virgen-guadalupe";
 
 describe("PricingService", () => {
   const pricingService = new PricingService();

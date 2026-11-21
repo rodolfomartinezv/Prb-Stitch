@@ -12,19 +12,24 @@ describe("catalog and cart drawer integration", () => {
   it("adds an existing product, persists the quantity, and removes it", async () => {
     const user = userEvent.setup();
     const { container } = render(<TiendaPrototype />);
+    await waitFor(() => {
+      expect(container.querySelector('[data-home-action="add-product"]')).not.toBeNull();
+    });
     const addButton = container.querySelector<HTMLElement>('[data-home-action="add-product"]');
     if (!addButton) throw new Error("Missing add-to-cart button in the rendered catalog.");
 
     await user.click(addButton);
 
     await waitFor(() => {
-      expect(document.getElementById("cart-counter-badge")?.textContent).toBe("3");
+      expect(document.getElementById("cart-counter-badge")?.textContent).toBe("1");
     });
-    expect(document.getElementById("cart-drawer-items")?.textContent).toContain("Cant: 2");
+    expect(document.getElementById("cart-drawer-items")?.textContent).toContain("Cant: 1");
 
     const savedCart: unknown = JSON.parse(window.sessionStorage.getItem("seahorse-cart") ?? "[]");
     expect(savedCart).toEqual(
-      expect.arrayContaining([expect.objectContaining({ id: "cuadros-virgen", qty: 2 })]),
+      expect.arrayContaining([
+        expect.objectContaining({ name: "Cuadro Virgen de Guadalupe", qty: 1 }),
+      ]),
     );
 
     const removeButton = container.querySelector<HTMLElement>(
@@ -33,7 +38,7 @@ describe("catalog and cart drawer integration", () => {
     if (!removeButton) throw new Error("Missing remove-from-cart button.");
     await user.click(removeButton);
 
-    expect(document.getElementById("cart-counter-badge")?.textContent).toBe("1");
-    expect(JSON.parse(window.sessionStorage.getItem("seahorse-cart") ?? "[]")).toHaveLength(1);
+    expect(document.getElementById("cart-counter-badge")?.textContent).toBe("0");
+    expect(JSON.parse(window.sessionStorage.getItem("seahorse-cart") ?? "[]")).toHaveLength(0);
   });
 });

@@ -38,12 +38,12 @@ describe("Backend API Integration", () => {
     expect(res.body.data.length).toBeGreaterThan(0);
   });
 
-  it("GET /api/v1/products/cuadros-virgen returns the matching product", async () => {
-    const res = await request(app).get(`${API_PREFIX}/products/cuadros-virgen`);
+  it("GET /api/v1/products/cuadro-virgen-guadalupe returns the matching product", async () => {
+    const res = await request(app).get(`${API_PREFIX}/products/cuadro-virgen-guadalupe`);
 
     expect(res.status).toBe(200);
     expect(res.body.success).toBe(true);
-    expect(res.body.data.id).toBe("cuadros-virgen");
+    expect(res.body.data.id).toBe("cuadro-virgen-guadalupe");
   });
 
   it("GET /api/v1/products/unknown returns 404", async () => {
@@ -58,7 +58,7 @@ describe("Backend API Integration", () => {
     const validRes = await request(app)
       .post(`${API_PREFIX}/cart/quote`)
       .send({
-        items: [{ id: "cuadros-virgen", price: 140000, quantity: 5 }],
+        items: [{ id: "cuadro-virgen-guadalupe", price: 140000, quantity: 5 }],
         shippingFee: 10000,
       });
 

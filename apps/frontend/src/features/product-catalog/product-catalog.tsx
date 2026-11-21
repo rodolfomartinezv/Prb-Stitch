@@ -331,7 +331,7 @@ export default function ProductCatalog() {
           </span>
           <span>/</span>
           <span className="text-on-surface font-medium" id="detail-title-bread">
-            Cuadros de la virgen
+            Cuadro Virgen de Guadalupe
           </span>
         </nav>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -339,7 +339,7 @@ export default function ProductCatalog() {
           <div className="lg:col-span-7 space-y-4">
             <div className="relative aspect-[4/3] sm:aspect-[1/1] rounded-3xl overflow-hidden bg-surface-container-low border border-outline-variant/20 artistic-shadow-2 group">
               <img
-                alt="Cuadros de la virgen. Arte en papel tamaño 20 x 25 cm con marco en MDF."
+                alt="Cuadro Virgen de Guadalupe. Arte en papel tamaño 20 x 25 cm con marco en MDF."
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 id="detail-main-img"
                 src="images/0197345be6c5208dd361de97febfb42531c7f40b63.JPG"
@@ -416,7 +416,7 @@ export default function ProductCatalog() {
                 className="font-headline-xl text-headline-xl-mobile sm:text-headline-xl text-on-surface font-semibold tracking-tight mt-1"
                 id="detail-title"
               >
-                Cuadros de la virgen
+                Cuadro Virgen de Guadalupe
               </h1>
               <div className="flex items-baseline gap-3 mt-3">
                 <span

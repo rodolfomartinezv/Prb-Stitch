@@ -1,14 +1,31 @@
+export interface ProductColorDto {
+  id: string;
+  name: string;
+  hexCode?: string;
+  stock: number;
+  imageUrl?: string;
+}
+
+export interface ProductSizeDto {
+  id: string;
+  size: string;
+  price: number;
+  stock: number;
+  framecolors?: ProductColorDto[];
+}
+
 export interface ProductDto {
   id: string;
   name: string;
   category: string;
+  subcategory?: string[];
   price: number;
   status: string;
-  statusClass?: string;
   description: string;
   imgDesc?: string;
   imageUrl?: string;
   stock: number;
+  sizes?: ProductSizeDto[];
 }
 
 export interface CartItemDto {

@@ -1,3 +1,5 @@
+import type { ProductDto, ProductSizeDto } from "@seahorse/shared";
+import { getProducts } from "@infrastructure/api/http-client";
 import { formatPriceCOP } from "./formatPrice";
 export { formatPriceCOP };
 
@@ -5,12 +7,14 @@ export interface Product {
   id: string;
   name: string;
   category: string;
+  subcategory?: string[];
   price: number;
   status: string;
   statusClass: string;
   desc: string;
   imgDesc: string;
   image?: string;
+  sizes?: ProductSizeDto[];
 }
 
 export interface CartItem {
@@ -25,73 +29,11 @@ export type CartLine = CartItem;
 
 import type { MouseEvent as ReactMouseEvent } from "react";
 
-// ESTADO GLOBAL DE PRODUCTOS - Obtenidos de Obras y Objetos Destacados
-const PRODUCTS_DATA: Product[] = [
-  {
-    id: "cuadros-virgen",
-    name: "Cuadros de la virgen",
-    category: "Arte en papel",
-    price: 140000,
-    status: "Disponible",
-    statusClass: "bg-[#83D9D9]/40 text-[#173D68]",
-    desc: "Tamaño 20 x 25 cm, marco en MDF, diseño personalizable.",
-    imgDesc: "Cuadros de la virgen. Arte en papel tamaño 20 x 25 cm con marco en MDF.",
-    image: "images/0197345be6c5208dd361de97febfb42531c7f40b63.JPG",
-  },
-  {
-    id: "cuadro-amor",
-    name: "Cuadro Amor",
-    category: "Arte en papel",
-    price: 140000,
-    status: "Bajo pedido",
-    statusClass: "bg-[#F5D35E]/40 text-[#281B18]",
-    desc: "Tamaño 20 x 25 cm, marco en MDF, ideal para regalar a quien mas quieres.",
-    imgDesc: "Cuadro Amor. Arte en papel tamaño 20 x 25 cm con marco en MDF.",
-    image: "images/01cf20ba5ae58b56de15f51843dfc4d717eb5aa0e7.JPG",
-  },
-  {
-    id: "florero-escultorico",
-    name: "Florero Escultórico",
-    category: "Cemento blanco",
-    price: 380000,
-    status: "Personalizable",
-    statusClass: "bg-[#B7A1DF]/40 text-[#173D68]",
-    desc: "Moldeado a mano en cemento blanco de alta densidad y acabado satinado.",
-    imgDesc:
-      "Handcrafted sculptural arch vase made of white cast concrete holding delicate dried lavender stems.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBIRHsNj0FbSzjKSr8PQhpn6jOMnEbKMJFYjxR_7SPgXTqxdFjhon4d0j6HsYtakuFKECaO1_rmRiNOA9gO5fgYImCQrMO9a8pvGE851WYCIkqxIj_RYdnXpKP-3Vse3UAltvHw0KgcmU16ng9CZ900JgWxYWx61mOUdSzSZ6THNQrs20SiVshzSCwlGD8pzkSFUjiVGdu0AWOicVhUBpKCn9CkoqcarCEHmVdEDL0",
-  },
-  {
-    id: "domino",
-    name: "Dominó",
-    category: "Resina",
-    price: 120000,
-    status: "Agotado",
-    statusClass: "bg-surface-container text-outline line-through",
-    desc: "Ideal para entretenimiento en tu hogar y como detalle.",
-    imgDesc: "Set Juego de Dominó Artesanal en resina.",
-    image: "images/Domino.JPG",
-  },
-];
+// ESTADO GLOBAL DE PRODUCTOS - Cargado exclusivamente desde el backend (Neon PostgreSQL)
+const PRODUCTS_DATA: Product[] = [];
 
 // ESTADO DEL CARRITO
-let CART: CartLine[] = [
-  {
-    id: "cuadros-virgen",
-    name: "Cuadros de la virgen",
-    category: "Arte en papel",
-    price: 140000,
-    qty: 1,
-  },
-  {
-    id: "florero-escultorico",
-    name: "Florero Escultórico",
-    category: "Cemento blanco",
-    price: 380000,
-    qty: 1,
-  },
-];
+let CART: CartLine[] = [];
 
 const CART_STORAGE_KEY = "seahorse-cart";
 let CATALOG_SORT = "featured";
@@ -189,6 +131,11 @@ export function renderCatalogItems(items: Product[]): void {
             <p class="font-caption text-caption text-outline">${escapeHtml(prod.category)}</p>
             <h3 data-home-action="open-product" data-product-id="${prod.id}" class="font-headline-sm text-headline-sm text-on-surface mt-1 group-hover:text-primary transition-colors cursor-pointer">${escapeHtml(prod.name)}</h3>
             <p class="font-caption text-caption text-on-surface-variant line-clamp-2 mt-1">${escapeHtml(prod.desc)}</p>
+            ${
+              prod.sizes && prod.sizes.length > 0
+                ? `<p class="font-caption text-[11px] text-secondary mt-1">${escapeHtml(formatSizesSummary(prod.sizes))}</p>`
+                : ""
+            }
           </div>
           <div class="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between">
             <div>
@@ -597,11 +544,115 @@ export function toggleMobileMenu(): void {
   );
 }
 
+function getStatusClass(status: string): string {
+  if (status === "Disponible") return "bg-[#83D9D9]/40 text-[#173D68]";
+  if (status === "Bajo pedido") return "bg-[#F5D35E]/40 text-[#281B18]";
+  if (status === "Personalizable") return "bg-[#B7A1DF]/40 text-[#173D68]";
+  return "bg-surface-container text-outline line-through";
+}
+
+function mapDtoToProduct(dto: ProductDto): Product {
+  const basePrice = dto.sizes?.[0]?.price ?? dto.price;
+  return {
+    id: dto.id,
+    name: dto.name,
+    category: dto.category,
+    subcategory: dto.subcategory,
+    price: basePrice,
+    status: dto.status,
+    statusClass: getStatusClass(dto.status),
+    desc: dto.description,
+    imgDesc: dto.imgDesc ?? dto.description,
+    image: dto.imageUrl,
+    sizes: dto.sizes,
+  };
+}
+
+function formatSizesSummary(sizes?: ProductSizeDto[]): string {
+  if (!sizes || sizes.length === 0) return "";
+  return sizes
+    .map((s) => {
+      const colors = s.framecolors?.map((c) => c.name).join(", ");
+      return colors ? `${s.size} (${colors})` : s.size;
+    })
+    .join(" · ");
+}
+
+export function setCatalogProducts(items: Product[]): void {
+  PRODUCTS_DATA.splice(0, PRODUCTS_DATA.length, ...items);
+}
+
+export function renderFeaturedProducts(items: Product[]): void {
+  const grid = document.getElementById("featured-products-grid");
+  if (!grid) return;
+  grid.innerHTML = "";
+
+  if (items.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "col-span-full text-center text-on-surface-variant py-8";
+    empty.textContent = "No hay productos disponibles en la base de datos.";
+    grid.appendChild(empty);
+    return;
+  }
+
+  items.slice(0, 4).forEach((prod) => {
+    const card = document.createElement("div");
+    card.className =
+      "group bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/15 artistic-shadow-1 hover:artistic-shadow-2 transition-all flex flex-col justify-between";
+    const sizesText = formatSizesSummary(prod.sizes);
+    card.innerHTML = `
+      <div>
+        <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-4 bg-surface-container-low cursor-pointer" data-home-action="open-product" data-product-id="${prod.id}">
+          <img alt="${escapeHtml(prod.name)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${prod.image ?? "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="}" />
+          <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-label-badge uppercase tracking-wider ${prod.statusClass} font-bold">
+            ${escapeHtml(prod.status)}
+          </span>
+        </div>
+        <p class="font-caption text-caption text-outline">${escapeHtml(prod.category)}</p>
+        <h3 data-home-action="open-product" data-product-id="${prod.id}" class="font-headline-sm text-headline-sm text-on-surface mt-1 group-hover:text-primary transition-colors cursor-pointer">${escapeHtml(prod.name)}</h3>
+        <p class="font-caption text-caption text-on-surface-variant line-clamp-2 mt-1">${escapeHtml(prod.desc)}</p>
+        ${sizesText ? `<p class="font-caption text-[11px] text-secondary mt-1">${escapeHtml(sizesText)}</p>` : ""}
+      </div>
+      <div class="mt-4 pt-3 border-t border-outline-variant/15 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] text-outline block">Precio colombia</span>
+          <span class="font-label-price text-label-price text-on-surface font-semibold">$${prod.price.toLocaleString("es-CO")} COP</span>
+        </div>
+        <div class="flex gap-1.5">
+          ${
+            prod.status !== "Agotado"
+              ? `<button data-home-action="open-product" data-product-id="${prod.id}" title="Vista rápida" class="w-9 h-9 rounded-full border border-outline-variant/40 flex items-center justify-center text-secondary hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm">visibility</span></button>
+                 <button data-home-action="add-product" data-product-id="${prod.id}" title="Agregar al carrito" class="w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-surface-tint shadow-sm transition-transform active:scale-90"><span class="material-symbols-outlined text-sm">add</span></button>`
+              : `<button data-home-action="customize" title="Pedir personalizado" class="px-3 py-1.5 rounded-full text-caption font-label-badge text-primary bg-primary-fixed/40 hover:bg-primary-fixed transition-colors">Encargar</button>`
+          }
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+export async function syncProductsFromBackend(): Promise<void> {
+  if (typeof window === "undefined" || typeof fetch !== "function") return;
+  try {
+    const remoteProducts = await getProducts();
+    if (Array.isArray(remoteProducts)) {
+      setCatalogProducts(remoteProducts.map(mapDtoToProduct));
+      renderFeaturedProducts(PRODUCTS_DATA);
+      applyCatalogFilters();
+    }
+  } catch (err) {
+    console.error("No se pudo sincronizar el catálogo desde el backend:", err);
+    renderFeaturedProducts([]);
+    renderCatalogItems([]);
+  }
+}
+
 // INICIALIZACIÓN
 export function initializeHomePrototype(): void {
   restoreCart();
-  renderCatalogItems(PRODUCTS_DATA);
   updateCartUI();
+  void syncProductsFromBackend();
 }
 
 export function handleHomeInteraction(event: ReactMouseEvent<HTMLDivElement>): void {

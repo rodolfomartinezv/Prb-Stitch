@@ -251,7 +251,7 @@ exports[`UI & Visual Regression: Component Snapshots (TDD Cycle) > preserves Con
           class="w-5 h-5 rounded-full bg-surface-container-lowest text-primary text-[11px] font-bold flex items-center justify-center"
           id="cart-counter-badge"
         >
-          2
+          0
         </span>
       </button>
       <button

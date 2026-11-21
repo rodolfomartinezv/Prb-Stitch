@@ -3,54 +3,96 @@ import { getPrismaClient } from "../infrastructure/db/prisma.js";
 
 const FALLBACK_PRODUCTS: ProductDto[] = [
   {
-    id: "cuadros-virgen",
-    name: "Cuadros de la virgen",
+    id: "cuadro-virgen-guadalupe",
+    name: "Cuadro Virgen de Guadalupe",
     category: "Arte en papel",
+    subcategory: ["Cuadro", "Religioso", "Virgen"],
     price: 140000,
     status: "Disponible",
-    statusClass: "bg-[#83D9D9]/40 text-[#173D68]",
-    description: "Tamaño 20 x 25 cm, marco en MDF, diseño personalizable.",
-    imgDesc: "Cuadros de la virgen. Arte en papel tamaño 20 x 25 cm con marco en MDF.",
+    description: "Cuadro Virgen de Guadalupe. Arte en papel varios tamaños con marco en MDF.",
+    imgDesc: "Cuadro Virgen de Guadalupe. Arte en papel varios tamaños con marco en MDF.",
     imageUrl: "images/0197345be6c5208dd361de97febfb42531c7f40b63.JPG",
-    stock: 8,
+    stock: 2,
+    sizes: [
+      {
+        id: "virgen-25x25",
+        size: "25 x 25 cm",
+        price: 140000,
+        stock: 2,
+        framecolors: [{ id: "color-blanco", name: "Blanco", hexCode: "#FFFFFF", stock: 2 }],
+      },
+    ],
   },
   {
     id: "cuadro-amor",
     name: "Cuadro Amor",
     category: "Arte en papel",
+    subcategory: ["Cuadro", "Amor", "Regalo"],
     price: 140000,
     status: "Bajo pedido",
-    statusClass: "bg-[#F5D35E]/40 text-[#281B18]",
-    description: "Tamaño 20 x 25 cm, marco en MDF, ideal para regalar a quien mas quieres.",
-    imgDesc: "Cuadro Amor. Arte en papel tamaño 20 x 25 cm con marco en MDF.",
+    description: "Cuadro Amor. Arte en papel varios tamaños con marco en MDF.",
+    imgDesc: "Cuadro Amor. Arte en papel varios tamaños con marco en MDF.",
     imageUrl: "images/01cf20ba5ae58b56de15f51843dfc4d717eb5aa0e7.JPG",
     stock: 4,
+    sizes: [
+      {
+        id: "amor-20x25",
+        size: "20 x 25 cm",
+        price: 140000,
+        stock: 4,
+        framecolors: [
+          { id: "amor-blanco", name: "Blanco", hexCode: "#FFFFFF", stock: 2 },
+          { id: "amor-madera", name: "Madera Natural", hexCode: "#A67B5B", stock: 2 },
+        ],
+      },
+    ],
   },
   {
     id: "florero-escultorico",
     name: "Florero Escultórico",
     category: "Cemento blanco",
+    subcategory: ["Florero", "Decoración", "Cemento"],
     price: 380000,
     status: "Personalizable",
-    statusClass: "bg-[#B7A1DF]/40 text-[#173D68]",
-    description: "Moldeado a mano en cemento blanco de alta densidad y acabado satinado.",
+    description:
+      "Handcrafted sculptural arch vase made of white cast concrete holding delicate dried lavender stems.",
     imgDesc:
       "Handcrafted sculptural arch vase made of white cast concrete holding delicate dried lavender stems.",
     imageUrl:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuBIRHsNj0FbSzjKSr8PQhpn6jOMnEbKMJFYjxR_7SPgXTqxdFjhon4d0j6HsYtakuFKECaO1_rmRiNOA9gO5fgYImCQrMO9a8pvGE851WYCIkqxIj_RYdnXpKP-3Vse3UAltvHw0KgcmU16ng9CZ900JgWxYWx61mOUdSzSZ6THNQrs20SiVshzSCwlGD8pzkSFUjiVGdu0AWOicVhUBpKCn9CkoqcarCEHmVdEDL0",
     stock: 5,
+    sizes: [
+      {
+        id: "florero-estandar",
+        size: "Estándar",
+        price: 380000,
+        stock: 5,
+        framecolors: [{ id: "florero-blanco", name: "Blanco", hexCode: "#FFFFFF", stock: 5 }],
+      },
+    ],
   },
   {
     id: "domino",
     name: "Dominó",
     category: "Resina",
+    subcategory: ["Juego", "Resina", "Hogar"],
     price: 120000,
     status: "Agotado",
-    statusClass: "bg-surface-container text-outline line-through",
-    description: "Ideal para entretenimiento en tu hogar y como detalle.",
+    description: "Set Juego de Dominó Artesanal en resina.",
     imgDesc: "Set Juego de Dominó Artesanal en resina.",
     imageUrl: "images/Domino.JPG",
     stock: 0,
+    sizes: [
+      {
+        id: "domino-estandar",
+        size: "Estándar",
+        price: 120000,
+        stock: 0,
+        framecolors: [
+          { id: "domino-translucido", name: "Translúcido", hexCode: "#F5F5F5", stock: 0 },
+        ],
+      },
+    ],
   },
 ];
 
@@ -62,25 +104,51 @@ function mapProductToDto(record: {
   id: string;
   name: string;
   category: string;
-  price: number;
+  subcategory: string[];
   status: string;
-  statusClass: string | null;
-  description: string;
   imgDesc: string | null;
   imageUrl: string | null;
   stock: number;
+  sizes?: Array<{
+    id: string;
+    size: string;
+    price: number;
+    stock: number;
+    framecolors?: Array<{
+      id: string;
+      name: string;
+      hexCode: string | null;
+      stock: number;
+      imageUrl: string | null;
+    }>;
+  }>;
 }): ProductDto {
+  const basePrice = record.sizes?.[0]?.price ?? 0;
+
   return {
     id: record.id,
     name: record.name,
     category: record.category,
-    price: record.price,
+    subcategory: record.subcategory,
+    price: basePrice,
     status: record.status,
-    statusClass: record.statusClass ?? undefined,
-    description: record.description,
+    description: record.imgDesc ?? "",
     imgDesc: record.imgDesc ?? undefined,
     imageUrl: record.imageUrl ?? undefined,
     stock: record.stock,
+    sizes: record.sizes?.map((s) => ({
+      id: s.id,
+      size: s.size,
+      price: s.price,
+      stock: s.stock,
+      framecolors: s.framecolors?.map((c) => ({
+        id: c.id,
+        name: c.name,
+        hexCode: c.hexCode ?? undefined,
+        stock: c.stock,
+        imageUrl: c.imageUrl ?? undefined,
+      })),
+    })),
   };
 }
 
@@ -91,7 +159,15 @@ export class ProductRepository {
     }
 
     const prisma = getPrismaClient();
-    const rows = await prisma.product.findMany({ orderBy: { createdAt: "asc" } });
+    const rows = await prisma.product.findMany({
+      include: {
+        sizes: {
+          orderBy: { price: "asc" },
+          include: { framecolors: { orderBy: { name: "asc" } } },
+        },
+      },
+      orderBy: { createdAt: "asc" },
+    });
     return rows.map(mapProductToDto);
   }
 
@@ -101,7 +177,15 @@ export class ProductRepository {
     }
 
     const prisma = getPrismaClient();
-    const row = await prisma.product.findUnique({ where: { id } });
+    const row = await prisma.product.findUnique({
+      where: { id },
+      include: {
+        sizes: {
+          orderBy: { price: "asc" },
+          include: { framecolors: { orderBy: { name: "asc" } } },
+        },
+      },
+    });
     return row ? mapProductToDto(row) : null;
   }
 }

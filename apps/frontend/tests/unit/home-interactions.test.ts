@@ -3,10 +3,54 @@ import {
   applyCatalogFilters,
   initializeHomePrototype,
   resetFilters,
+  setCatalogProducts,
   sortCatalog,
   updateCheckoutView,
 } from "@/components/prototypes/home-interactions";
 import { THEMATIC_CATEGORIES } from "@/components/prototypes/catalog-categories";
+
+const FIXTURE_PRODUCTS = [
+  {
+    id: "cuadro-virgen-guadalupe",
+    name: "Cuadro Virgen de Guadalupe",
+    category: "Arte en papel",
+    price: 140000,
+    status: "Disponible",
+    statusClass: "bg-[#83D9D9]/40 text-[#173D68]",
+    desc: "Arte en papel varios tamaños con marco en MDF.",
+    imgDesc: "Cuadro Virgen de Guadalupe",
+  },
+  {
+    id: "cuadro-amor",
+    name: "Cuadro Amor",
+    category: "Arte en papel",
+    price: 140000,
+    status: "Bajo pedido",
+    statusClass: "bg-[#F5D35E]/40 text-[#281B18]",
+    desc: "Arte en papel varios tamaños con marco en MDF.",
+    imgDesc: "Cuadro Amor",
+  },
+  {
+    id: "florero-escultorico",
+    name: "Florero Escultórico",
+    category: "Cemento blanco",
+    price: 380000,
+    status: "Personalizable",
+    statusClass: "bg-[#B7A1DF]/40 text-[#173D68]",
+    desc: "Moldeado a mano en cemento blanco.",
+    imgDesc: "Florero Escultórico",
+  },
+  {
+    id: "domino",
+    name: "Dominó",
+    category: "Resina",
+    price: 120000,
+    status: "Agotado",
+    statusClass: "bg-surface-container text-outline line-through",
+    desc: "Set Juego de Dominó Artesanal en resina.",
+    imgDesc: "Dominó",
+  },
+];
 
 describe("Papelería kawaii catalog filter", () => {
   beforeEach(() => {
@@ -43,6 +87,7 @@ describe("Papelería kawaii catalog filter", () => {
       <span id="checkout-shipping"></span>
       <span id="checkout-total"></span>
     `;
+    setCatalogProducts(FIXTURE_PRODUCTS);
     resetFilters();
     const kawaiiCategory = document.querySelector<HTMLInputElement>(
       'input[name="cat-filter"][value="Papelería kawaii"]',
@@ -130,7 +175,7 @@ describe("Papelería kawaii catalog filter", () => {
 
     expect(document.querySelectorAll("#catalog-items-container h3")).toHaveLength(1);
     expect(document.querySelector("#catalog-items-container h3")?.textContent).toBe(
-      "Cuadros de la virgen",
+      "Cuadro Virgen de Guadalupe",
     );
 
     disponible.checked = false;
@@ -152,7 +197,7 @@ describe("Papelería kawaii catalog filter", () => {
         document.querySelectorAll("#catalog-items-container h3"),
         (item) => item.textContent,
       ),
-    ).toEqual(["Cuadro Amor", "Cuadros de la virgen"]);
+    ).toEqual(["Cuadro Amor", "Cuadro Virgen de Guadalupe"]);
 
     (document.querySelector('input[name="cat-filter"][value="all"]') as HTMLInputElement).checked =
       true;
@@ -183,6 +228,7 @@ describe("Papelería kawaii catalog filter", () => {
     (document.getElementById("filter-disp-disponible") as HTMLInputElement).checked = false;
     (document.getElementById("filter-disp-agotado") as HTMLInputElement).checked = false;
 
+    setCatalogProducts(FIXTURE_PRODUCTS);
     resetFilters();
 
     expect((document.getElementById("catalog-search-input") as HTMLInputElement).value).toBe("");
